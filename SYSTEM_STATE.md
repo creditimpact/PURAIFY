@@ -62,6 +62,12 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 
 ---
 
+## 🧠 Codex Notes Map
+
+_No active Codex Notes at this time._
+
+---
+
 ## 🧭 Summary
 
 The PURAIFY project is in the **pre-development phase**, with full architecture, specs, and documentation in place.  
