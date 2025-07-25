@@ -87,7 +87,7 @@ This blueprint can later be:
 
 ---
 
-## ⚙️ Planned API Endpoints
+## ⚙️ API Endpoints
 
 ```
 POST /builder/create
@@ -103,6 +103,8 @@ Input: High-level JSON instruction or prompt string
 ```
 
 Output: Blueprint JSON
+
+The response conforms to the `Blueprint` interface defined in `src/index.ts`.
 
 ```json
 {
