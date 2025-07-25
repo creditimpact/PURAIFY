@@ -69,6 +69,20 @@ Each engine’s README must include:
 - A `📁 Engine Structure` section with an updated tree view
 - Short explanation of key files
 
+#### 🔄 Engine Development Tracking
+
+Whenever you are actively working on an engine — adding features, wiring
+connections, refactoring logic, or developing endpoints — you **must update**
+that engine’s `README.md` to reflect:
+- The engine’s current role and capabilities
+- Which features/endpoints are implemented, in progress, or planned
+- Any current connections to other engines (e.g. “This engine now interacts with
+  the Execution engine via X endpoint”)
+- The current development status (even partial or WIP)
+- Any assumptions or architectural decisions made so far
+
+This keeps each README as a *live mirror* of the engine’s real state.
+
 ---
 
 ### 4. Optional: Add to `CHANGELOG.md` (future)
