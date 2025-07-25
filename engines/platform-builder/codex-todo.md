@@ -1,3 +1,3 @@
 ## TODO
-- [ ] Create basic Express server with /builder/create endpoint
-- [ ] Provide lockfile/offline instructions so npm install works
+- [x] Create basic Express server with /builder/create endpoint
+- [x] Provide lockfile/offline instructions so npm install works

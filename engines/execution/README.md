@@ -27,9 +27,11 @@ execution/
 Requires Node.js v20+.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
+
+> Use `npm ci --prefer-offline` if installing without internet access.
 
 - `src/index.ts` is the placeholder Express entry point for action execution.
 - `package.json` manages dependencies and scripts.

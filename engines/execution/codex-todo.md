@@ -1,3 +1,3 @@
 ## TODO
-- [ ] Implement basic action runner and /execute endpoint
-- [ ] Provide lockfile/offline npm install instructions
+- [x] Implement basic action runner and /execute endpoint
+- [x] Provide lockfile/offline npm install instructions
