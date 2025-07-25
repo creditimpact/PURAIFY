@@ -1,6 +1,9 @@
 /**
  * 🧠 Codex Note:
  * - GET /vault/token/:project/:service endpoint not yet implemented
+ * - Dev environment cannot run without npm packages (ts-node, express)
+ *   because npm install fails in offline mode. Consider providing a lockfile
+ *   or pre-install instructions for codex.
  */
 import express, { Request, Response } from "express";
 
