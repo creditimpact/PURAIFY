@@ -13,14 +13,23 @@ The Vault Engine does not execute actions or orchestrate flows — it exists to 
 ---
 
 ## 📁 Engine Structure
-
 ```text
 vault/
 ├── package.json
+├── tsconfig.json
 ├── README.md
 └── src/
     └── index.ts
 ```
+## 🚀 Development Setup
+
+Requires Node.js v20+.
+
+```bash
+npm install
+npm run dev
+```
+
 
 - `src/index.ts` is the main Express entry point handling Vault routes.
 - `package.json` lists dependencies and scripts (currently minimal).

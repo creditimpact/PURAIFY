@@ -22,13 +22,24 @@ It is essentially the brainstem that connects and controls the flow of data betw
 ```text
 gateway/
 ├── package.json
+├── tsconfig.json
 ├── README.md
 └── src/
     └── index.ts
 ```
+## 🚀 Development Setup
+
+Requires Node.js v20+.
+
+```bash
+npm install
+npm run dev
+```
 
 - `src/index.ts` is the central Express router that delegates to all engines.
 - `package.json` defines Gateway dependencies and scripts.
+- `tsconfig.json` contains TypeScript compiler settings.
+- `README.md` (this file) explains routing behavior and planned endpoints.
 - `README.md` (this file) explains routing behavior and planned endpoints.
 
 ---

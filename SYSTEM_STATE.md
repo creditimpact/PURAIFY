@@ -1,8 +1,7 @@
 # PURAIFY — Live System State
 
 This file documents the current **real-time** state of the PURAIFY platform.  
-As of now, most engines only contain scaffold code. The Vault Engine exposes a working `POST /vault/store` endpoint while the rest remain placeholders.
-
+As of now, most engines only contain scaffold code. The Vault Engine exposes a working `POST /vault/store` endpoint and plans to add `GET /vault/token/:project/:service`.
 ---
 
 ## 🧱 System Build Status
@@ -35,7 +34,7 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 | Engine            | APIs            | Status       |
 |-------------------|------------------|--------------|
 | Platform Builder  | None             | 🔲 Planned    |
-| Vault Engine      | `POST /vault/store` | 🟢 Active    |
+| Vault Engine      | `POST /vault/store`, `GET /vault/token/:project/:service` | 🟡 Planned |
 | Execution Engine  | None             | 🔲 Planned    |
 | Gateway           | None             | 🔲 Planned    |
 
@@ -55,7 +54,7 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 ## 🚧 Immediate Next Steps
 
  - [x] Implemented `POST /vault/store` endpoint for Vault Engine
- - [ ] Add `GET /vault/get` endpoint
+- [ ] Add `GET /vault/token/:project/:service` endpoint
 - [ ] Begin Gateway skeleton with routing between engines
 - [ ] Define actual blueprint structure for Platform Builder
 - [ ] Add internal dev/test setup (e.g., nodemon, tsconfig)
@@ -63,8 +62,8 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 ---
 
 ## 🧠 Codex Notes Map
-
-_No active Codex Notes at this time._
+engines/vault/src/index.ts:
+  Note: GET /vault/token/:project/:service endpoint not yet implemented
 
 ---
 

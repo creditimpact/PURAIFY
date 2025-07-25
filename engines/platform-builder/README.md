@@ -18,13 +18,23 @@ It is essentially the "compiler" for business logic — converting ideas into a 
 ```text
 platform-builder/
 ├── package.json
+├── tsconfig.json
 ├── README.md
 └── src/
     └── index.ts
 ```
+## 🚀 Development Setup
+
+Requires Node.js v20+.
+
+```bash
+npm install
+npm run dev
+```
 
 - `src/index.ts` is the planned Express entry point for blueprint generation.
-- `package.json` defines dependencies and scripts (currently empty).
+- `package.json` defines dependencies and scripts.
+- `tsconfig.json` contains TypeScript compiler settings.
 - `README.md` (this file) describes the engine's purpose and API.
 
 ---

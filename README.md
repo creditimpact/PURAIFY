@@ -41,18 +41,26 @@ This is a monorepo organized by engine:
 puraify/
 ├── engines/
 │   ├── vault/
+│   │   ├── package.json
+│   │   ├── tsconfig.json
 │   │   ├── src/
 │   │   │   └── index.ts            ← Entry point for Vault Engine
 │   │   └── README.md               ← Vault Engine specification
 │   ├── platform-builder/
+│   │   ├── package.json
+│   │   ├── tsconfig.json
 │   │   ├── src/
 │   │   │   └── index.ts            ← Entry point for Platform Builder
 │   │   └── README.md               ← Platform Builder specification
 │   ├── execution/
+│   │   ├── package.json
+│   │   ├── tsconfig.json
 │   │   ├── src/
 │   │   │   └── index.ts            ← Entry point for Execution Engine
 │   │   └── README.md               ← Execution Engine specification
 ├── gateway/
+│   ├── package.json
+│   ├── tsconfig.json
 │   ├── src/
 │   │   └── index.ts                ← Main API router for the PURAIFY system
 │   └── README.md                   ← Gateway specification
@@ -75,13 +83,17 @@ Each engine is self-contained, and its README defines its APIs, responsibilities
 ---
 
 ## 🚀 Getting Started
+Requires Node.js v20+.
 
 To start working on the project:
 
 1. Pick an engine (e.g., `vault`)
-2. Read its `README.md` inside `engines/vault/`
-3. Run its dev server or use Docker Compose (coming soon)
-4. Use the Gateway to connect everything
+2. Navigate to its folder and run:
+   ```bash
+   npm install
+   npm run dev
+   ```
+3. Use the Gateway to connect everything (Docker Compose coming soon)
 
 ---
 

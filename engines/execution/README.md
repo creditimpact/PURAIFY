@@ -17,13 +17,23 @@ It acts as the operational “hands” of PURAIFY, turning definitions into real
 ```text
 execution/
 ├── package.json
+├── tsconfig.json
 ├── README.md
 └── src/
     └── index.ts
 ```
+## 🚀 Development Setup
+
+Requires Node.js v20+.
+
+```bash
+npm install
+npm run dev
+```
 
 - `src/index.ts` is the placeholder Express entry point for action execution.
 - `package.json` manages dependencies and scripts.
+- `tsconfig.json` contains TypeScript compiler settings.
 - `README.md` (this file) outlines Execution's responsibilities.
 
 ---
