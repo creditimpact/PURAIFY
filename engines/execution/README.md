@@ -1,5 +1,7 @@
 # Execution Engine
 
+> This engine is part of the PURAIFY system. For full system overview, see the main [README.md](../../README.md)
+
 ## 🧠 Overview
 
 The Execution Engine is a core component in the PURAIFY platform. Its primary responsibility is to **execute actionable steps** defined by other engines, primarily the Platform Builder and Gateway.
@@ -7,6 +9,22 @@ The Execution Engine is a core component in the PURAIFY platform. Its primary re
 While other engines handle tasks like blueprint generation, validation, and credential storage — the Execution Engine is the **actor**. It receives executable instructions, retrieves necessary tokens from the Vault Engine, and performs external or internal actions such as sending a message, triggering an API, or writing to a data store.
 
 It acts as the operational “hands” of PURAIFY, turning definitions into real-world effects.
+
+---
+
+## 📁 Engine Structure
+
+```text
+execution/
+├── package.json
+├── README.md
+└── src/
+    └── index.ts
+```
+
+- `src/index.ts` is the placeholder Express entry point for action execution.
+- `package.json` manages dependencies and scripts.
+- `README.md` (this file) outlines Execution's responsibilities.
 
 ---
 
