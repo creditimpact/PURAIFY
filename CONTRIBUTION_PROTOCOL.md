@@ -168,6 +168,27 @@ Whenever Codex completes a task originally recorded as a note or todo:
 
 This ensures internal alignment and traceability of thought process.
 
+### 🔍 Codex Notes Location Tracking
+
+Whenever Codex creates an inline note inside any engine file (for example
+`src/index.ts`), it must also record that note in `SYSTEM_STATE.md` under a new
+section titled `## 🧠 Codex Notes Map`.
+
+This map lists all currently active Codex Notes and their locations. Example:
+
+```
+🧠 Codex Notes Map
+engines/vault/src/index.ts:
+  Note: Align /vault/get with documented /vault/token/:project/:service
+
+engines/execution/src/index.ts:
+  Note: Execution engine still lacks action runner registry
+```
+
+Notes tracked here must be updated or removed once resolved. If a file is
+restructured, migrate the note entry accordingly so future runs can revisit the
+correct context.
+
 ### 🔍 Responsibility
 
 Before starting any new task in a given engine:
