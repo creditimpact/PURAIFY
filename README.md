@@ -95,6 +95,10 @@ You can contribute by:
 - Expanding the Gateway with new orchestration flows
 - Creating reusable blueprints
 
+Please see [CONTRIBUTION_PROTOCOL.md](CONTRIBUTION_PROTOCOL.md) for required
+documentation rules. The latest implementation snapshot is kept in
+[SYSTEM_STATE.md](SYSTEM_STATE.md).
+
 ---
 
 Happy building,  

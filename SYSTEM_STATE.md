@@ -1,7 +1,7 @@
 # PURAIFY — Live System State
 
 This file documents the current **real-time** state of the PURAIFY platform.  
-As of now, the system includes engine structure and specifications — but no functional code has been implemented yet.
+As of now, most engines only contain scaffold code. The Vault Engine exposes a working `POST /vault/store` endpoint while the rest remain placeholders.
 
 ---
 
