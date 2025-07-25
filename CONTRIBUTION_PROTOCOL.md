@@ -198,6 +198,26 @@ Before starting any new task in a given engine:
 
 This approach enables autonomous continuity across async work sessions.
 
+### ❗ Handling Failed or Unresolved Tasks
+If Codex cannot complete a task due to technical limitations, missing dependencies, or external blockers:
+
+✅ Leave the task unchecked ([ ]) in codex-todo.md
+
+✅ Keep the corresponding entry in SYSTEM_STATE.md > 🧠 Codex Notes Map
+
+✅ If human intervention is needed, tag the task as 🔧 Requires human
+
+✅ If external constraints apply (e.g., internet, credentials), tag it as 🌐 External constraint
+
+✅ You may explain the failure inline:
+
+```md
+- [ ] Install lockfile 🔧 Requires human — npm registry access needed
+```
+
+This ensures unresolved items are visible, tagged, and tracked across sessions.
+
+
 ---
 
 ## ✅ Example: Adding a new action to Execution Engine
