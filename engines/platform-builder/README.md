@@ -1,5 +1,7 @@
 # Platform Builder Engine
 
+> This engine is part of the PURAIFY system. For full system overview, see the main [README.md](../../README.md)
+
 ## 🧠 Overview
 
 The Platform Builder Engine is the **entry point** of PURAIFY’s creation process.  
@@ -8,6 +10,22 @@ Its role is to transform a user's high-level intent or description (e.g., "I wan
 This blueprint becomes the foundation for further validation, execution, and automation.
 
 It is essentially the "compiler" for business logic — converting ideas into a formalized instruction set (JSON) that the rest of the platform can act on.
+
+---
+
+## 📁 Engine Structure
+
+```text
+platform-builder/
+├── package.json
+├── README.md
+└── src/
+    └── index.ts
+```
+
+- `src/index.ts` is the planned Express entry point for blueprint generation.
+- `package.json` defines dependencies and scripts (currently empty).
+- `README.md` (this file) describes the engine's purpose and API.
 
 ---
 

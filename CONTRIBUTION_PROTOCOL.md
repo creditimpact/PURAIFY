@@ -57,6 +57,18 @@ If you touch a specific engine:
 - Update its capabilities and responsibilities
 - Clarify integration points if modified
 
+#### 🔄 Per-Engine Structure Maintenance
+
+Whenever you:
+- Add, remove or reorganize files/folders inside an engine
+- Change entrypoints, core logic files, or structure
+
+You **must update** that engine’s `README.md` to reflect the new structure.
+
+Each engine’s README must include:
+- A `📁 Engine Structure` section with an updated tree view
+- Short explanation of key files
+
 ---
 
 ### 4. Optional: Add to `CHANGELOG.md` (future)

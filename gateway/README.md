@@ -1,5 +1,7 @@
 # Gateway
 
+> This engine is part of the PURAIFY system. For full system overview, see the main [README.md](../README.md)
+
 ## 🧠 Overview
 
 The Gateway is the **central coordinator** of the PURAIFY system.  
@@ -12,6 +14,22 @@ The Gateway itself does not contain any business logic — instead, it is respon
 - **Delegation to engines**
 
 It is essentially the brainstem that connects and controls the flow of data between PURAIFY’s modular components.
+
+---
+
+## 📁 Engine Structure
+
+```text
+gateway/
+├── package.json
+├── README.md
+└── src/
+    └── index.ts
+```
+
+- `src/index.ts` is the central Express router that delegates to all engines.
+- `package.json` defines Gateway dependencies and scripts.
+- `README.md` (this file) explains routing behavior and planned endpoints.
 
 ---
 

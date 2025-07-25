@@ -1,5 +1,7 @@
 # Vault Engine
 
+> This engine is part of the PURAIFY system. For full system overview, see the main [README.md](../../README.md)
+
 ## 🧠 Overview
 
 The Vault Engine is the **secure credential store** within the PURAIFY ecosystem. Its role is to manage and provide access to **API keys, tokens, secrets, and credentials** needed by other engines (e.g., Execution Engine) to interact with external systems such as Slack, Notion, Gmail, Google Sheets, and more.
@@ -7,6 +9,22 @@ The Vault Engine is the **secure credential store** within the PURAIFY ecosystem
 It functions as a centralized "secret manager", allowing engines to **query for credentials by service and project** in a secure and structured way.
 
 The Vault Engine does not execute actions or orchestrate flows — it exists to **hold and serve sensitive authentication data** safely and efficiently.
+
+---
+
+## 📁 Engine Structure
+
+```text
+vault/
+├── package.json
+├── README.md
+└── src/
+    └── index.ts
+```
+
+- `src/index.ts` is the main Express entry point handling Vault routes.
+- `package.json` lists dependencies and scripts (currently minimal).
+- `README.md` (this file) documents Vault usage and API.
 
 ---
 
