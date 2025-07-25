@@ -1,4 +1,8 @@
-import express, { Request, Response } from 'express';
+/**
+ * 🧠 Codex Note:
+ * - GET /vault/token/:project/:service endpoint not yet implemented
+ */
+import express, { Request, Response } from "express";
 
 const app = express();
 app.use(express.json());
@@ -19,3 +23,4 @@ app.post('/vault/store', (req: Request, res: Response) => {
 });
 
 export default app;
+
