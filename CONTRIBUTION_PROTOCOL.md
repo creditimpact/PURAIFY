@@ -233,6 +233,65 @@ If Codex runs out of todos or Codex Notes, it should:
 
 ---
 
+## 📁 Folder & File Naming Conventions
+
+- **Entry file per engine:** always `src/index.ts`.
+- **Todos file:** `codex-todo.md` lives in each engine root.
+- **Module files:** use descriptive names like `token-service.ts` or `blueprint-validator.ts`.
+- **API route naming:** follow `/engine/action` pattern.
+
+| Expected File | Purpose |
+|---------------|---------|
+| `src/index.ts` | Express entry point for the engine |
+| `README.md` | Engine overview and API documentation |
+| `ENGINE_SPEC.md` | Manual spec and design notes |
+| `codex-todo.md` | Local task list for Codex |
+| `tests/<engine>/` | Test suite location |
+
+---
+
+## 🧪 Testing Strategy
+
+Each engine must place tests under `tests/<engine>/` and expose an `npm run test` script in its `package.json`.
+
+If Codex cannot run tests due to environment limits, create a `codex-test-todo.md` in that engine with planned tests and the blocker (e.g., 🌐 external constraint).
+
+---
+
+## 📊 Engine Progress & Phase Tracking
+
+`SYSTEM_STATE.md` tracks each engine’s progress percentage and phase. Phases reflect implementation maturity:
+
+| Phase | Meaning |
+|-------|---------|
+| 📁 Initialized | Folder created, basic files exist |
+| 🔧 Routes Stubbed | API routes defined but logic incomplete |
+| 🔄 Logic Wired | Core logic implemented and linked |
+| ✅ Integrated | Connected to Gateway and other engines |
+| 🧪 Tested | Automated tests passing |
+
+Update the progress percentage and phase whenever functionality advances.
+
+---
+
+## 🔁 Periodic Reflection Task
+
+Every 5 tasks Codex should scan the repository for undocumented code, unused files or functions, and mismatches with `SYSTEM_STATE.md`.
+
+Record findings in `codex-todo.md` or under **Reflection Notes** in `SYSTEM_STATE.md`.
+
+---
+
+## 💬 Human Prompt Response Types
+
+| Type | Description | Action Codex Should Take |
+|------|-------------|-------------------------|
+| 🔧 Instruction | Clear command to execute | Perform it, log result, and update docs |
+| ❓ Question | Open-ended question or clarification | Answer only, don’t perform changes |
+| 💡 Idea | Concept or suggestion | Log to `codex-todo.md` under **💡 Ideas** |
+
+---
+
 ## ✅ Example: Adding a new action to Execution Engine
 
 If you add a new action called `send_email` to Execution:

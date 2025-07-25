@@ -20,9 +20,11 @@ execution/
 ├── tsconfig.json
 ├── README.md
 ├── ENGINE_SPEC.md
+├── codex-todo.md
 └── src/
     └── index.ts
 ```
+Tests for this engine live in `tests/execution/`.
 ## 🚀 Development Setup
 
 Requires Node.js v20+.

@@ -19,8 +19,11 @@ vault/
 ├── tsconfig.json
 ├── README.md
 ├── ENGINE_SPEC.md
+├── codex-todo.md
 └── src/
     └── index.ts
+```
+Tests for this engine live in `tests/vault/`.
 ## 🚀 Development Setup
 
 Requires Node.js v20+.
