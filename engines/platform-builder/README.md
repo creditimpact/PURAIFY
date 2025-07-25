@@ -20,6 +20,7 @@ platform-builder/
 ├── package.json
 ├── tsconfig.json
 ├── README.md
+├── ENGINE_SPEC.md
 └── src/
     └── index.ts
 ```
@@ -38,6 +39,7 @@ npm run dev
 - `package.json` defines dependencies and scripts.
 - `tsconfig.json` contains TypeScript compiler settings.
 - `README.md` (this file) describes the engine's purpose and API.
+- `ENGINE_SPEC.md` is reserved for a detailed manual specification.
 
 ---
 

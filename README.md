@@ -45,25 +45,29 @@ puraify/
 │   │   ├── tsconfig.json
 │   │   ├── src/
 │   │   │   └── index.ts            ← Entry point for Vault Engine
-│   │   └── README.md               ← Vault Engine specification
+│   │   ├── README.md               ← Vault Engine specification
+│   │   └── ENGINE_SPEC.md          ← Manual spec placeholder
 │   ├── platform-builder/
 │   │   ├── package.json
 │   │   ├── tsconfig.json
 │   │   ├── src/
 │   │   │   └── index.ts            ← Entry point for Platform Builder
-│   │   └── README.md               ← Platform Builder specification
+│   │   ├── README.md               ← Platform Builder specification
+│   │   └── ENGINE_SPEC.md          ← Manual spec placeholder
 │   ├── execution/
 │   │   ├── package.json
 │   │   ├── tsconfig.json
 │   │   ├── src/
 │   │   │   └── index.ts            ← Entry point for Execution Engine
-│   │   └── README.md               ← Execution Engine specification
+│   │   ├── README.md               ← Execution Engine specification
+│   │   └── ENGINE_SPEC.md          ← Manual spec placeholder
 ├── gateway/
 │   ├── package.json
 │   ├── tsconfig.json
 │   ├── src/
 │   │   └── index.ts                ← Main API router for the PURAIFY system
-│   └── README.md                   ← Gateway specification
+│   ├── README.md                   ← Gateway specification
+│   └── ENGINE_SPEC.md              ← Manual spec placeholder
 ├── docker-compose.yml              ← (Planned) Multi-service setup
 ├── README.md                       ← You are here — main project overview
 ```

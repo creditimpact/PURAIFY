@@ -24,6 +24,7 @@ gateway/
 ├── package.json
 ├── tsconfig.json
 ├── README.md
+├── ENGINE_SPEC.md
 └── src/
     └── index.ts
 ```
@@ -42,6 +43,7 @@ npm run dev
 - `package.json` defines Gateway dependencies and scripts.
 - `tsconfig.json` contains TypeScript compiler settings.
 - `README.md` (this file) explains routing behavior and planned endpoints.
+- `ENGINE_SPEC.md` will contain a detailed manual specification.
 - `README.md` (this file) explains routing behavior and planned endpoints.
 
 ---

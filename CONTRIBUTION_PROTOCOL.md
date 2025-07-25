@@ -220,6 +220,19 @@ This ensures unresolved items are visible, tagged, and tracked across sessions.
 
 ---
 
+## 📘 Engine Specification Awareness
+
+Each engine folder may include an `ENGINE_SPEC.md` file describing its responsibilities, endpoints, integrations, and behavior.
+
+If Codex runs out of todos or Codex Notes, it should:
+
+1. Check whether `ENGINE_SPEC.md` exists
+2. Review it for hints, expectations, or discrepancies
+3. Log potential tasks or missing capabilities based on it
+4. If `ENGINE_SPEC.md` is missing or incomplete, Codex may log a todo or a note requesting clarification or manual input.
+
+---
+
 ## ✅ Example: Adding a new action to Execution Engine
 
 If you add a new action called `send_email` to Execution:
