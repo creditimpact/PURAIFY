@@ -118,6 +118,67 @@ When working with Codux or similar systems:
 
 ---
 
+## 🧠 Codex Internal Notes and Self-Tasks
+
+Codex may encounter ideas, inconsistencies, or potential improvements that are **outside the scope of the current task**. This protocol allows Codex to track such insights responsibly and persistently.
+
+### 🔹 Allowed Tracking Methods
+
+Codex may use one of two approaches (or both):
+
+#### A. Inline Codex Notes in Code
+
+Place structured comment blocks at the top of `src/index.ts` or near relevant code:
+
+```ts
+/**
+ * 🧠 Codex Note:
+ * - Noticed SYSTEM_STATE lists /vault/get but router exposes /vault/token/:project/:service
+ * - Should unify naming
+ * - Consider updating SYSTEM_STATE.md accordingly
+ */
+```
+
+These are Codex-facing notes intended for future context — not user documentation.
+
+#### B. Local codex-todo.md File (Optional)
+
+In each engine folder (e.g., engines/vault/), Codex may maintain a codex-todo.md file for multi-item tracking:
+
+```md
+## TODO
+- [ ] Unify endpoint name with SYSTEM_STATE
+- [ ] Add error fallback for missing project token
+- [x] Normalize Vault request shape
+```
+
+Each item should be concise and traceable to implementation points.
+
+### 🔁 Execution Rules
+
+Whenever Codex completes a task originally recorded as a note or todo:
+
+✅ Remove the item (or mark it as completed)
+
+✅ Update the relevant documentation:
+
+- README.md of the engine
+- SYSTEM_STATE.md if API/state changed
+- Any other impacted files (including the root README or contribution protocol)
+
+This ensures internal alignment and traceability of thought process.
+
+### 🔍 Responsibility
+
+Before starting any new task in a given engine:
+
+- Scan for Codex Notes or open todos
+- Prioritize handling any unresolved technical debt that may affect the new task
+
+This approach enables autonomous continuity across async work sessions.
+
+---
+
 ## ✅ Example: Adding a new action to Execution Engine
 
 If you add a new action called `send_email` to Execution:
