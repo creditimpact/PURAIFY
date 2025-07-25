@@ -60,6 +60,11 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 - [x] Add internal dev/test setup (e.g., nodemon, tsconfig)
 
 ---
+## 🔄 Next Integration Steps
+- Add `/gateway/run-blueprint` route to orchestrate builder output and sequential execution.
+- Execution Engine must fetch tokens from Vault via `GET /vault/token/:project/:service` when actions need credentials.
+- Gateway orchestrates flow; Execution handles token retrieval; Vault serves tokens; Platform Builder supplies the blueprint.
+
 
 ## 🧠 Codex Notes Map
 engines/vault/src/index.ts:
@@ -67,9 +72,11 @@ engines/vault/src/index.ts:
 engines/platform-builder/src/index.ts:
   Note: ✅ Basic builder server created, blueprint interface defined; validation pending
 engines/execution/src/index.ts:
-  Note: ✅ Action runner and /execute endpoint added; Vault integration pending
+  Note: ✅ Action runner and /execute endpoint added; token fetching from Vault pending
 gateway/src/index.ts:
-  Note: ✅ Gateway routing implemented
+  Note: ✅ Gateway routing implemented; blueprint orchestration pending
+integration-design:
+  Note: ❓ Should Gateway or Execution Engine fetch Vault tokens during action execution?
 
 ---
 
@@ -80,4 +87,4 @@ The next step is to expand features, add validation, and integrate across engine
 
 ---
 
-Last updated: July 26, 2025
+Last updated: July 25, 2025
