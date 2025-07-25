@@ -8,10 +8,10 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 
 | Component           | Description                                  | Status       | Entry File (Planned)              |
 |---------------------|----------------------------------------------|--------------|-----------------------------------|
-| Platform Builder    | Converts user prompts into structured blueprints | 🔲 Not Started | `engines/platform-builder/src/index.ts` |
+| Platform Builder    | Converts user prompts into structured blueprints | 🟢 In Progress | `engines/platform-builder/src/index.ts` |
 | Vault Engine        | Stores and retrieves tokens per service/project | 🟢 In Progress | `engines/vault/src/index.ts`      |
-| Execution Engine    | Executes actions defined in blueprint JSON     | 🔲 Not Started | `engines/execution/src/index.ts`  |
-| Gateway             | API entry point and engine orchestrator        | 🔲 Not Started | `gateway/src/index.ts`            |
+| Execution Engine    | Executes actions defined in blueprint JSON     | 🟢 In Progress | `engines/execution/src/index.ts`  |
+| Gateway             | API entry point and engine orchestrator        | 🟢 In Progress | `gateway/src/index.ts`            |
 | Validation Engine   | Validates blueprints before execution          | 🟡 Planned     | `engines/validation/` (TBD)       |
 | Logs Engine         | Tracks activity and runs (future)              | 🔲 Not Started | `engines/logs/` (TBD)             |
 
@@ -53,27 +53,23 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 
 ## 🚧 Immediate Next Steps
 
- - [x] Implemented `POST /vault/store` endpoint for Vault Engine
-- [ ] Add `GET /vault/token/:project/:service` endpoint
-- [ ] Begin Gateway skeleton with routing between engines
+- [x] Implemented `POST /vault/store` endpoint for Vault Engine
+- [x] Add `GET /vault/token/:project/:service` endpoint
+- [x] Begin Gateway skeleton with routing between engines
 - [ ] Define actual blueprint structure for Platform Builder
-- [ ] Add internal dev/test setup (e.g., nodemon, tsconfig)
+- [x] Add internal dev/test setup (e.g., nodemon, tsconfig)
 
 ---
 
 ## 🧠 Codex Notes Map
 engines/vault/src/index.ts:
-  Note: GET /vault/token/:project/:service endpoint not yet implemented
-  Note: Dev server fails to run without npm packages; offline install steps needed
+  Note: ✅ GET endpoint implemented
 engines/platform-builder/src/index.ts:
-  Note: Express server placeholder; builder logic not implemented
-  Note: Dev environment fails without packages (ts-node) in offline mode
+  Note: ✅ Basic builder server created
 engines/execution/src/index.ts:
-  Note: Execution logic missing; placeholder only
-  Note: Dev environment fails without packages (ts-node) in offline mode
+  Note: ✅ Action runner and /execute endpoint added
 gateway/src/index.ts:
-  Note: Gateway routing not implemented
-  Note: Dev environment fails without packages (ts-node) in offline mode
+  Note: ✅ Gateway routing implemented
 
 ---
 

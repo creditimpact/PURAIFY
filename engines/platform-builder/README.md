@@ -28,9 +28,11 @@ platform-builder/
 Requires Node.js v20+.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
+
+> Use `npm ci --prefer-offline` if installing without internet access.
 
 - `src/index.ts` is the planned Express entry point for blueprint generation.
 - `package.json` defines dependencies and scripts.

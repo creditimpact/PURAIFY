@@ -1,10 +1,3 @@
-/**
- * 🧠 Codex Note:
- * - GET /vault/token/:project/:service endpoint not yet implemented
- * - Dev environment cannot run without npm packages (ts-node, express)
- *   because npm install fails in offline mode. Consider providing a lockfile
- *   or pre-install instructions for codex.
- */
 import express, { Request, Response } from "express";
 
 const app = express();
@@ -23,6 +16,20 @@ app.post('/vault/store', (req: Request, res: Response) => {
   }
   tokenStore[projectId][service] = token;
   return res.json({ success: true });
+});
+
+app.get('/vault/token/:project/:service', (req: Request, res: Response) => {
+  const { project, service } = req.params;
+  const token = tokenStore[project]?.[service];
+  if (!token) {
+    return res.status(404).json({ error: 'Token not found' });
+  }
+  return res.json({ token });
+});
+
+const port = Number(process.env.PORT) || 4003;
+app.listen(port, () => {
+  console.log(`Vault engine running on port ${port}`);
 });
 
 export default app;

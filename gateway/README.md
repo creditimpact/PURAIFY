@@ -32,9 +32,11 @@ gateway/
 Requires Node.js v20+.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
+
+> Use `npm ci --prefer-offline` if installing without internet access.
 
 - `src/index.ts` is the central Express router that delegates to all engines.
 - `package.json` defines Gateway dependencies and scripts.

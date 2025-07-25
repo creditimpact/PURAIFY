@@ -20,15 +20,16 @@ vault/
 ├── README.md
 └── src/
     └── index.ts
-```
 ## 🚀 Development Setup
 
 Requires Node.js v20+.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
+
+> Use `npm ci --prefer-offline` if installing without internet access.
 
 
 - `src/index.ts` is the main Express entry point handling Vault routes.
