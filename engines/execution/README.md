@@ -19,6 +19,7 @@ execution/
 ├── package.json
 ├── tsconfig.json
 ├── README.md
+├── ENGINE_SPEC.md
 └── src/
     └── index.ts
 ```
@@ -37,6 +38,7 @@ npm run dev
 - `package.json` manages dependencies and scripts.
 - `tsconfig.json` contains TypeScript compiler settings.
 - `README.md` (this file) outlines Execution's responsibilities.
+- `ENGINE_SPEC.md` will hold the detailed manual spec for this engine.
 
 ---
 

@@ -18,6 +18,7 @@ vault/
 ├── package.json
 ├── tsconfig.json
 ├── README.md
+├── ENGINE_SPEC.md
 └── src/
     └── index.ts
 ## 🚀 Development Setup
@@ -35,6 +36,7 @@ npm run dev
 - `src/index.ts` is the main Express entry point handling Vault routes.
 - `package.json` lists dependencies and scripts (currently minimal).
 - `README.md` (this file) documents Vault usage and API.
+- `ENGINE_SPEC.md` is reserved for a detailed manual specification.
 
 ---
 

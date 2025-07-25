@@ -22,6 +22,7 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 ✅ As of now, all engines have:
 - Their folder structures initialized
 - A dedicated `README.md` file with functional specification
+- A placeholder `ENGINE_SPEC.md` for manual specs
 - Listed entry point placeholders (`index.ts`)
 - System-level README and Contribution Protocols written
 
