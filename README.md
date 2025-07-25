@@ -46,21 +46,28 @@ puraify/
 │   │   ├── src/
 │   │   │   └── index.ts            ← Entry point for Vault Engine
 │   │   ├── README.md               ← Vault Engine specification
-│   │   └── ENGINE_SPEC.md          ← Manual spec placeholder
+│   │   ├── ENGINE_SPEC.md          ← Manual spec placeholder
+│   │   └── codex-todo.md           ← Local tasks
 │   ├── platform-builder/
 │   │   ├── package.json
 │   │   ├── tsconfig.json
 │   │   ├── src/
 │   │   │   └── index.ts            ← Entry point for Platform Builder
 │   │   ├── README.md               ← Platform Builder specification
-│   │   └── ENGINE_SPEC.md          ← Manual spec placeholder
+│   │   ├── ENGINE_SPEC.md          ← Manual spec placeholder
+│   │   └── codex-todo.md           ← Local tasks
 │   ├── execution/
 │   │   ├── package.json
 │   │   ├── tsconfig.json
 │   │   ├── src/
 │   │   │   └── index.ts            ← Entry point for Execution Engine
 │   │   ├── README.md               ← Execution Engine specification
-│   │   └── ENGINE_SPEC.md          ← Manual spec placeholder
+│   │   ├── ENGINE_SPEC.md          ← Manual spec placeholder
+│   │   └── codex-todo.md           ← Local tasks
+├── tests/
+│   ├── vault/                      ← Vault tests
+│   ├── platform-builder/           ← Platform Builder tests
+│   └── execution/                  ← Execution Engine tests
 ├── gateway/
 │   ├── package.json
 │   ├── tsconfig.json
