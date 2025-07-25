@@ -26,7 +26,31 @@ Example Flow:
 
 ---
 
-## ⚙️ Planned API Endpoints
+## ⚙️ API Endpoints
+
+### `POST /vault/store`
+
+Stores a token for a specific service and project.
+
+**Request Body**
+
+```json
+{
+  "projectId": "platform-a",
+  "service": "slack",
+  "token": "xoxb-abc123xyz"
+}
+```
+
+**Response**
+
+```json
+{
+  "success": true
+}
+```
+
+### `POST /vault/token` *(planned)*
 
 ```
 POST /vault/token

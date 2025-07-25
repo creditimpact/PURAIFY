@@ -22,12 +22,12 @@ This enables fast creation of business logic and automations — without writing
 
 PURAIFY is composed of specialized engines, each with a single responsibility:
 
-| Engine              | Purpose                                                    |
-|---------------------|------------------------------------------------------------|
-| Platform Builder    | Converts user prompts into structured blueprints           |
-| Vault Engine        | Stores API tokens and credentials securely                 |
-| Execution Engine    | Executes actions defined in the blueprint (e.g. Slack API) |
-| Gateway             | Routes requests and orchestrates calls between engines     |
+| Engine | Purpose | Status |
+|---|---|---|
+| Platform Builder | Converts user prompts into structured blueprints | 🔲 Not Started |
+| Vault Engine | Stores API tokens and credentials securely | 🟢 In Progress |
+| Execution Engine | Executes actions defined in the blueprint (e.g. Slack API) | 🔲 Not Started |
+| Gateway | Routes requests and orchestrates calls between engines | 🔲 Not Started |
 
 Each engine is an isolated microservice that communicates through internal APIs.
 
