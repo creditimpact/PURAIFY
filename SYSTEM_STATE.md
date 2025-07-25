@@ -64,6 +64,16 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 ## 🧠 Codex Notes Map
 engines/vault/src/index.ts:
   Note: GET /vault/token/:project/:service endpoint not yet implemented
+  Note: Dev server fails to run without npm packages; offline install steps needed
+engines/platform-builder/src/index.ts:
+  Note: Express server placeholder; builder logic not implemented
+  Note: Dev environment fails without packages (ts-node) in offline mode
+engines/execution/src/index.ts:
+  Note: Execution logic missing; placeholder only
+  Note: Dev environment fails without packages (ts-node) in offline mode
+gateway/src/index.ts:
+  Note: Gateway routing not implemented
+  Note: Dev environment fails without packages (ts-node) in offline mode
 
 ---
 
@@ -74,4 +84,4 @@ The next step is starting to implement each engine's basic code and run minimal 
 
 ---
 
-Last updated: July 26, 2025
+Last updated: July 25, 2025
