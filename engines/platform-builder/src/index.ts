@@ -1,5 +1,20 @@
 import express, { Request, Response } from "express";
 
+interface BlueprintAction {
+  type: string;
+  params?: Record<string, any>;
+}
+
+interface Blueprint {
+  trigger: { type: string };
+  actions: BlueprintAction[];
+}
+
+interface BlueprintResponse {
+  project: string;
+  blueprint: Blueprint;
+}
+
 const app = express();
 app.use(express.json());
 
@@ -10,7 +25,7 @@ app.post('/builder/create', (req: Request, res: Response) => {
   }
 
   // Very naive blueprint generation
-  const blueprint = {
+  const blueprint: BlueprintResponse = {
     project,
     blueprint: {
       trigger: { type: 'manual' },

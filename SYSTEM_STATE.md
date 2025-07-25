@@ -33,10 +33,10 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 
 | Engine            | APIs            | Status       |
 |-------------------|------------------|--------------|
-| Platform Builder  | None             | 🔲 Planned    |
-| Vault Engine      | `POST /vault/store`, `GET /vault/token/:project/:service` | 🟡 Planned |
-| Execution Engine  | None             | 🔲 Planned    |
-| Gateway           | None             | 🔲 Planned    |
+| Platform Builder  | `POST /builder/create` | 🟢 In Progress |
+| Vault Engine      | `POST /vault/store`, `GET /vault/token/:project/:service` | 🟢 In Progress |
+| Execution Engine  | `POST /execute` | 🟢 In Progress |
+| Gateway           | `POST /gateway/build-platform`, `POST /gateway/execute-action`, `POST /gateway/store-token` | 🟢 In Progress |
 
 ---
 
@@ -56,18 +56,18 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 - [x] Implemented `POST /vault/store` endpoint for Vault Engine
 - [x] Add `GET /vault/token/:project/:service` endpoint
 - [x] Begin Gateway skeleton with routing between engines
-- [ ] Define actual blueprint structure for Platform Builder
+- [x] Define actual blueprint structure for Platform Builder (initial interface implemented)
 - [x] Add internal dev/test setup (e.g., nodemon, tsconfig)
 
 ---
 
 ## 🧠 Codex Notes Map
 engines/vault/src/index.ts:
-  Note: ✅ GET endpoint implemented
+  Note: ✅ GET endpoint implemented; DELETE endpoint pending
 engines/platform-builder/src/index.ts:
-  Note: ✅ Basic builder server created
+  Note: ✅ Basic builder server created, blueprint interface defined; validation pending
 engines/execution/src/index.ts:
-  Note: ✅ Action runner and /execute endpoint added
+  Note: ✅ Action runner and /execute endpoint added; Vault integration pending
 gateway/src/index.ts:
   Note: ✅ Gateway routing implemented
 
@@ -75,9 +75,9 @@ gateway/src/index.ts:
 
 ## 🧭 Summary
 
-The PURAIFY project is in the **pre-development phase**, with full architecture, specs, and documentation in place.  
-The next step is starting to implement each engine's basic code and run minimal integration.
+The PURAIFY project is in the **early development phase**, with initial endpoints implemented for each engine.
+The next step is to expand features, add validation, and integrate across engines.
 
 ---
 
-Last updated: July 25, 2025
+Last updated: July 26, 2025
