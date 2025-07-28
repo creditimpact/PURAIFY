@@ -9,5 +9,13 @@
 - [ ] Add test folders and `npm test` scripts for each engine per CONTRIBUTION_PROTOCOL.md
 
 
+
 ## Proposed Actions
-Pending environment or configuration updates awaiting approval.
+**Log proposed environment updates here.** Each entry should include:
+- Description and rationale
+- Expected impact
+- Status: Proposed / Approved / Executed
+- Date and approver when resolved
+
+Refer to `PROPOSED_ACTIONS_LOG.md` for the historical record.
+

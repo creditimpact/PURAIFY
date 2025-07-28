@@ -341,9 +341,23 @@ If you add a new action called `send_email` to Execution:
 | Changed how Gateway routes | Gateway README.md, README.md               |
 | Added feature across multiple engines | All relevant engine docs + root files |
 
-Keep PURAIFY structured.  
-Make it understandable by humans and machines.  
+Keep PURAIFY structured.
+Make it understandable by humans and machines.
 Build like the system builds itself.
+
+---
+
+## 📌 Proposed Actions Workflow
+
+Environment or configuration updates require a transparent approval process:
+
+1. Add a bullet under `## Proposed Actions` in `codex-todo.md` describing the change, rationale, and expected impact.
+2. Add the same entry to `PROPOSED_ACTIONS_LOG.md` with status **Proposed**.
+3. Wait for an explicit human response of `YES` before applying the change.
+4. After approval, implement the change, update relevant docs, and update the log entry to **Executed** with date and approver.
+5. Keep both the todo item and log for historical reference.
+
+This ensures all environment changes are reviewed and fully traceable.
 
 Thanks,  
 PURAIFY System Protocol
