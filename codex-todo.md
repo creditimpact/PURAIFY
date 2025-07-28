@@ -8,3 +8,6 @@
 - [ ] Provide initial docker-compose.yml or document missing services
 - [ ] Add test folders and `npm test` scripts for each engine per CONTRIBUTION_PROTOCOL.md
 
+
+## Proposed Actions
+Pending environment or configuration updates awaiting approval.
