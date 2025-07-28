@@ -13,7 +13,7 @@
     "dev": "ts-node src/index.ts",
     "start": "node dist/index.js",
     "build": "tsc",
-    "test": "node --test"
+    "test": "node --test ../tests/gateway"
   },
   "devDependencies": {
     "@types/express": "^5.0.3"

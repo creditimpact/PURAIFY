@@ -85,6 +85,8 @@ puraify/
 ├── README.md                       ← You are here — main project overview
 ```
 
+Automated tests for each engine live under `tests/<engine>/` and can be run with `npm test` inside the respective engine folder.
+
 Each engine is self-contained, and its README defines its APIs, responsibilities, and integration points.
 
 ---
@@ -109,6 +111,7 @@ To start working on the project:
    ```bash
    npm install
    npm run dev
+   npm test
    ```
 3. Use the Gateway to connect everything (`docker-compose up` to run all engines)
 
