@@ -1,5 +1,11 @@
 import express, { Request, Response } from "express";
-import { loadStore, saveStore, TokenStore } from "./storage";
+import {
+  loadStore,
+  saveStore,
+  TokenStore,
+  encodeToken,
+  decodeToken,
+} from "./storage";
 
 const app = express();
 app.use(express.json());
@@ -7,15 +13,22 @@ app.use(express.json());
 // token store persisted to disk
 let tokenStore: TokenStore = loadStore();
 
+function isValidId(id: string): boolean {
+  return /^[a-zA-Z0-9_-]+$/.test(id);
+}
+
 app.post('/vault/store', (req: Request, res: Response) => {
   const { projectId, service, token } = req.body || {};
   if (!projectId || !service || !token) {
     return res.status(400).json({ error: 'projectId, service and token are required' });
   }
+  if (!isValidId(projectId) || !isValidId(service) || typeof token !== 'string') {
+    return res.status(400).json({ error: 'invalid input' });
+  }
   if (!tokenStore[projectId]) {
     tokenStore[projectId] = {};
   }
-  tokenStore[projectId][service] = token;
+  tokenStore[projectId][service] = encodeToken(token);
   saveStore(tokenStore);
   return res.json({ success: true });
 });
@@ -26,10 +39,13 @@ app.post('/vault/token', (req: Request, res: Response) => {
   if (!project || !service || !token) {
     return res.status(400).json({ error: 'project, service and token are required' });
   }
+  if (!isValidId(project) || !isValidId(service) || typeof token !== 'string') {
+    return res.status(400).json({ error: 'invalid input' });
+  }
   if (!tokenStore[project]) {
     tokenStore[project] = {};
   }
-  tokenStore[project][service] = token;
+  tokenStore[project][service] = encodeToken(token);
   saveStore(tokenStore);
   return res.json({ success: true });
 });
@@ -40,7 +56,7 @@ app.get('/vault/token/:project/:service', (req: Request, res: Response) => {
   if (!token) {
     return res.status(404).json({ error: 'Token not found' });
   }
-  return res.json({ token });
+  return res.json({ token: decodeToken(token) });
 });
 
 app.delete('/vault/token/:project/:service', (req: Request, res: Response) => {

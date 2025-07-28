@@ -97,6 +97,7 @@ POST /vault/token
 ```
 Save a token for a specific service and project.
 Tokens are saved to `tokens.json` on disk so they persist across restarts.
+Tokens are encoded with base64 before being written so that raw values are not stored in plain text.
 
 ```json
 {
@@ -110,6 +111,8 @@ Tokens are saved to `tokens.json` on disk so they persist across restarts.
 GET /vault/token/:project/:service
 ```
 Retrieve the token for a given service in a given project.
+
+Input ids are validated to only allow alphanumerics, dashes and underscores.
 
 Response:
 ```json

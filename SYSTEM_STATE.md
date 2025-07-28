@@ -1,7 +1,7 @@
 # PURAIFY — Live System State
 
 This file documents the current **real-time** state of the PURAIFY platform.  
-As of now, most engines only contain scaffold code. The Vault Engine persists tokens to `tokens.json` and exposes working `POST /vault/store`, `POST /vault/token`, and `GET /vault/token/:project/:service` routes.
+As of now, most engines only contain scaffold code. The Vault Engine persists tokens to `tokens.json` (values encoded with base64) and exposes working `POST /vault/store`, `POST /vault/token`, and `GET /vault/token/:project/:service` routes.
 ---
 
 ## 🧱 System Build Status
