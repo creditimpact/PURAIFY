@@ -126,6 +126,8 @@ You can contribute by:
 Please see [CONTRIBUTION_PROTOCOL.md](CONTRIBUTION_PROTOCOL.md) for required
 documentation rules. The latest implementation snapshot is kept in
 [SYSTEM_STATE.md](SYSTEM_STATE.md).
+Environment or configuration updates follow the "Proposed Actions" workflow defined in
+`CONTRIBUTION_PROTOCOL.md` and logged in `PROPOSED_ACTIONS_LOG.md`.
 
 ---
 
