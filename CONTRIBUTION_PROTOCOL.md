@@ -256,6 +256,10 @@ Format example:
 This root-level file collects system-wide tasks across engines and protocol updates. Engine-specific items should remain in each engine’s own `codex-todo.md` file.
 
 Refer to `CODEX_TODO_FORMAT.md` for the required sections and formatting, including how to track proposed actions. Mirror any proposals in `PROPOSED_ACTIONS_LOG.md` before seeking approval.
+🧑‍💻 New File: human-todo.md
+This separate root-level file tracks tasks that require manual intervention, such as installing packages, configuring environments, or resolving permissions.
+Codex should add items here when blocked by external constraints, and humans should check them off once resolved.
+
 
 ---
 
