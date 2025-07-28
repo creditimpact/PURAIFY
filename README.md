@@ -78,6 +78,8 @@ puraify/
 ├── docker-compose.yml              ← (Planned) Multi-service setup
 ├── ENGINE_DEPENDENCIES.md          ← Declared engine relationships
 ├── NAMESPACE_MAP.md                ← Cross-engine name map
+├── SYSTEM_RULES.md                 ← High-level system policies
+├── codex-questions.md              ← Architecture question log
 ├── codex-todo.md                   ← Global tasks
 ├── README.md                       ← You are here — main project overview
 ```
