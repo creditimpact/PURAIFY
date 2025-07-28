@@ -67,7 +67,8 @@ puraify/
 ├── tests/
 │   ├── vault/                      ← Vault tests
 │   ├── platform-builder/           ← Platform Builder tests
-│   └── execution/                  ← Execution Engine tests
+│   ├── execution/                  ← Execution Engine tests
+│   └── gateway/                    ← Gateway tests
 ├── gateway/
 │   ├── package.json
 │   ├── tsconfig.json
