@@ -24,7 +24,10 @@ app.post('/builder/create', (req: Request, res: Response) => {
     return res.status(400).json({ error: 'prompt and project are required' });
   }
 
-  const messages = String(prompt).split(' and ').map(p => p.trim());
+  const messages = String(prompt)
+    .split(/\band\b|\bthen\b|,/i)
+    .map(p => p.trim())
+    .filter(Boolean);
   const actions: BlueprintAction[] = messages.map(m => ({ type: 'log_message', params: { message: m } }));
 
   const blueprint: BlueprintResponse = {
