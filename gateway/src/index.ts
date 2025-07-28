@@ -48,9 +48,9 @@ app.post('/gateway/run-blueprint', async (req: Request, res: Response) => {
         project,
         params: action.params
       });
-      results.push(response.data);
+      results.push({ status: 'success', data: response.data });
     } catch (err: any) {
-      return res.status(500).json({ error: err.message });
+      results.push({ status: 'error', error: err.message });
     }
   }
   res.json({ results });

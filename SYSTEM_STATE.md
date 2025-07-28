@@ -65,7 +65,7 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes wor
 
 ---
 ## 🔄 Next Integration Steps
-- Add `/gateway/run-blueprint` route to orchestrate builder output and sequential execution.
+- `/gateway/run-blueprint` now executes all actions sequentially and returns a results array even if some actions fail.
 - Execution Engine must fetch tokens from Vault via `GET /vault/token/:project/:service` when actions need credentials.
 - Gateway orchestrates flow; Execution handles token retrieval; Vault serves tokens; Platform Builder supplies the blueprint.
 
@@ -78,7 +78,7 @@ engines/platform-builder/src/index.ts:
 engines/execution/src/index.ts:
   Note: ✅ Action runner with send_slack token retrieval; returns 404 if token missing
 gateway/src/index.ts:
-  Note: ✅ Gateway routing implemented; run-blueprint orchestration added
+  Note: ✅ Gateway routing implemented; run-blueprint now continues after failures
 integration-design:
   Note: ❓ Should Gateway or Execution Engine fetch Vault tokens during action execution?
 root-level:
