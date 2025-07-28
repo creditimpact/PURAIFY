@@ -115,6 +115,8 @@ DELETE /vault/token/:project/:service
 ```
 Remove stored token.
 
+This endpoint is **implemented** in `src/index.ts` and deletes the token entry if it exists.
+
 ---
 
 ## 🛠️ Internals & Responsibilities

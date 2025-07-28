@@ -35,9 +35,9 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 | Engine            | APIs            | Status       |
 |-------------------|------------------|--------------|
 | Platform Builder  | `POST /builder/create` | 🟢 In Progress |
-| Vault Engine      | `POST /vault/store`, `GET /vault/token/:project/:service` | 🟢 In Progress |
+| Vault Engine      | `POST /vault/store`, `GET /vault/token/:project/:service`, `DELETE /vault/token/:project/:service` | 🟢 In Progress |
 | Execution Engine  | `POST /execute` | 🟢 In Progress |
-| Gateway           | `POST /gateway/build-platform`, `POST /gateway/execute-action`, `POST /gateway/store-token` | 🟢 In Progress |
+| Gateway           | `POST /gateway/build-platform`, `POST /gateway/execute-action`, `POST /gateway/store-token`, `POST /gateway/run-blueprint` | 🟢 In Progress |
 
 ---
 
@@ -69,13 +69,13 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 
 ## 🧠 Codex Notes Map
 engines/vault/src/index.ts:
-  Note: ✅ GET endpoint implemented; DELETE endpoint pending
+  Note: ✅ GET and DELETE endpoints implemented
 engines/platform-builder/src/index.ts:
-  Note: ✅ Basic builder server created, blueprint interface defined; validation pending
+  Note: ✅ Basic server with validation and multi-action parsing implemented
 engines/execution/src/index.ts:
-  Note: ✅ Action runner and /execute endpoint added; token fetching from Vault pending
+  Note: ✅ Action runner with send_slack token retrieval implemented
 gateway/src/index.ts:
-  Note: ✅ Gateway routing implemented; blueprint orchestration pending
+  Note: ✅ Gateway routing implemented; run-blueprint orchestration added
 integration-design:
   Note: ❓ Should Gateway or Execution Engine fetch Vault tokens during action execution?
 root-level:

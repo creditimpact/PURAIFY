@@ -4,4 +4,7 @@ This file records environment and configuration changes proposed by Codex. Each 
 
 | ID | Date | Description | Status | Approver | Notes |
 |----|------|-------------|--------|----------|-------|
+| PA1 | 2025-07-28 | Create codex-todo format guide across engines | Proposed | | |
+| PA2 | 2025-07-28 | Add docker-compose services for engines | Proposed | | |
+| PA3 | 2025-07-28 | Introduce Node test runner setup via ts-node | Proposed | | |
 

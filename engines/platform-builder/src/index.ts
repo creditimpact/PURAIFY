@@ -20,18 +20,18 @@ app.use(express.json());
 
 app.post('/builder/create', (req: Request, res: Response) => {
   const { prompt, project } = req.body || {};
-  if (!prompt || !project) {
+  if (typeof prompt !== 'string' || typeof project !== 'string') {
     return res.status(400).json({ error: 'prompt and project are required' });
   }
 
-  // Very naive blueprint generation
+  const messages = String(prompt).split(' and ').map(p => p.trim());
+  const actions: BlueprintAction[] = messages.map(m => ({ type: 'log_message', params: { message: m } }));
+
   const blueprint: BlueprintResponse = {
     project,
     blueprint: {
       trigger: { type: 'manual' },
-      actions: [
-        { type: 'log_message', params: { message: prompt } }
-      ]
+      actions
     }
   };
 
@@ -39,9 +39,11 @@ app.post('/builder/create', (req: Request, res: Response) => {
 });
 
 const port = Number(process.env.PORT) || 4001;
-app.listen(port, () => {
-  console.log(`Platform Builder running on port ${port}`);
-});
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Platform Builder running on port ${port}`);
+  });
+}
 
 export default app;
 

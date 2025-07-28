@@ -144,7 +144,8 @@ The response conforms to the `Blueprint` interface defined in `src/index.ts`.
 
 ## 🚧 Development Notes
 
-- MVP will use pre-defined mapping from prompts to actions (hardcoded or stubbed).
+- MVP now supports simple parsing of prompts containing `"and"` to generate multiple `log_message` actions.
+- It will still use pre-defined mappings for action types.
 - In the future, builder will support:
   - Multiple triggers and conditional flows
   - Rich UI/UX generation hints
