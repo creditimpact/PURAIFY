@@ -35,12 +35,18 @@ app.post('/gateway/store-token', async (req: Request, res: Response) => {
   }
 });
 
+interface ActionResult {
+  status: 'success' | 'error';
+  data?: any;
+  error?: string;
+}
+
 app.post('/gateway/run-blueprint', async (req: Request, res: Response) => {
   const { project, blueprint } = req.body || {};
   if (!project || !blueprint?.actions) {
     return res.status(400).json({ error: 'project and blueprint required' });
   }
-  const results: any[] = [];
+  const results: ActionResult[] = [];
   for (const action of blueprint.actions) {
     try {
       const response = await axios.post(`${EXECUTION_URL}/execute`, {
