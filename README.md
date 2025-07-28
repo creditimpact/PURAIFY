@@ -76,6 +76,9 @@ puraify/
 │   ├── README.md                   ← Gateway specification
 │   └── ENGINE_SPEC.md              ← Manual spec placeholder
 ├── docker-compose.yml              ← (Planned) Multi-service setup
+├── ENGINE_DEPENDENCIES.md          ← Declared engine relationships
+├── NAMESPACE_MAP.md                ← Cross-engine name map
+├── codex-todo.md                   ← Global tasks
 ├── README.md                       ← You are here — main project overview
 ```
 
