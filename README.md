@@ -80,11 +80,11 @@ puraify/
 ├── docker-compose.yml              ← Docker Compose configuration
 ├── ENGINE_DEPENDENCIES.md          ← Declared engine relationships
 ├── NAMESPACE_MAP.md                ← Cross-engine name map
-├── SYSTEM_RULES.md                 ← High-level system policies
-├── codex-questions.md              ← Architecture question log
-├── codex-todo.md                   ← Global tasks
-├── human-todo.md              ← Manual setup tasks
-├── CODEX_TODO_FORMAT.md            ← Standard todo file format
+├── docs/SYSTEM_RULES.md                 ← High-level system policies
+├── docs/codex-questions.md              ← Architecture question log
+├── docs/codex-todo.md                   ← Global tasks
+├── docs/human-todo.md              ← Manual setup tasks
+├── docs/CODEX_TODO_FORMAT.md            ← Standard todo file format
 ├── README.md                       ← You are here — main project overview
 ```
 
@@ -133,12 +133,12 @@ You can contribute by:
 - Expanding the Gateway with new orchestration flows
 - Creating reusable blueprints
 
-Please see [CONTRIBUTION_PROTOCOL.md](CONTRIBUTION_PROTOCOL.md) for required
+Please see [CONTRIBUTION_PROTOCOL.md](docs/CONTRIBUTION_PROTOCOL.md) for required
 documentation rules. The latest implementation snapshot is kept in
 [SYSTEM_STATE.md](SYSTEM_STATE.md).
 Environment or configuration updates follow the "Proposed Actions" workflow defined in
-`CONTRIBUTION_PROTOCOL.md` and logged in `PROPOSED_ACTIONS_LOG.md`.
-Manual setup tasks that need human attention are tracked in `human-todo.md`.
+`CONTRIBUTION_PROTOCOL.md` and logged in `docs/PROPOSED_ACTIONS_LOG.md`.
+Manual setup tasks that need human attention are tracked in `docs/human-todo.md`.
 
 ---
 
