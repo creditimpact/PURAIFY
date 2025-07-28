@@ -8,6 +8,7 @@
 | platform-builder | src/index.ts               | Blueprint generation server |
 | execution        | src/index.ts               | Executes actions |
 | gateway          | src/index.ts               | Main API gateway |
+| gateway          | src/types.ts               | Shared ActionResult interface |
 | knowledge        | knowledge.parser.ts        | Planned module placeholder      |
 | validation       | validation.checker.ts      | Planned module placeholder      |
 | integration      | integration.manager.ts     | Planned module placeholder      |

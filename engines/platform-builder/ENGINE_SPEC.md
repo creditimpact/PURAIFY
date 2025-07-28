@@ -72,6 +72,25 @@ Think of it as the “studio” or “IDE” for platform creators.
 }
 ```
 
+## 📝 Blueprint Schema
+
+```ts
+interface BlueprintAction {
+  type: string;
+  params?: Record<string, any>;
+}
+
+interface Blueprint {
+  trigger: { type: string };
+  actions: BlueprintAction[];
+}
+
+interface BlueprintResponse {
+  project: string;
+  blueprint: Blueprint;
+}
+```
+
 ---
 
 ## 📤 Output Example – Final Blueprint
