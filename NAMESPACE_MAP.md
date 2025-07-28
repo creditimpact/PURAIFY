@@ -32,7 +32,8 @@
 | vault            | /vault/token              | Token & secrets API            |
 | platform-builder | /builder/create           | Platform creation & updates    |
 | execution        | /execute                  | Run actions & flows            |
-| gateway          | /gateway/*                    | API gateway router             |
+| gateway          | /gateway/*                    | API gateway router
+| gateway          | /gateway/run-blueprint           | Orchestrates sequential execution
 | knowledge        | /knowledge/blueprint      | Planned                       |
 | validation       | /validation/check         | Planned                       |
 | integration      | /integration/connect      | Planned                       |
