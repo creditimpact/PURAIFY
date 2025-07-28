@@ -81,6 +81,7 @@ puraify/
 ├── SYSTEM_RULES.md                 ← High-level system policies
 ├── codex-questions.md              ← Architecture question log
 ├── codex-todo.md                   ← Global tasks
+├── CODEX_TODO_FORMAT.md            ← Standard todo file format
 ├── README.md                       ← You are here — main project overview
 ```
 
