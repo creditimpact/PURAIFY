@@ -1,7 +1,7 @@
 # PURAIFY — Live System State
 
 This file documents the current **real-time** state of the PURAIFY platform.  
-As of now, most engines only contain scaffold code. The Vault Engine exposes a working `POST /vault/store` endpoint and plans to add `GET /vault/token/:project/:service`.
+As of now, most engines only contain scaffold code. The Vault Engine exposes working `POST /vault/store` and `POST /vault/token` endpoints and a `GET /vault/token/:project/:service` lookup route.
 ---
 
 ## 🧱 System Build Status
@@ -35,7 +35,7 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 | Engine            | APIs            | Status       |
 |-------------------|------------------|--------------|
 | Platform Builder  | `POST /builder/create` | 🟢 In Progress |
-| Vault Engine      | `POST /vault/store`, `GET /vault/token/:project/:service`, `DELETE /vault/token/:project/:service` | 🟢 In Progress |
+| Vault Engine      | `POST /vault/store`, `POST /vault/token`, `GET /vault/token/:project/:service`, `DELETE /vault/token/:project/:service` | 🟢 In Progress |
 | Execution Engine  | `POST /execute` | 🟢 In Progress |
 | Gateway           | `POST /gateway/build-platform`, `POST /gateway/execute-action`, `POST /gateway/store-token`, `POST /gateway/run-blueprint` | 🟢 In Progress |
 
@@ -56,6 +56,7 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 
 - [x] Implemented `POST /vault/store` endpoint for Vault Engine
 - [x] Add `GET /vault/token/:project/:service` endpoint
+- [x] Added `POST /vault/token` endpoint for simplified storage
 - [x] Begin Gateway skeleton with routing between engines
 - [x] Define actual blueprint structure for Platform Builder (initial interface implemented)
 - [x] Add internal dev/test setup (e.g., nodemon, tsconfig)
@@ -71,7 +72,7 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 
 ## 🧠 Codex Notes Map
 engines/vault/src/index.ts:
-  Note: ✅ GET and DELETE endpoints implemented
+  Note: ✅ GET, POST and DELETE endpoints implemented
 engines/platform-builder/src/index.ts:
   Note: ✅ Basic server with validation and multi-action parsing implemented
 engines/execution/src/index.ts:

@@ -28,7 +28,7 @@ app.post('/gateway/execute-action', async (req: Request, res: Response) => {
 
 app.post('/gateway/store-token', async (req: Request, res: Response) => {
   try {
-    const response = await axios.post(`${VAULT_URL}/vault/store`, req.body);
+    const response = await axios.post(`${VAULT_URL}/vault/token`, req.body);
     res.json(response.data);
   } catch (err: any) {
     res.status(500).json({ error: err.message });
