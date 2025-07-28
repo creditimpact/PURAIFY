@@ -5,14 +5,18 @@
 ### platform-builder
 - depends on: vault (/vault/token/store)
 - depends on: gateway (/gateway/route)
+- provides: blueprint generation to gateway (/builder/create)
 
 ### execution
 - depends on: vault (/vault/token/fetch)
 - depends on: platform-builder (/platform/blueprint/:id)
 - depends on: gateway (/gateway/route)
+- provides: action execution via /execute
 
 ### gateway
 - depends on: vault (/vault/token/validate)
+- depends on: platform-builder (/builder/create)
+- depends on: execution (/execute)
 
 ### knowledge-engine
 - depends on: vault (/vault/token/fetch)

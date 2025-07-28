@@ -129,7 +129,7 @@ Error example:
 
 ## 🚧 Development Notes
 
-- For now, token storage is mocked or in-memory; Vault integration is stubbed.
+- Basic Vault integration implemented for the `send_slack` action. The engine fetches a token via `GET /vault/token/:project/slack` and logs the action.
 - The engine will evolve to support retries, fallback handlers, and async task queues.
 - Logs should be structured and sent to Logs Engine in the future.
 

@@ -83,6 +83,11 @@ POST /gateway/store-token
 ```
 Sends token to Vault Engine for storage.
 
+```
+POST /gateway/run-blueprint
+```
+Iterates over a blueprint's actions and invokes the Execution Engine sequentially.
+
 > More endpoints may be added as new capabilities emerge (validation, feedback, logs, etc.)
 
 ---

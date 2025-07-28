@@ -35,10 +35,33 @@ app.post('/gateway/store-token', async (req: Request, res: Response) => {
   }
 });
 
-const port = Number(process.env.PORT) || 4000;
-app.listen(port, () => {
-  console.log(`Gateway running on port ${port}`);
+app.post('/gateway/run-blueprint', async (req: Request, res: Response) => {
+  const { project, blueprint } = req.body || {};
+  if (!project || !blueprint?.actions) {
+    return res.status(400).json({ error: 'project and blueprint required' });
+  }
+  const results: any[] = [];
+  for (const action of blueprint.actions) {
+    try {
+      const response = await axios.post(`${EXECUTION_URL}/execute`, {
+        action: action.type,
+        project,
+        params: action.params
+      });
+      results.push(response.data);
+    } catch (err: any) {
+      return res.status(500).json({ error: err.message });
+    }
+  }
+  res.json({ results });
 });
+
+const port = Number(process.env.PORT) || 4000;
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Gateway running on port ${port}`);
+  });
+}
 
 export default app;
 

@@ -4,10 +4,10 @@
 
 | Engine           | File/Module                | Notes                           |
 |------------------|----------------------------|---------------------------------|
-| vault            | vault.service.ts           | Main vault logic (in progress)  |
-| platform-builder | platform-builder.ui.ts     | UI & builder logic (in progress)|
-| execution        | execution.engine.ts        | Execution core (in progress)    |
-| gateway          | gateway.controller.ts      | API gateway (in progress)       |
+| vault            | src/index.ts               | Express routes for credential storage |
+| platform-builder | src/index.ts               | Blueprint generation server |
+| execution        | src/index.ts               | Executes actions |
+| gateway          | src/index.ts               | Main API gateway |
 | knowledge        | knowledge.parser.ts        | Planned module placeholder      |
 | validation       | validation.checker.ts      | Planned module placeholder      |
 | integration      | integration.manager.ts     | Planned module placeholder      |
@@ -32,7 +32,7 @@
 | vault            | /vault/store              | Token & secrets API            |
 | platform-builder | /builder/create           | Platform creation & updates    |
 | execution        | /execute                  | Run actions & flows            |
-| gateway          | /api/*                    | API gateway router             |
+| gateway          | /gateway/*                    | API gateway router             |
 | knowledge        | /knowledge/blueprint      | Planned                       |
 | validation       | /validation/check         | Planned                       |
 | integration      | /integration/connect      | Planned                       |
