@@ -103,6 +103,16 @@ Codex **must** consult this file before performing complex orchestration, error 
 
 ---
 
+## 📌 Environment Change Approval Workflow
+
+- Codex must track every proposed modification to environment setup, configuration, dependencies, or protocols.
+- Log each proposal in `codex-todo.md` under a new heading `## Proposed Actions` with its description, rationale, and expected impact.
+- Do not implement the change until a human explicitly approves with "YES".
+- Upon approval, update the environment, document the action with date and approver, and mark the item complete.
+- If rejected or unanswered, keep the proposal pending and note the outcome.
+- All environment changes must remain version-controlled for auditability.
+---
+
 ## 🛡️ Security & Privacy Guidelines
 
 - All data access and mutations must comply with system-wide security policies.  
