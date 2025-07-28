@@ -28,6 +28,7 @@ gateway/
 └── src/
     └── index.ts
 ```
+Tests for this engine live in `tests/gateway/`.
 ## 🚀 Development Setup
 
 Requires Node.js v20+.
@@ -35,6 +36,7 @@ Requires Node.js v20+.
 ```bash
 npm ci
 npm run dev
+npm test
 ```
 
 > Use `npm ci --prefer-offline` if installing without internet access.
