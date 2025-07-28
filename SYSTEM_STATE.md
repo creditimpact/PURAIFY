@@ -83,6 +83,7 @@ integration-design:
   Note: ❓ Should Gateway or Execution Engine fetch Vault tokens during action execution?
 root-level:
   Note: ENGINE_DEPENDENCIES.md, NAMESPACE_MAP.md and codex-todo.md added for cross-engine tracking. Engine-level codex-todo format expected.
+  and human-todo.md added for manual environment tasks
 
 ---
 

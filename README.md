@@ -83,6 +83,7 @@ puraify/
 ├── SYSTEM_RULES.md                 ← High-level system policies
 ├── codex-questions.md              ← Architecture question log
 ├── codex-todo.md                   ← Global tasks
+├── human-todo.md              ← Manual setup tasks
 ├── CODEX_TODO_FORMAT.md            ← Standard todo file format
 ├── README.md                       ← You are here — main project overview
 ```
@@ -137,6 +138,7 @@ documentation rules. The latest implementation snapshot is kept in
 [SYSTEM_STATE.md](SYSTEM_STATE.md).
 Environment or configuration updates follow the "Proposed Actions" workflow defined in
 `CONTRIBUTION_PROTOCOL.md` and logged in `PROPOSED_ACTIONS_LOG.md`.
+Manual setup tasks that need human attention are tracked in `human-todo.md`.
 
 ---
 
