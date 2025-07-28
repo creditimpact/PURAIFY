@@ -95,5 +95,18 @@ This document defines guiding principles and governance for the PURAIFY system w
 
 ---
 
+## 🛑 Approval Requirement for Critical Changes
+
+- Codex **must** request explicit human approval **before making any changes to critical system configurations or environment settings**, including but not limited to:
+  - Docker and deployment configurations
+  - Core environment variables and `.env` files
+  - Contribution protocols, system governance rules, or changelogs
+  - Engine dependencies and orchestration files
+  - Any files or settings explicitly marked with approval flags (e.g., in `PROPOSED_ACTIONS_LOG.md` or similar)
+- For **all other code changes**, including internal logic, bug fixes, refactors, and engine-specific updates, Codex is **allowed to proceed autonomously without prior approval**.
+- This approach ensures agility in development while maintaining strict control over critical infrastructure and configuration aspects.
+
+---
+
 Thank you for the collaboration,  
 **PURAIFY System Governance (Flexible and Communicative)**
