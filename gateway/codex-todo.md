@@ -3,3 +3,5 @@
 - [x] Provide lockfile/offline instructions so npm install works
 - [x] Add /gateway/run-blueprint endpoint to orchestrate platform execution
 - [x] Iterate over blueprint actions and call Execution engine sequentially
+- [ ] Document codex-todo.md in README engine structure
+- [ ] Handle failures in run-blueprint without aborting entire run

@@ -66,7 +66,7 @@ Example Flow:
 
 ---
 
-## ⚙️ Planned API Endpoints
+## ⚙️ API Endpoints (Implemented)
 
 ```
 POST /execute
