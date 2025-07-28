@@ -116,6 +116,9 @@ To start working on the project:
    npm test
    ```
 3. Use the Gateway to connect everything (`docker-compose up` to run all engines)
+4. Orchestrate a full workflow via `POST /gateway/run-blueprint`.
+   This endpoint executes each action sequentially and returns a
+   `results` array detailing success or error for every step.
 
 ---
 

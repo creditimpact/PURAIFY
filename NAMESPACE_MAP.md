@@ -8,6 +8,7 @@
 | platform-builder | src/index.ts               | Blueprint generation server |
 | execution        | src/index.ts               | Executes actions |
 | gateway          | src/index.ts               | Main API gateway |
+| gateway          | src/types.ts               | Shared ActionResult interface |
 | knowledge        | knowledge.parser.ts        | Planned module placeholder      |
 | validation       | validation.checker.ts      | Planned module placeholder      |
 | integration      | integration.manager.ts     | Planned module placeholder      |
@@ -32,7 +33,8 @@
 | vault            | /vault/token              | Token & secrets API            |
 | platform-builder | /builder/create           | Platform creation & updates    |
 | execution        | /execute                  | Run actions & flows            |
-| gateway          | /gateway/*                    | API gateway router             |
+| gateway          | /gateway/*                    | API gateway router
+| gateway          | /gateway/run-blueprint           | Orchestrates sequential execution
 | knowledge        | /knowledge/blueprint      | Planned                       |
 | validation       | /validation/check         | Planned                       |
 | integration      | /integration/connect      | Planned                       |
