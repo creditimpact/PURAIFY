@@ -133,7 +133,7 @@ Before performing tasks involving cross-engine logic, Codex must:
 ❗ Codex must never fill or update this file automatically. It is manually maintained and considered source-of-truth for orchestration logic.
 
 If a missing engine prevents task execution:
-- Log a Codex Note or add a todo in `codex-todo.md`
+- Log a Codex Note or add a todo in `codex-todo.md` (see `CODEX_TODO_FORMAT.md`)
 - Await human clarification before proceeding
 
 ---
@@ -161,14 +161,7 @@ These are Codex-facing notes intended for future context — not user documentat
 
 #### B. Local codex-todo.md File (Optional)
 
-Each engine folder (e.g., `engines/vault/`) may contain its own `codex-todo.md` file. These **per-engine todo files** track code and documentation tasks that apply only to that specific engine:
-
-## TODO
-- [ ] Unify endpoint name with SYSTEM_STATE
-- [ ] Add error fallback for missing project token
-- [x] Normalize Vault request shape
-
-Each item should be concise and traceable to implementation points. Keep engine-focused todos here so they do not clutter the root task list.
+Each engine folder (e.g., `engines/vault/`) may contain its own `codex-todo.md` file for engine-specific tasks. Follow the structure and management rules defined in `CODEX_TODO_FORMAT.md`.
 
 🔁 Execution Rules  
 Whenever Codex completes a task originally recorded as a note or todo:
@@ -207,13 +200,11 @@ This approach enables autonomous continuity across async work sessions.
 ❗ Handling Failed or Unresolved Tasks  
 If Codex cannot complete a task due to technical limitations, missing dependencies, or external blockers:
 
-✅ Leave the task unchecked ([ ]) in codex-todo.md  
+✅ Leave the task open in `codex-todo.md` (see `CODEX_TODO_FORMAT.md` for formatting)
 ✅ Keep the corresponding entry in SYSTEM_STATE.md > 🧠 Codex Notes Map  
 ✅ If human intervention is needed, tag the task as 🔧 Requires human  
 ✅ If external constraints apply (e.g., internet, credentials), tag it as 🌐 External constraint  
-✅ You may explain the failure inline:
-
-- [ ] Install lockfile 🔧 Requires human — npm registry access needed
+✅ You may note the failure inline, e.g., `Install lockfile 🔧 Requires human — npm registry access needed`
 
 This ensures unresolved items are visible, tagged, and tracked across sessions.
 
@@ -233,8 +224,8 @@ If ENGINE_SPEC.md is missing or incomplete, Codex may log a todo or a note reque
 ---
 
 📁 Folder & File Naming Conventions  
-Entry file per engine: always `src/index.ts`.  
-Todos file: `codex-todo.md` lives in each engine root.  
+Entry file per engine: always `src/index.ts`.
+Todos file: `codex-todo.md` lives in each engine root (see `CODEX_TODO_FORMAT.md`).
 Module files: use descriptive names like `token-service.ts` or `blueprint-validator.ts`.  
 API route naming: follow `/engine/action` pattern.
 
@@ -262,11 +253,9 @@ Format example:
 ---
 
 🧠 New File: codex-todo.md (root-level)
-This root-level file contains system-level tasks — across engines, protocol-wide changes, or multi-engine coordination. Codex uses it to track global efforts, like standardizing formats or adding shared infrastructure.
+This root-level file collects system-wide tasks across engines and protocol updates. Engine-specific items should remain in each engine’s own `codex-todo.md` file.
 
-Engine-specific tasks should not go here — they belong inside an engine’s local `codex-todo.md`.
-
-The root file also hosts a `## Proposed Actions` section. Use this section only for environment or configuration updates that require human approval. Mirror each entry in `PROPOSED_ACTIONS_LOG.md` and wait for approval before making the change.
+Refer to `CODEX_TODO_FORMAT.md` for the required sections and formatting, including how to track proposed actions. Mirror any proposals in `PROPOSED_ACTIONS_LOG.md` before seeking approval.
 
 ---
 
@@ -353,7 +342,7 @@ Build like the system builds itself.
 
 Environment or configuration updates require a transparent approval process:
 
-1. Add a bullet under `## Proposed Actions` in `codex-todo.md` describing the change, rationale, and expected impact.
+1. Add a bullet under `## Proposed Actions` in `codex-todo.md` (see `CODEX_TODO_FORMAT.md`) describing the change, rationale, and expected impact.
 2. Add the same entry to `PROPOSED_ACTIONS_LOG.md` with status **Proposed**. This log is **only** for environment or configuration proposals and should not list normal code tasks.
 3. Wait for an explicit human response of `YES` before applying the change.
 4. After approval, implement the change, update relevant docs, and update the log entry to **Executed** with date and approver.
