@@ -75,7 +75,7 @@ puraify/
 │   │   └── index.ts                ← Main API router for the PURAIFY system
 │   ├── README.md                   ← Gateway specification
 │   └── ENGINE_SPEC.md              ← Manual spec placeholder
-├── docker-compose.yml              ← (Planned) Multi-service setup
+├── docker-compose.yml              ← Docker Compose configuration
 ├── ENGINE_DEPENDENCIES.md          ← Declared engine relationships
 ├── NAMESPACE_MAP.md                ← Cross-engine name map
 ├── SYSTEM_RULES.md                 ← High-level system policies
@@ -109,7 +109,7 @@ To start working on the project:
    npm install
    npm run dev
    ```
-3. Use the Gateway to connect everything (Docker Compose coming soon)
+3. Use the Gateway to connect everything (`docker-compose up` to run all engines)
 
 ---
 

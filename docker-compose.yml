@@ -1,0 +1,38 @@
+version: "3"
+services:
+  platform-builder:
+    image: node:20
+    working_dir: /app
+    volumes:
+      - ./engines/platform-builder:/app
+    command: npm run dev
+    ports:
+      - "4001:4001"
+  execution:
+    image: node:20
+    working_dir: /app
+    volumes:
+      - ./engines/execution:/app
+    command: npm run dev
+    ports:
+      - "4002:4002"
+  vault:
+    image: node:20
+    working_dir: /app
+    volumes:
+      - ./engines/vault:/app
+    command: npm run dev
+    ports:
+      - "4003:4003"
+  gateway:
+    image: node:20
+    working_dir: /app
+    volumes:
+      - ./gateway:/app
+    command: npm run dev
+    ports:
+      - "4000:4000"
+    depends_on:
+      - platform-builder
+      - execution
+      - vault

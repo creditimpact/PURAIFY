@@ -59,6 +59,8 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes a w
 - [x] Begin Gateway skeleton with routing between engines
 - [x] Define actual blueprint structure for Platform Builder (initial interface implemented)
 - [x] Add internal dev/test setup (e.g., nodemon, tsconfig)
+- [x] Added `docker-compose.yml` to run all engines together
+- [x] Node built-in test runner configured across engines
 
 ---
 ## 🔄 Next Integration Steps
