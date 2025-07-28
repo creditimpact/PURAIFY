@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import axios from "axios";
+import { ActionResult } from "./types";
 
 const app = express();
 app.use(express.json());
@@ -35,12 +36,13 @@ app.post('/gateway/store-token', async (req: Request, res: Response) => {
   }
 });
 
+
 app.post('/gateway/run-blueprint', async (req: Request, res: Response) => {
   const { project, blueprint } = req.body || {};
   if (!project || !blueprint?.actions) {
     return res.status(400).json({ error: 'project and blueprint required' });
   }
-  const results: any[] = [];
+  const results: ActionResult[] = [];
   for (const action of blueprint.actions) {
     try {
       const response = await axios.post(`${EXECUTION_URL}/execute`, {
@@ -48,9 +50,9 @@ app.post('/gateway/run-blueprint', async (req: Request, res: Response) => {
         project,
         params: action.params
       });
-      results.push(response.data);
+      results.push({ status: 'success', data: response.data });
     } catch (err: any) {
-      return res.status(500).json({ error: err.message });
+      results.push({ status: 'error', error: err.message });
     }
   }
   res.json({ results });

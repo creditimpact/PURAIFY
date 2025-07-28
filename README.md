@@ -25,7 +25,7 @@ PURAIFY is composed of specialized engines, each with a single responsibility:
 | Engine | Purpose | Status |
 |---|---|---|
 | Platform Builder | Converts user prompts into structured blueprints | 🟢 In Progress |
-| Vault Engine | Stores API tokens and credentials securely | 🟢 In Progress |
+| Vault Engine | Stores API tokens and credentials securely (persisted to `tokens.json`) | 🟢 In Progress |
 | Execution Engine | Executes actions defined in the blueprint (e.g. Slack API) | 🟢 In Progress |
 | Gateway | Routes requests and orchestrates calls between engines | 🟢 In Progress |
 
@@ -116,6 +116,9 @@ To start working on the project:
    npm test
    ```
 3. Use the Gateway to connect everything (`docker-compose up` to run all engines)
+4. Orchestrate a full workflow via `POST /gateway/run-blueprint`.
+   This endpoint executes each action sequentially and returns a
+   `results` array detailing success or error for every step.
 
 ---
 

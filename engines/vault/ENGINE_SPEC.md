@@ -106,6 +106,8 @@ Every platform created by a user (e.g., Slack automation, Notion sync) requires 
 | `EncryptionLayer`  | AES-256 or Cloud KMS integration |
 | `ScopedSecrets`    | Tokens stored per environment (dev/staging/prod) and platform |
 
+> MVP implementation persists tokens to a plain `tokens.json` file. Future versions will replace this with an encrypted database.
+
 ---
 
 

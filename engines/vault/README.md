@@ -10,6 +10,8 @@ It functions as a centralized "secret manager", allowing engines to **query for 
 
 The Vault Engine does not execute actions or orchestrate flows — it exists to **hold and serve sensitive authentication data** safely and efficiently.
 
+Tokens are persisted to a local `tokens.json` file on disk so that restarts do not lose stored credentials.
+
 ---
 
 ## 📁 Engine Structure
@@ -38,6 +40,7 @@ npm test
 
 
 - `src/index.ts` is the main Express entry point handling Vault routes.
+- `src/storage.ts` loads and saves tokens to `tokens.json`.
 - `package.json` lists dependencies and scripts (currently minimal).
 - `README.md` (this file) documents Vault usage and API.
 - `ENGINE_SPEC.md` is reserved for a detailed manual specification.
@@ -93,6 +96,7 @@ Stores a token for a specific service and project.
 POST /vault/token
 ```
 Save a token for a specific service and project.
+Tokens are saved to `tokens.json` on disk so they persist across restarts.
 
 ```json
 {
@@ -117,7 +121,7 @@ Response:
 ```
 DELETE /vault/token/:project/:service
 ```
-Remove stored token.
+Remove stored token and update `tokens.json` accordingly.
 
 This endpoint is **implemented** in `src/index.ts` and deletes the token entry if it exists.
 
@@ -125,7 +129,7 @@ This endpoint is **implemented** in `src/index.ts` and deletes the token entry i
 
 ## 🛠️ Internals & Responsibilities
 
-- **Token Storage:** Stores credentials in memory (for MVP), later to be replaced with Redis or encrypted DB.
+- **Token Storage:** Credentials are persisted to `tokens.json` on disk. Future versions may move to Redis or an encrypted database.
 - **Keyed Access:** Tokens are indexed by `project + service` pairs.
 - **Strict API Exposure:** Only internal engines or trusted gateway should access the Vault endpoints.
 - **Pluggable Storage Backend:** Abstraction layer allows switching between in-memory, Redis, or cloud vaults (e.g., HashiCorp Vault, AWS Secrets Manager).

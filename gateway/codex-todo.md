@@ -4,4 +4,4 @@
 - [x] Add /gateway/run-blueprint endpoint to orchestrate platform execution
 - [x] Iterate over blueprint actions and call Execution engine sequentially
 - [x] Document codex-todo.md in README engine structure
-- [ ] Handle failures in run-blueprint without aborting entire run
+- [x] Handle failures in run-blueprint without aborting entire run

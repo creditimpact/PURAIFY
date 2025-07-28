@@ -1,7 +1,7 @@
 # PURAIFY — Live System State
 
 This file documents the current **real-time** state of the PURAIFY platform.  
-As of now, most engines only contain scaffold code. The Vault Engine exposes working `POST /vault/store` and `POST /vault/token` endpoints and a `GET /vault/token/:project/:service` lookup route.
+As of now, most engines only contain scaffold code. The Vault Engine persists tokens to `tokens.json` and exposes working `POST /vault/store`, `POST /vault/token`, and `GET /vault/token/:project/:service` routes.
 ---
 
 ## 🧱 System Build Status
@@ -65,20 +65,20 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes wor
 
 ---
 ## 🔄 Next Integration Steps
-- Add `/gateway/run-blueprint` route to orchestrate builder output and sequential execution.
+- `/gateway/run-blueprint` now executes all actions sequentially and returns a `results` array with success or error entries even if some actions fail.
 - Execution Engine must fetch tokens from Vault via `GET /vault/token/:project/:service` when actions need credentials.
 - Gateway orchestrates flow; Execution handles token retrieval; Vault serves tokens; Platform Builder supplies the blueprint.
 
 
 ## 🧠 Codex Notes Map
 engines/vault/src/index.ts:
-  Note: ✅ GET, POST and DELETE endpoints implemented
+  Note: ✅ GET, POST and DELETE endpoints implemented with token persistence to `tokens.json`
 engines/platform-builder/src/index.ts:
   Note: ✅ Basic server with validation; parser supports "and", "then", comma lists
 engines/execution/src/index.ts:
   Note: ✅ Action runner with send_slack token retrieval; returns 404 if token missing
 gateway/src/index.ts:
-  Note: ✅ Gateway routing implemented; run-blueprint orchestration added
+  Note: ✅ Gateway routing implemented; run-blueprint now continues after failures
 integration-design:
   Note: ❓ Should Gateway or Execution Engine fetch Vault tokens during action execution?
 root-level:
@@ -93,4 +93,4 @@ The next step is to expand features, add validation, and integrate across engine
 
 ---
 
-Last updated: July 28, 2025
+Last updated: July 29, 2025
