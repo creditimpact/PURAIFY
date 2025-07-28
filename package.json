@@ -7,7 +7,11 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:vault": "uvu tests/vault",
+    "test:execution": "uvu tests/execution",
+    "test:platform-builder": "uvu tests/platform-builder",
+    "test:gateway": "uvu tests/gateway",
+    "test": "npm run test:vault && npm run test:execution && npm run test:platform-builder && npm run test:gateway"
   },
   "repository": {
     "type": "git",
@@ -21,6 +25,7 @@
   },
   "homepage": "https://github.com/creditimpact/PURAIFY#readme",
   "devDependencies": {
-    "mocha": "^11.7.1"
+    "mocha": "^11.7.1",
+    "uvu": "^0.5.6"
   }
 }
