@@ -90,16 +90,6 @@ Sends token to Vault Engine for storage.
 POST /gateway/run-blueprint
 ```
 Iterates over a blueprint's actions and invokes the Execution Engine sequentially.
-Execution continues even if an individual action fails.
-The response includes a `results` array. Each entry conforms to the
-`ActionResult` interface defined in `src/types.ts`:
-```ts
-export interface ActionResult {
-  status: 'success' | 'error';
-  data?: unknown;
-  error?: string;
-}
-```
 
 > More endpoints may be added as new capabilities emerge (validation, feedback, logs, etc.)
 
