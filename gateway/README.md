@@ -90,6 +90,8 @@ Sends token to Vault Engine for storage.
 POST /gateway/run-blueprint
 ```
 Iterates over a blueprint's actions and invokes the Execution Engine sequentially.
+Execution continues even if an individual action fails; the response includes a
+`results` array with success or error entries for each action.
 
 > More endpoints may be added as new capabilities emerge (validation, feedback, logs, etc.)
 
