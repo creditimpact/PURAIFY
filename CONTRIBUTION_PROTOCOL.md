@@ -289,6 +289,20 @@ Engine-specific tasks should not go here — they belong inside the engine folde
 
 ---
 
+## 📃 System Contracts
+
+Codex must consult `SYSTEM_RULES.md` before executing logic that depends on cross-engine behavior, error fallback strategies, user permissions, or handling missing components.
+
+### 🧠 Codex Question Log
+
+Architecture doubts or unresolved system questions may be recorded in `codex-questions.md`.
+
+- Each entry should be labeled as `[Qx]`.
+- Human contributors respond using `[Ax]` in the **Answers** section.
+- Codex should review this file regularly and avoid repeating unresolved mistakes.
+
+---
+
 ## 🧪 Testing Strategy
 
 Each engine must place tests under `tests/<engine>/` and expose an `npm run test` script in its `package.json`.
