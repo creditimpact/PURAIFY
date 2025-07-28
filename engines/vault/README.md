@@ -66,6 +66,9 @@ Example Flow:
 
 Stores a token for a specific service and project.
 
+> This legacy endpoint remains for compatibility. New integrations should
+> use `POST /vault/token` which uses the simplified `project` field.
+
 **Request Body**
 
 ```json
@@ -84,7 +87,7 @@ Stores a token for a specific service and project.
 }
 ```
 
-### `POST /vault/token` *(planned)*
+### `POST /vault/token`
 
 ```
 POST /vault/token

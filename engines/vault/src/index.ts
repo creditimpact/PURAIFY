@@ -18,6 +18,19 @@ app.post('/vault/store', (req: Request, res: Response) => {
   return res.json({ success: true });
 });
 
+// Preferred endpoint using "project" for consistency
+app.post('/vault/token', (req: Request, res: Response) => {
+  const { project, service, token } = req.body || {};
+  if (!project || !service || !token) {
+    return res.status(400).json({ error: 'project, service and token are required' });
+  }
+  if (!tokenStore[project]) {
+    tokenStore[project] = {};
+  }
+  tokenStore[project][service] = token;
+  return res.json({ success: true });
+});
+
 app.get('/vault/token/:project/:service', (req: Request, res: Response) => {
   const { project, service } = req.params;
   const token = tokenStore[project]?.[service];

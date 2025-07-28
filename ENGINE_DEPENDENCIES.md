@@ -3,7 +3,7 @@
 - depends on: execution (/exec/token/verify)
 
 ### platform-builder
-- depends on: vault (/vault/token/store)
+- depends on: vault (/vault/token)
 - depends on: gateway (/gateway/route)
 - provides: blueprint generation to gateway (/builder/create)
 
@@ -27,7 +27,7 @@
 - depends on: vault (/vault/token/verify)
 
 ### integration-manager
-- depends on: vault (/vault/token/store)
+- depends on: vault (/vault/token)
 
 ### monitoring-logs-engine
 - depends on: execution (/exec/logs)

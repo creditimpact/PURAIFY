@@ -29,7 +29,7 @@
 
 | Engine           | Route                     | Notes                          |
 |------------------|---------------------------|--------------------------------|
-| vault            | /vault/store              | Token & secrets API            |
+| vault            | /vault/token              | Token & secrets API            |
 | platform-builder | /builder/create           | Platform creation & updates    |
 | execution        | /execute                  | Run actions & flows            |
 | gateway          | /gateway/*                    | API gateway router             |
