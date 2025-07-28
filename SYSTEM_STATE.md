@@ -65,7 +65,7 @@ As of now, most engines only contain scaffold code. The Vault Engine persists to
 
 ---
 ## 🔄 Next Integration Steps
-- `/gateway/run-blueprint` now executes all actions sequentially and returns a `results` array with success or error entries even if some actions fail.
+
 - Execution Engine must fetch tokens from Vault via `GET /vault/token/:project/:service` when actions need credentials.
 - Gateway orchestrates flow; Execution handles token retrieval; Vault serves tokens; Platform Builder supplies the blueprint.
 
