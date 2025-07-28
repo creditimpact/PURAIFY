@@ -78,6 +78,8 @@ gateway/src/index.ts:
   Note: ✅ Gateway routing implemented; blueprint orchestration pending
 integration-design:
   Note: ❓ Should Gateway or Execution Engine fetch Vault tokens during action execution?
+root-level:
+  Note: ENGINE_DEPENDENCIES.md, NAMESPACE_MAP.md and codex-todo.md added for cross-engine tracking. Engine-level codex-todo format expected.
 
 ---
 
@@ -88,4 +90,4 @@ The next step is to expand features, add validation, and integrate across engine
 
 ---
 
-Last updated: July 25, 2025
+Last updated: July 28, 2025

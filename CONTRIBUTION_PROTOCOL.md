@@ -250,6 +250,26 @@ If Codex runs out of todos or Codex Notes, it should:
 
 ---
 
+### 📁 New File: ENGINE_DEPENDENCIES.md
+
+This file lives at the root of the repo and defines dependencies between engines.
+
+Each engine should be listed with the other engines it depends on, including relevant route examples.  Codex must keep this file updated when new engine interactions occur or routes are added/removed.
+
+Format example:
+```md
+### vault
+- depends on: platform-builder (/platform/blueprint/:id)
+- depends on: execution (/exec/token/verify)
+```
+
+### 🧠 New File: codex-todo.md (root-level)
+This root-level file contains system-level tasks — across engines, protocol-wide changes, or multi-engine coordination.  Codex uses this to track global efforts, like standardizing formats, adding shared infra files, or resolving architectural questions.
+
+Engine-specific tasks should not go here — they belong inside the engine folders.
+
+---
+
 ## 🧪 Testing Strategy
 
 Each engine must place tests under `tests/<engine>/` and expose an `npm run test` script in its `package.json`.
