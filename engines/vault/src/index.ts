@@ -1,10 +1,11 @@
 import express, { Request, Response } from "express";
+import { loadStore, saveStore, TokenStore } from "./storage";
 
 const app = express();
 app.use(express.json());
 
-// simple in-memory store: { [projectId]: { [service]: token } }
-const tokenStore: Record<string, Record<string, string>> = {};
+// token store persisted to disk
+let tokenStore: TokenStore = loadStore();
 
 app.post('/vault/store', (req: Request, res: Response) => {
   const { projectId, service, token } = req.body || {};
@@ -15,6 +16,7 @@ app.post('/vault/store', (req: Request, res: Response) => {
     tokenStore[projectId] = {};
   }
   tokenStore[projectId][service] = token;
+  saveStore(tokenStore);
   return res.json({ success: true });
 });
 
@@ -28,6 +30,7 @@ app.post('/vault/token', (req: Request, res: Response) => {
     tokenStore[project] = {};
   }
   tokenStore[project][service] = token;
+  saveStore(tokenStore);
   return res.json({ success: true });
 });
 
@@ -47,6 +50,7 @@ app.delete('/vault/token/:project/:service', (req: Request, res: Response) => {
     if (Object.keys(tokenStore[project]).length === 0) {
       delete tokenStore[project];
     }
+    saveStore(tokenStore);
     return res.json({ success: true });
   }
   return res.status(404).json({ error: 'Token not found' });

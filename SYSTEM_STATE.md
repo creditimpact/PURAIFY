@@ -1,7 +1,7 @@
 # PURAIFY — Live System State
 
 This file documents the current **real-time** state of the PURAIFY platform.  
-As of now, most engines only contain scaffold code. The Vault Engine exposes working `POST /vault/store` and `POST /vault/token` endpoints and a `GET /vault/token/:project/:service` lookup route.
+As of now, most engines only contain scaffold code. The Vault Engine persists tokens to `tokens.json` and exposes working `POST /vault/store`, `POST /vault/token`, and `GET /vault/token/:project/:service` routes.
 ---
 
 ## 🧱 System Build Status
@@ -72,7 +72,7 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes wor
 
 ## 🧠 Codex Notes Map
 engines/vault/src/index.ts:
-  Note: ✅ GET, POST and DELETE endpoints implemented
+  Note: ✅ GET, POST and DELETE endpoints implemented with token persistence to `tokens.json`
 engines/platform-builder/src/index.ts:
   Note: ✅ Basic server with validation; parser supports "and", "then", comma lists
 engines/execution/src/index.ts:
@@ -93,4 +93,4 @@ The next step is to expand features, add validation, and integrate across engine
 
 ---
 
-Last updated: July 28, 2025
+Last updated: July 29, 2025

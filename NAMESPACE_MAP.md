@@ -5,6 +5,7 @@
 | Engine           | File/Module                | Notes                           |
 |------------------|----------------------------|---------------------------------|
 | vault            | src/index.ts               | Express routes for credential storage |
+| vault            | src/storage.ts             | Loads and saves tokens to disk |
 | platform-builder | src/index.ts               | Blueprint generation server |
 | execution        | src/index.ts               | Executes actions |
 | gateway          | src/index.ts               | Main API gateway |

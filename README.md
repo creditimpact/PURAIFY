@@ -25,7 +25,7 @@ PURAIFY is composed of specialized engines, each with a single responsibility:
 | Engine | Purpose | Status |
 |---|---|---|
 | Platform Builder | Converts user prompts into structured blueprints | 🟢 In Progress |
-| Vault Engine | Stores API tokens and credentials securely | 🟢 In Progress |
+| Vault Engine | Stores API tokens and credentials securely (persisted to `tokens.json`) | 🟢 In Progress |
 | Execution Engine | Executes actions defined in the blueprint (e.g. Slack API) | 🟢 In Progress |
 | Gateway | Routes requests and orchestrates calls between engines | 🟢 In Progress |
 

@@ -37,3 +37,4 @@ Thumbs.db
 # דוחות כיסוי (אם יהיה testing)
 coverage/
 .nyc_output/
+engines/vault/src/tokens.json
