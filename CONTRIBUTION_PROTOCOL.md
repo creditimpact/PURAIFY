@@ -161,14 +161,14 @@ These are Codex-facing notes intended for future context — not user documentat
 
 #### B. Local codex-todo.md File (Optional)
 
-In each engine folder (e.g., engines/vault/), Codex may maintain a codex-todo.md file for multi-item tracking:
+Each engine folder (e.g., `engines/vault/`) may contain its own `codex-todo.md` file. These **per-engine todo files** track code and documentation tasks that apply only to that specific engine:
 
 ## TODO
 - [ ] Unify endpoint name with SYSTEM_STATE
 - [ ] Add error fallback for missing project token
 - [x] Normalize Vault request shape
 
-Each item should be concise and traceable to implementation points.
+Each item should be concise and traceable to implementation points. Keep engine-focused todos here so they do not clutter the root task list.
 
 🔁 Execution Rules  
 Whenever Codex completes a task originally recorded as a note or todo:
@@ -261,10 +261,12 @@ Format example:
 
 ---
 
-🧠 New File: codex-todo.md (root-level)  
-This root-level file contains system-level tasks — across engines, protocol-wide changes, or multi-engine coordination. Codex uses this to track global efforts, like standardizing formats, adding shared infra files, or resolving architectural questions.
+🧠 New File: codex-todo.md (root-level)
+This root-level file contains system-level tasks — across engines, protocol-wide changes, or multi-engine coordination. Codex uses it to track global efforts, like standardizing formats or adding shared infrastructure.
 
-Engine-specific tasks should not go here — they belong inside the engine folders.
+Engine-specific tasks should not go here — they belong inside an engine’s local `codex-todo.md`.
+
+The root file also hosts a `## Proposed Actions` section. Use this section only for environment or configuration updates that require human approval. Mirror each entry in `PROPOSED_ACTIONS_LOG.md` and wait for approval before making the change.
 
 ---
 
@@ -273,8 +275,8 @@ Codex must consult SYSTEM_RULES.md before executing logic that depends on cross-
 
 ---
 
-🧠 Codex Question Log  
-Architecture doubts or unresolved system questions may be recorded in `codex-questions.md`.
+🧠 Codex Question Log
+Use `codex-questions.md` to raise open questions or architectural uncertainties that block progress or require clarification before continuing.
 
 Each entry should be labeled as `[Qx]`.
 
@@ -352,7 +354,7 @@ Build like the system builds itself.
 Environment or configuration updates require a transparent approval process:
 
 1. Add a bullet under `## Proposed Actions` in `codex-todo.md` describing the change, rationale, and expected impact.
-2. Add the same entry to `PROPOSED_ACTIONS_LOG.md` with status **Proposed**.
+2. Add the same entry to `PROPOSED_ACTIONS_LOG.md` with status **Proposed**. This log is **only** for environment or configuration proposals and should not list normal code tasks.
 3. Wait for an explicit human response of `YES` before applying the change.
 4. After approval, implement the change, update relevant docs, and update the log entry to **Executed** with date and approver.
 5. Keep both the todo item and log for historical reference.
