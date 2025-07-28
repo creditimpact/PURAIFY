@@ -74,9 +74,9 @@ As of now, most engines only contain scaffold code. The Vault Engine exposes wor
 engines/vault/src/index.ts:
   Note: ✅ GET, POST and DELETE endpoints implemented
 engines/platform-builder/src/index.ts:
-  Note: ✅ Basic server with validation and multi-action parsing implemented
+  Note: ✅ Basic server with validation; parser supports "and", "then", comma lists
 engines/execution/src/index.ts:
-  Note: ✅ Action runner with send_slack token retrieval implemented
+  Note: ✅ Action runner with send_slack token retrieval; returns 404 if token missing
 gateway/src/index.ts:
   Note: ✅ Gateway routing implemented; run-blueprint orchestration added
 integration-design:

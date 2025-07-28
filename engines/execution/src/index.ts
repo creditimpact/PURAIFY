@@ -31,6 +31,9 @@ app.post('/execute', async (req: Request, res: Response) => {
         console.log(`Would send Slack message '${params?.message}' with token ${token}`);
         return res.json({ status: 'success' });
       } catch (err: any) {
+        if (axios.isAxiosError(err) && err.response?.status === 404) {
+          return res.status(404).json({ status: 'error', message: 'Slack token not found' });
+        }
         return res.status(500).json({ status: 'error', message: err.message });
       }
     }

@@ -8,8 +8,8 @@
 - [x] Provide initial docker-compose.yml or document missing services
 - [x] Add test folders and `npm test` scripts for each engine per CONTRIBUTION_PROTOCOL.md
 
-- [ ] Document gateway's `codex-todo.md` in both root README and gateway README
-- [ ] Create integration tests that run blueprint creation via Gateway and execute actions
+- [x] Document gateway's `codex-todo.md` in both root README and gateway README
+- [ ] Create integration tests that run blueprint creation via Gateway and execute actions 🌐 External constraint (npm install blocked)
 - [ ] Review ENGINE_DEPENDENCIES.md for accuracy against code implementation
 - [ ] Expand NAMESPACE_MAP.md with file references as new engines are added
 

@@ -3,5 +3,5 @@
 - [x] Provide lockfile/offline npm install instructions
 - [x] Integrate with Vault engine for credential fetching via GET /vault/token/:project/:service
 - [x] Support additional actions beyond log_message (added send_slack)
-- [ ] Return a clear error when Vault token is missing (404)
+- [x] Return a clear error when Vault token is missing (404)
 - [ ] Implement real Slack API call using axios
