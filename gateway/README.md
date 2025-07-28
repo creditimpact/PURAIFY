@@ -25,6 +25,7 @@ gateway/
 ├── tsconfig.json
 ├── README.md
 ├── ENGINE_SPEC.md
+├── codex-todo.md
 └── src/
     └── index.ts
 ```

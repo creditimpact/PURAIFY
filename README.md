@@ -75,7 +75,8 @@ puraify/
 │   ├── src/
 │   │   └── index.ts                ← Main API router for the PURAIFY system
 │   ├── README.md                   ← Gateway specification
-│   └── ENGINE_SPEC.md              ← Manual spec placeholder
+│   ├── ENGINE_SPEC.md              ← Manual spec placeholder
+│   └── codex-todo.md               ← Local tasks
 ├── docker-compose.yml              ← Docker Compose configuration
 ├── ENGINE_DEPENDENCIES.md          ← Declared engine relationships
 ├── NAMESPACE_MAP.md                ← Cross-engine name map
