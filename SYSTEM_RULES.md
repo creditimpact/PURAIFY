@@ -1,183 +1,99 @@
-# ⚖️ PURAIFY System Rules
+# ⚖️ PURAIFY System Rules — Flexible and Communicative
 
-This file defines high-level system behavior policies and governance for the PURAIFY platform.  
-Codex **must** consult this file before performing complex orchestration, error handling, or assumptions.
+This document defines guiding principles and governance for the PURAIFY system with an emphasis on communication, understanding, and collaboration between Codex and human developers.
 
 ---
 
 ## ✅ General Principles
 
-- All system changes must maintain consistency across code and documentation.  
-- Preserve system modularity, scalability, and backwards compatibility.  
-- Codex should always prioritize safety, clarity, and traceability over speed.  
-- Automated changes must be fully reversible and auditable.  
-- Clear communication is mandatory when human intervention or clarification is needed.  
-- Codex must log all uncertainties, questions, or architectural doubts to `codex-questions.md`.
+- Changes should maintain consistency and up-to-date documentation, but the system allows discretion and action even in uncertain situations.
+- The system remains modular and extensible, allowing gradual experiments and changes.
+- Priority is given to safety, clarity, and traceability, balanced with openness to learning and clarifications.
+- All automated actions must be traceable, but actions are permitted when accompanied by comments or questions if there is uncertainty.
+- Clear, communicative interaction with humans is critical — Codex must explain its reasoning and request help when needed.
 
 ---
 
-## 🔄 Flow Execution Rules
+## 🔄 Flow and Process Management
 
-- Codex executes flows strictly according to defined blueprint logic.  
-- Multi-step workflows must follow explicit orchestration sequences; no implicit assumptions.  
-- Missing dependencies or resources cause Codex to pause and log todos instead of guessing.  
-- All state changes and side effects must be logged and tracked consistently.  
-- Parallel or asynchronous steps must maintain data integrity and consistency.
-
----
-
-## 🔁 Retry & Failure Logic
-
-- Failed steps should trigger retries with exponential backoff or configured policies.  
-- Exhausted retries must invoke failure handlers or fallback mechanisms.  
-- Failures require detailed logging and human notification for persistent issues.  
-- Partial successes, rollbacks, and compensations must be clearly documented and align with blueprint expectations.
+- Codex will follow defined blueprint flows but may deviate or propose alternatives when uncertain.
+- For multi-step workflows, Codex maintains consistency but is flexible in actions between steps.
+- Missing dependencies or unavailable resources will be clearly noted and documented, but Codex will try to continue operating where possible.
+- State changes will be logged, with detailed explanations for any unusual or uncertain actions.
 
 ---
 
-## 🔐 User Consent & Authorization Policies
+## 🔁 Handling Failures and Errors
 
-- Every action requires valid authorization tokens or engine credentials.  
-- Unauthorized or expired requests must be rejected immediately with clear error messages.  
-- Sensitive operations require explicit user consent or secondary approval workflows.  
-- Codex must verify all permissions before execution and log authorization outcomes.  
-- Maintain secure audit trails of user consent.
+- Upon failures, Codex will attempt retries using a flexible policy, communicating progress during retries.
+- If retries fail, clear documentation and proposals for compensation or rollback will be added, including indications for human intervention.
+- For partial successes, Codex will continue with accurate logging, even if the outcome is not perfect.
 
 ---
 
-## 🧩 Blueprint Assumptions & Validation
+## 🔐 Permissions and Security
 
-- Blueprints must be validated for correctness before execution.  
-- Codex must consult the Validation Engine or equivalent for blueprint integrity.  
-- Missing or ambiguous blueprint elements cause execution to halt with detailed logging.  
-- Codex must verify existence and enabled status of referenced engines, actions, and integrations.  
-- Blueprint changes must trigger re-validation and documentation updates.
+- Every action will have permission checks, but if permission status is unclear, Codex will add notes and questions instead of halting completely.
+- Sensitive actions require additional approval, but Codex can propose communication methods to acquire this during execution.
+- Codex will safeguard sensitive data and report anomalies immediately.
 
 ---
 
-## 🧠 Codex Communication & Reporting
+## 🧩 Validation and Assumptions
 
-- Codex logs all architecture questions, uncertainties, and anomalies to `codex-questions.md`.  
-- Human contributors review and respond promptly to these logs.  
-- Codex avoids repeating failures on unresolved issues by tracking open questions.  
-- Missing engines, dependencies, or critical resources trigger todos in `codex-todo.md` awaiting human input.  
-- Clear escalation paths and guidance must be documented and followed.
+- Codex will validate blueprints before execution, but if uncertainties or missing parts are found, it will add detailed notes and request clarifications rather than stopping outright.
+- Codex will verify existence of engines, actions, and integrations, and may propose tasks to complete missing parts.
+- Blueprint changes will be accompanied by documentation updates and clear communication.
 
 ---
 
-## 🔄 Dependency & Engine Management
+## 🧠 Communication and Reporting
 
-- Codex must always consult `ENGINES_INDEX.md` before cross-engine tasks.  
-- If a required engine is missing or disabled, Codex must not proceed automatically.  
-- Codex may propose scaffolding or todos but must not add engines without explicit instructions.  
-- Engine dependencies must be declared and updated in `ENGINE_DEPENDENCIES.md`.  
-- Route or contract changes must be promptly reflected in documentation.
-
----
-
-## 🧪 Testing & Quality Assurance
-
-- Every engine must have automated unit and integration tests.  
-- Codex should run tests when modifying engines or logic.  
-- If unable to run tests (e.g., environment limits), Codex creates a `codex-test-todo.md` with explanation.  
-- Test coverage and status tracked in `SYSTEM_STATE.md`.  
-- Code changes must not degrade coverage or break functionality without documented exceptions.
+- Codex will document all questions, ambiguities, and architectural notes in `codex-questions.md` with clear requests for clarification.
+- Humans are expected to respond promptly, but Codex will continue working with partial information if no response is available.
+- Codex will avoid repeating past mistakes by managing open questions and todos efficiently.
+- Missing engines or resources will trigger todos but Codex will try to offer interim options where feasible.
 
 ---
 
-## 🔧 Structural & Documentation Guidelines
+## 🧪 Testing and Quality Assurance
 
-- Follow strict naming conventions and folder structures.  
-- Documentation must be clear, consistent, and kept close to code.  
-- Codex must update root and engine-level `README.md`, `SYSTEM_STATE.md`, and relevant docs on changes.  
-- Major refactors require coordinated multi-file documentation updates.  
-- Include blueprint and API examples where applicable.
+- Codex will run automated tests when possible and maintain high standards but will allow marking tests as pending or unavailable with explanations.
+- Testing status will be documented transparently with clear notes on missing coverage.
 
 ---
 
-## 🗂️ Versioning & Change Tracking
+## 🔧 Documentation and Structure
 
-- Log significant changes with version numbers and dates in `CHANGELOG.md`.  
-- Maintain traceability of merges, pull requests, and commits.  
-- Deprecated engines/features must be clearly marked and removed following deprecation policy.
-
----
-
-## 📌 Environment Change Approval Workflow
-
-- Codex must track every proposed modification to environment setup, configuration, dependencies, or protocols.
-- Log each proposal in `codex-todo.md` under the `## Proposed Actions` section with a clear description, rationale, and expected impact.
-- Record each proposal in `PROPOSED_ACTIONS_LOG.md` for permanent tracking.
-- Do not implement the change until a human explicitly approves with "YES".
-- Upon approval, update the environment, document the action with date and approver in both files, and mark the item complete.
-- If rejected or unanswered, keep the proposal pending and note the outcome.
-- All environment changes must remain version-controlled for auditability.
----
-
-## 🛡️ Security & Privacy Guidelines
-
-- All data access and mutations must comply with system-wide security policies.  
-- Sensitive data must be handled according to encryption and access control rules.  
-- Codex must avoid exposing sensitive information in logs or outputs.  
-- Any detected security anomalies must trigger immediate alerts and human review.
+- Codex will keep documentation close to the code and may add notes and explanations where certainty is lacking.
+- Documentation will be clear, consistent, and continuously updated, with flexibility in how explanations are given.
+- Significant infrastructure changes will be well documented with emphasis on communication.
 
 ---
 
-## 🔍 Continuous Monitoring & Alerts
+## 🤝 Human Collaboration
 
-- Codex must report abnormal patterns, repeated failures, or performance degradation.  
-- Critical issues or repeated user-impacting failures require immediate escalation.  
-- Monitoring metrics should be updated regularly to reflect engine health and usage.
-
----
-
-## 🕒 Performance & Resource Management
-
-- Codex should monitor resource usage and avoid long-running blocking operations.  
-- Retries and workflows should consider rate limits and system load.  
-- Parallelization must be balanced with resource constraints and data consistency.
+- Codex will operate with open communication, reaching out with questions, suggestions, and clarifications.
+- In cases of uncertainty, Codex will tag tasks with markers like `🔧 Requires human` but continue working as much as possible.
+- All human interactions will be logged for ongoing tracking and improvement.
 
 ---
 
-## 🧩 Blueprint & Data Schema Evolution
+## 📜 Consistency and Alignment
 
-- Changes to blueprint schemas require backward compatibility checks.  
-- Codex must validate version compatibility before applying changes.  
-- Migration steps or warnings should be documented and triggered automatically when needed.
-
----
-
-## 📚 Documentation & Knowledge Sharing
-
-- Codex should log architectural decisions and rationale for future reference.  
-- Major protocol or design changes must be documented clearly and shared with stakeholders.  
-- Codex must reference official documentation in all generated code or API contracts.
+- Codex will keep code and documentation consistent but allow controlled deviations with detailed explanations.
+- All automated changes will be reversible and tracked.
 
 ---
 
-## ⚙️ Operational Continuity & Recovery
+## 📌 Additional Recommendations
 
-- Codex must maintain state checkpoints to enable recovery after failures.  
-- In case of partial failure, recovery or compensation logic should be applied where possible.  
-- System-wide fallback strategies must be documented and invoked when necessary.
-
----
-
-## 🤝 Human Collaboration & Feedback
-
-- Codex should solicit human input when ambiguities or conflicts arise.  
-- All human responses must be logged and incorporated in subsequent runs.  
-- Clear guidelines for escalation and intervention must be maintained.
+- Encourage Codex to "think aloud" — add comments and explanations even when not strictly required.
+- Ease creation of new tasks during runtime, including non-critical ones.
+- Allow Codex to propose alternative approaches or interim solutions.
+- Empower Codex to keep working with partial information to maintain momentum.
 
 ---
 
-## 📜 Compliance & Auditability
-
-- All operations must be auditable with timestamps, user/engine IDs, and outcomes.  
-- Codex must comply with relevant regulatory requirements (e.g., GDPR, HIPAA if applicable).  
-- Audit logs must be securely stored and accessible for review.
-
----
-
-Thanks,  
-**PURAIFY System Governance**
+Thank you for the collaboration,  
+**PURAIFY System Governance (Flexible and Communicative)**
