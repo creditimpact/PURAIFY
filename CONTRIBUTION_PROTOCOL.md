@@ -117,6 +117,25 @@ When working with Codux or similar systems:
 - Ensure `README.md`, `SYSTEM_STATE.md`, and engine docs reflect changes accurately.
 
 ---
+## 🤖 Codex Responsibilities
+
+### 🔍 Engine Awareness via ENGINES_INDEX.md
+
+Before performing tasks involving cross-engine logic, Codex must:
+
+1. Check for the presence of `ENGINES_INDEX.md` in the root directory.
+2. Use this file to determine:
+   - Which engines exist (✅)
+   - Which engines are missing but required (🔲)
+   - Dependency chains between engines
+
+❗ Codex must never fill or update this file automatically. It is manually maintained and considered source-of-truth for orchestration logic.
+
+If a missing engine prevents task execution:
+- Log a Codex Note or add a todo in `codex-todo.md`
+- Await human clarification before proceeding
+
+---
 
 ## 🧠 Codex Internal Notes and Self-Tasks
 
