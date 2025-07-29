@@ -1,7 +1,7 @@
 # PURAIFY — Live System State
 
 This file documents the current **real-time** state of the PURAIFY platform.
-As of now, most engines only contain scaffold code. The Vault Engine persists tokens to `tokens.json` (encrypted when `VAULT_SECRET` is set) and exposes working `POST /vault/store`, `POST /vault/token`, and `GET /vault/token/:project/:service` routes.
+As of now, most engines only contain scaffold code. The Vault Engine persists tokens to `tokens.json` (location overridable via `VAULT_DATA_FILE`) and exposes working token CRUD routes with AES-256 encryption when `VAULT_SECRET` is set.
 ---
 
 ## 🧱 System Build Status
@@ -35,7 +35,7 @@ As of now, most engines only contain scaffold code. The Vault Engine persists to
 | Engine            | APIs            | Status       |
 |-------------------|------------------|--------------|
 | Platform Builder  | `POST /builder/create` | 🟢 In Progress |
-| Vault Engine      | `POST /vault/store`, `POST /vault/token`, `GET /vault/token/:project/:service`, `DELETE /vault/token/:project/:service`, `GET /vault/tokens/:project`, `GET /vault/projects` | 🟢 In Progress |
+| Vault Engine      | `POST /vault/store`, `POST /vault/token`, `GET /vault/token/:project/:service`, `DELETE /vault/token/:project/:service`, `GET /vault/tokens/:project`, `DELETE /vault/tokens/:project`, `GET /vault/projects` | 🟢 In Progress |
 | Execution Engine  | `POST /execute` | 🟢 In Progress |
 | Gateway           | `POST /gateway/build-platform`, `POST /gateway/execute-action`, `POST /gateway/store-token`, `POST /gateway/run-blueprint` | 🟢 In Progress |
 

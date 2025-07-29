@@ -11,6 +11,7 @@ It functions as a centralized "secret manager", allowing engines to **query for 
 The Vault Engine does not execute actions or orchestrate flows — it exists to **hold and serve sensitive authentication data** safely and efficiently.
 
 Tokens are persisted to a local `tokens.json` file on disk so that restarts do not lose stored credentials.
+The location of this file can be customized via the `VAULT_DATA_FILE` environment variable.
 
 ---
 
@@ -129,6 +130,11 @@ This endpoint is **implemented** in `src/index.ts` and deletes the token entry i
 GET /vault/tokens/:project
 ```
 Return all stored service tokens for the given project.
+
+```
+DELETE /vault/tokens/:project
+```
+Delete all stored tokens for the given project.
 
 ```
 GET /vault/projects

@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { loadStore, saveStore, TokenStore } from "./storage";
+import { loadStore, saveStore, TokenStore, deleteProjectTokens } from "./storage";
 
 const app = express();
 app.use(express.json());
@@ -76,6 +76,18 @@ app.get('/vault/tokens/:project', (req: Request, res: Response) => {
     return res.status(404).json({ error: 'Project not found' });
   }
   return res.json({ tokens });
+});
+
+app.delete('/vault/tokens/:project', (req: Request, res: Response) => {
+  const { project } = req.params;
+  if (!project) {
+    return res.status(400).json({ error: 'project required' });
+  }
+  if (deleteProjectTokens(tokenStore, project)) {
+    saveStore(tokenStore);
+    return res.json({ success: true });
+  }
+  return res.status(404).json({ error: 'Project not found' });
 });
 
 app.get('/vault/projects', (_req: Request, res: Response) => {
