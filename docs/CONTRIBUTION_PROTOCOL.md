@@ -423,5 +423,46 @@ Environment or configuration updates require a transparent approval process:
 
 This ensures all environment changes are reviewed and fully traceable.
 
+## 📚 Work & Communication Map
+
+Use this guide as a quick reference for where information lives and how to keep
+communication flowing between Codex and human contributors.
+
+### Communication Documents
+
+| Document & Path | Purpose | When to Update |
+|-----------------|---------|----------------|
+| `docs/codex-todo.md` | Global backlog and reflection items | Add tasks or ideas that span multiple engines. Mark complete when done. |
+| `engines/*/codex-todo.md` | Engine‑specific todos following `CODEX_TODO_FORMAT.md` | Track implementation tasks within that engine. |
+| `PROPOSED_ACTIONS_LOG.md` | History of environment/config changes | Mirror any proposal from a todo file and update after approval/execution. |
+| `codex-questions.md` | Log of open architectural questions | Add `[Qx]` entries when uncertain. Humans reply with `[Ax]`. |
+| `docs/human-todo.md` | Manual steps requiring human help | Add tasks tagged `🔧 Requires human` or `🌐 External constraint`. |
+| `SYSTEM_STATE.md` | Snapshot of engine progress and Codex Notes | Update status tables and the **Codex Notes Map** whenever features or notes change. |
+| `ENGINE_SPEC.md` (per engine) | Canonical behavior specification | Keep in sync with code; propose edits via todo + log. |
+| `ENGINES_INDEX.md` | Registry of all engines and whether they exist | Consult before assuming an engine is available. Do **not** auto‑update. |
+| `ENGINE_DEPENDENCIES.md` | Declares runtime dependencies between engines | Update when new cross‑engine calls are added or removed. |
+| `NAMESPACE_MAP.md` | Maps file and route names across engines | Reference to avoid conflicts when creating new modules or endpoints. |
+| `CODEX_TODO_FORMAT.md` | Standard structure for todo files | Review when adding or editing a todo list. |
+
+### Workflow Guidelines
+
+1. **Start of a session** – read `SYSTEM_STATE.md`, root `codex-todo.md`, and any engine `codex-todo.md` you plan to modify. Check `codex-questions.md` for unresolved items.
+2. **During work** – document new tasks in the appropriate todo file. For environment or configuration changes, add a proposal under `## Proposed Actions` and mirror it in `PROPOSED_ACTIONS_LOG.md`.
+3. **When blocked or unsure** – create a `[Qx]` entry in `codex-questions.md` and tag related tasks with `🔧 Requires human` or `🌐 External constraint` in the todo list.
+4. **After completing a task** – mark the checkbox in the todo file, update engine READMEs and specs, and adjust `SYSTEM_STATE.md` progress or notes.
+5. **End of session** – ensure all updates are committed and summarize outstanding todos so future sessions have context.
+
+### System Memory Tools
+
+- `SYSTEM_STATE.md` keeps a real‑time view of engine status and houses the **Codex Notes Map** for tracking inline notes across files.
+- Todo files act as persistent memory of pending tasks. Combined with the notes map, they allow Codex to resume work seamlessly in future runs.
+- `PROPOSED_ACTIONS_LOG.md` provides historical context for environment changes, ensuring no configuration is altered without approval.
+
+### Recommendations
+
+- Review this map regularly to stay oriented.
+- Keep documentation changes close to code changes to maintain traceability.
+- When in doubt, prefer adding a question or todo rather than guessing. Clear communication keeps the system healthy.
+
 Thanks,  
 PURAIFY System Protocol
