@@ -17,7 +17,7 @@
 - [ ] Refactor engine code to enforce isolation and modular API boundaries
 - [ ] Update ENGINE_DEPENDENCIES.md to reflect accurate dependency information
 - [x] Enhance each engine README with dependency, testing, and interface details
-- [ ] Add or improve tests verifying independent operation of each engine
+- [x] Add or improve tests verifying independent operation of each engine
 - [x] Document engine independence guidelines in CONTRIBUTION_PROTOCOL.md and SYSTEM_RULES.md
 
 
