@@ -9,7 +9,9 @@ let tokenStore: TokenStore = loadStore();
 
 app.post('/vault/store', (req: Request, res: Response) => {
   const { projectId, service, token } = req.body || {};
-  if (!projectId || !service || !token) {
+  if (typeof projectId !== 'string' || !projectId.trim() ||
+      typeof service !== 'string' || !service.trim() ||
+      typeof token !== 'string' || !token.trim()) {
     return res.status(400).json({ error: 'projectId, service and token are required' });
   }
   if (!tokenStore[projectId]) {
@@ -23,7 +25,9 @@ app.post('/vault/store', (req: Request, res: Response) => {
 // Preferred endpoint using "project" for consistency
 app.post('/vault/token', (req: Request, res: Response) => {
   const { project, service, token } = req.body || {};
-  if (!project || !service || !token) {
+  if (typeof project !== 'string' || !project.trim() ||
+      typeof service !== 'string' || !service.trim() ||
+      typeof token !== 'string' || !token.trim()) {
     return res.status(400).json({ error: 'project, service and token are required' });
   }
   if (!tokenStore[project]) {
@@ -36,6 +40,9 @@ app.post('/vault/token', (req: Request, res: Response) => {
 
 app.get('/vault/token/:project/:service', (req: Request, res: Response) => {
   const { project, service } = req.params;
+  if (!project || !service) {
+    return res.status(400).json({ error: 'project and service required' });
+  }
   const token = tokenStore[project]?.[service];
   if (!token) {
     return res.status(404).json({ error: 'Token not found' });
@@ -45,6 +52,9 @@ app.get('/vault/token/:project/:service', (req: Request, res: Response) => {
 
 app.delete('/vault/token/:project/:service', (req: Request, res: Response) => {
   const { project, service } = req.params;
+  if (!project || !service) {
+    return res.status(400).json({ error: 'project and service required' });
+  }
   if (tokenStore[project]?.[service]) {
     delete tokenStore[project][service];
     if (Object.keys(tokenStore[project]).length === 0) {
