@@ -14,6 +14,18 @@ Common actions include:
 - Posting to Slack
 - Triggering webhooks
 
+## 📁 File Structure
+
+```text
+execution/
+├── package.json
+├── tsconfig.json
+├── src/
+│   └── index.ts
+├── README.md
+└── ENGINE_SPEC.md
+```
+
 ---
 
 ## ⚙️ Core Responsibilities

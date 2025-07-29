@@ -46,7 +46,7 @@ npm test
 - `package.json` defines Gateway dependencies and scripts.
 - `tsconfig.json` contains TypeScript compiler settings.
 - `README.md` (this file) explains routing behavior and planned endpoints.
-- `ENGINE_SPEC.md` will contain a detailed manual specification.
+- `ENGINE_SPEC.md` contains the canonical specification for this engine and must remain in sync with the implemented code.
 - `README.md` (this file) explains routing behavior and planned endpoints.
 
 ---

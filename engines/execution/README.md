@@ -41,7 +41,7 @@ npm test
 - `package.json` manages dependencies and scripts.
 - `tsconfig.json` contains TypeScript compiler settings.
 - `README.md` (this file) outlines Execution's responsibilities.
-- `ENGINE_SPEC.md` will hold the detailed manual spec for this engine.
+- `ENGINE_SPEC.md` contains the canonical specification for this engine and must remain in sync with the implemented code.
 
 ---
 

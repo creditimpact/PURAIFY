@@ -44,7 +44,7 @@ npm test
 - `src/storage.ts` loads and saves tokens to `tokens.json`.
 - `package.json` lists dependencies and scripts (currently minimal).
 - `README.md` (this file) documents Vault usage and API.
-- `ENGINE_SPEC.md` is reserved for a detailed manual specification.
+- `ENGINE_SPEC.md` contains the canonical specification for this engine and must remain in sync with the implemented code.
 
 ---
 
