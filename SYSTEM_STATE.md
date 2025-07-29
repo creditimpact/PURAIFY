@@ -45,7 +45,7 @@ As of now, most engines only contain scaffold code. The Vault Engine persists to
 
 | Integration    | Status     | Notes |
 |----------------|------------|-------|
-| Slack          | 🔲 Not Yet | Placeholder defined in Execution README |
+| Slack          | 🟡 Partial | send_slack action now posts via Slack API |
 | Notion         | 🔲 Not Yet | Planned |
 | Google Sheets  | 🔲 Not Yet | Planned |
 | Email (SMTP)   | 🔲 Not Yet | Planned |
@@ -76,7 +76,7 @@ engines/vault/src/index.ts:
 engines/platform-builder/src/index.ts:
   Note: ✅ Basic server with validation; parser supports "and", "then", comma lists
 engines/execution/src/index.ts:
-  Note: ✅ Action runner with send_slack token retrieval; returns 404 if token missing
+  Note: ✅ send_slack now posts to Slack API; returns 404 if token missing
 gateway/src/index.ts:
   Note: ✅ Gateway routing implemented; run-blueprint now continues after failures
 integration-design:
@@ -91,7 +91,8 @@ root-level:
 
 The PURAIFY project is in the **early development phase**, with initial endpoints implemented for each engine.
 The next step is to expand features, add validation, and integrate across engines.
+Documentation updated for engine dependencies and namespace mapping to reflect current implementation.
 
 ---
 
-Last updated: July 29, 2025
+Last updated: July 31, 2025

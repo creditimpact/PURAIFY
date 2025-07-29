@@ -130,8 +130,9 @@ Error example:
 
 ## 🚧 Development Notes
 
-- Basic Vault integration implemented for the `send_slack` action. The engine fetches a token via `GET /vault/token/:project/slack` and logs the action.
-- Missing tokens now return a clear `404` error instead of a generic `500`.
+- `send_slack` now performs a real API request via `chat.postMessage`. The URL can be overridden with the `SLACK_API_URL` env var for testing.
+- Vault integration fetches tokens via `GET /vault/token/:project/slack`.
+- Missing tokens return a clear `404` error instead of a generic `500`.
 - The engine will evolve to support retries, fallback handlers, and async task queues.
 - Logs should be structured and sent to Logs Engine in the future.
 
