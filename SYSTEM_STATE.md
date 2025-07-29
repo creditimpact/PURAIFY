@@ -45,7 +45,7 @@ As of now, most engines only contain scaffold code. The Vault Engine persists to
 
 | Integration    | Status     | Notes |
 |----------------|------------|-------|
-| Slack          | 🔲 Not Yet | Placeholder defined in Execution README |
+| Slack          | 🟢 Basic   | `send_slack` posts via Slack API |
 | Notion         | 🔲 Not Yet | Planned |
 | Google Sheets  | 🔲 Not Yet | Planned |
 | Email (SMTP)   | 🔲 Not Yet | Planned |
@@ -76,7 +76,7 @@ engines/vault/src/index.ts:
 engines/platform-builder/src/index.ts:
   Note: ✅ Basic server with validation; parser supports "and", "then", comma lists
 engines/execution/src/index.ts:
-  Note: ✅ Action runner with send_slack token retrieval; returns 404 if token missing
+  Note: ✅ send_slack now calls Slack API via fetch; token fetched from Vault and 404 when missing
 gateway/src/index.ts:
   Note: ✅ Gateway routing implemented; run-blueprint now continues after failures
 integration-design:
@@ -95,4 +95,4 @@ Documentation updated for engine dependencies and namespace mapping to reflect c
 
 ---
 
-Last updated: July 30, 2025
+Last updated: July 29, 2025
