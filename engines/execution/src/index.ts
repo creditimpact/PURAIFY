@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import axios from "axios";
+import { sendSlackMessage } from "./slack";
 
 const app = express();
 app.use(express.json());
@@ -28,8 +29,10 @@ app.post('/execute', async (req: Request, res: Response) => {
         const vaultUrl = process.env.VAULT_URL || 'http://localhost:4003';
         const { data } = await axios.get(`${vaultUrl}/vault/token/${project}/slack`);
         const token = data.token;
-        console.log(`Would send Slack message '${params?.message}' with token ${token}`);
-        return res.json({ status: 'success' });
+        const channel = params?.channel || '#general';
+        const message = params?.message || '';
+        const slackRes = await sendSlackMessage(token, channel, message);
+        return res.json({ status: 'success', data: slackRes });
       } catch (err: any) {
         if (axios.isAxiosError(err) && err.response?.status === 404) {
           return res.status(404).json({ status: 'error', message: 'Slack token not found' });
