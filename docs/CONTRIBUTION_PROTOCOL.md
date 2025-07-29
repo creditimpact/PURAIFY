@@ -15,6 +15,20 @@ PURAIFY is a modular multi‑engine platform.  **Every change to the codebase mu
 
 ---
 
+## 🤝 Working with Codex as a Team Developer
+
+Codex participates in development just like a human contributor. Always:
+
+- **Ask for clarification** when uncertain and log the question in `codex-questions.md` using `[Qx]` markers.
+- **Report missing code or documentation** in the related `codex-todo.md` file so it can be addressed.
+- **Propose alternative solutions** through a todo entry or inline Codex Note when multiple approaches exist.
+- **Tag blockers** with `🔧 Requires human` or `🌐 External constraint` to signal where progress stops.
+- **Seek approval for critical configuration or governance changes** before editing files. Record the approver and date.
+
+Update questions and approvals once resolved so the history stays clear.
+
+---
+
 ## ✅ Core Documentation Updates
 
 Whenever you:
@@ -40,6 +54,8 @@ You **must** update the following files:
 ### 4. (Optional) `CHANGELOG.md`
 - Use for versioned release notes if maintained
 
+Before changing code, read the relevant engine's `ENGINE_SPEC.md` and `README.md` to confirm behaviour.  Update them alongside your commits and note the approver in the commit or todo when edits require sign off.
+
 ---
 
 ## ✍️ Format Guidelines
@@ -47,6 +63,14 @@ You **must** update the following files:
 - Write in clear English using consistent Markdown headers
 - Keep docs close to the code they describe
 - Provide input/output examples for new endpoints
+
+## 🔄 Continuous Documentation Sync
+
+Every code change must be reflected in documentation during the same commit.
+
+- Update affected `ENGINE_SPEC.md` and engine `README.md` files when implementing new routes or behaviour.
+- Record approvals for spec updates in commit messages or in the todo entry that prompted the change.
+- Verify specs and docs before coding to avoid drift.
 
 ## ⚠️ Violations
 
@@ -86,6 +110,7 @@ This map shows where information lives and how contributors should communicate.
 - `SYSTEM_STATE.md` keeps a real‑time view of engine status and houses the **Codex Notes Map** for tracking inline notes across files.
 - Todo files act as persistent memory of pending tasks. Together with the notes map they allow Codex to resume work seamlessly.
 - `PROPOSED_ACTIONS_LOG.md` provides historical context for environment changes so configuration is never altered without approval.
+- Open questions in these files represent tasks waiting for human input.  Codex will pause that work until feedback arrives, ensuring sessions remain connected over time.
 
 ### Recommendations
 
@@ -157,15 +182,17 @@ Each engine must remain deployable and testable on its own.  Dependencies are ma
 
 ## 📃 System Contracts and Question Log
 
-- Consult [`SYSTEM_RULES.md`](SYSTEM_RULES.md) before implementing cross‑engine behaviour or permission logic.
-- Use [`codex-questions.md`](codex-questions.md) to document uncertainties.  Human contributors respond using the matching `[Ax]` labels.
+- Consult [`SYSTEM_RULES.md`](SYSTEM_RULES.md) for policies on error handling, permissions, and security before any sensitive work.
+- When rules are unclear, pause and ask for guidance in `codex-questions.md` rather than guessing.
+- Use that same file to document design doubts or missing context. Human contributors reply using `[Ax]` labels so the conversation is archived.
 
 ---
 
 ## 🧪 Testing Strategy
 
 - Place tests inside each engine’s `tests/` folder and expose an `npm run test` script.
-- If tests cannot run due to environment limits, create a `codex-test-todo.md` in that engine noting the blocker.
+- Run `npm test` whenever you modify engine logic.  Capture results in the pull request summary.
+- If tests cannot run because dependencies fail to install or other environment limits, create a `codex-test-todo.md` in that engine noting the blocker and tag it with `🌐 External constraint`.
 
 ## 📊 Engine Progress & Phase Tracking
 
@@ -216,10 +243,22 @@ Keep PURAIFY structured and understandable.  Build like the system builds itself
 
 ## 📌 Proposed Actions Workflow
 
-1. Add a bullet under `## Proposed Actions` in the relevant `codex-todo.md` describing the change and impact.
-2. Mirror the entry in `PROPOSED_ACTIONS_LOG.md` with **Status: Proposed**.
-3. Wait for explicit human approval before applying the change.
-4. After execution, update both the todo item and the log entry to **Executed** with the approver and date.
+1. Create a bullet under `## Proposed Actions` in the relevant `codex-todo.md`.
+   - Format it as `[PA<n>] Description. Impact: <short impact>. **Status: Proposed**`.
+2. Mirror the proposal in `PROPOSED_ACTIONS_LOG.md` using the same ID and mark **Status: Proposed**.
+3. Request human approval by leaving a note in the pull request or `codex-questions.md`.
+4. If no response arrives, keep the proposal open and continue other tasks; do not execute.
+5. Once approved, update both files to **Approved** with the approver name and date.
+6. After implementing the change, mark **Executed** and record who executed it and when.
 
 ---
+
+## 🗒️ Versioning and Changelog Management
+
+`CHANGELOG.md`, if present, captures user-facing release notes.
+
+- Update it when features or behaviour change in a way that affects end users.
+- Group entries by version heading (e.g., `## v0.2.0`) with the date.
+- Keep the log brief and link to pull requests for details.
+
 
