@@ -34,7 +34,13 @@ Thumbs.db
 .env.local
 .env.*.local
 
-# דוחות כיסוי (אם יהיה testing)
+# דוחות כיסוי
 coverage/
 .nyc_output/
+
+# תיקיות קאש של npm (לא חובה אם לא רצוי לעקוב)
+npm-cache/
+**/npm-cache/
+
+# קבצים/תיקיות נוספים ספציפיים לפרויקט
 engines/vault/src/tokens.json
