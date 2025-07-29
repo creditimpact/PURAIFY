@@ -1,22 +1,18 @@
 ### vault
-- depends on: platform-builder (/platform/blueprint/:id)
-- depends on: execution (/exec/token/verify)
+Currently standalone; no direct engine dependencies.
 
 ### platform-builder
-- depends on: vault (/vault/token)
-- depends on: gateway (/gateway/route)
-- provides: blueprint generation to gateway (/builder/create)
+Provides blueprint generation to Gateway via `/builder/create`.
+Currently has no runtime dependencies on other engines.
 
 ### execution
-- depends on: vault (/vault/token/fetch)
-- depends on: platform-builder (/platform/blueprint/:id)
-- depends on: gateway (/gateway/route)
-- provides: action execution via /execute
+- depends on: vault (`/vault/token/:project/:service`)
+- provides: action execution via `/execute`
 
 ### gateway
-- depends on: vault (/vault/token/validate)
-- depends on: platform-builder (/builder/create)
-- depends on: execution (/execute)
+- depends on: vault (`/vault/token` & `/vault/token/:project/:service`)
+- depends on: platform-builder (`/builder/create`)
+- depends on: execution (`/execute`)
 
 ### knowledge-engine
 - depends on: vault (/vault/token/fetch)
