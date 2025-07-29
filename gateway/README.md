@@ -29,7 +29,7 @@ gateway/
 └── src/
     └── index.ts
 ```
-Tests for this engine live in `tests/gateway/`.
+Tests for this engine live in `gateway/tests/`.
 ## 🚀 Development Setup
 
 Requires Node.js v20+.

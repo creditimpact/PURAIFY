@@ -25,7 +25,7 @@ platform-builder/
 └── src/
     └── index.ts
 ```
-Tests for this engine live in `tests/platform-builder/`.
+Tests for this engine live in `tests/` inside the Platform Builder folder.
 ## 🚀 Development Setup
 
 Requires Node.js v20+.
@@ -167,7 +167,7 @@ The response conforms to the `Blueprint` interface defined in `src/index.ts`.
 Currently self-contained. Other engines consume the generated blueprints via Gateway.
 
 ## 🧪 Testing
-Run `npm run test` inside `engines/platform-builder` or `npm test` from the repo root. Tests reside in `tests/platform-builder/`.
+Run `npm run test` inside `engines/platform-builder` or `npm test` from the repo root. Tests reside in `engines/platform-builder/tests/`.
 
 ---
 

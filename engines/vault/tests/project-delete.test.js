@@ -1,3 +1,4 @@
+// Vault project delete test
 import assert from 'assert';
 import { deleteProjectTokens } from '../../engines/vault/src/storage.js';
 
