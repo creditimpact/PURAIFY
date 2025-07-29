@@ -95,6 +95,17 @@ This document defines guiding principles and governance for the PURAIFY system w
 
 ---
 
+## Engine Independence and Dependencies
+
+- Each engine **must be developed, tested, and deployable independently**, ensuring modularity and maintainability.
+- Engines **may declare dependencies on other engines**, but these dependencies must be:
+  - Clearly documented in the `ENGINE_DEPENDENCIES.md` file.
+  - Managed exclusively via defined interfaces and API contracts.
+- Codebases of different engines must remain **isolated** with no direct internal code coupling.
+- Testing of each engine should be possible without requiring the entire system to run.
+- This approach ensures flexibility and avoids tight coupling, while enabling modular development and integration.
+
+
 ## 🛑 Approval Requirement for Critical Changes
 
 - Codex **must** request explicit human approval **before making any changes to critical system configurations or environment settings**, including but not limited to:
