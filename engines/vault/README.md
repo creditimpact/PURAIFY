@@ -125,6 +125,16 @@ Remove stored token and update `tokens.json` accordingly.
 
 This endpoint is **implemented** in `src/index.ts` and deletes the token entry if it exists.
 
+```
+GET /vault/tokens/:project
+```
+Return all stored service tokens for the given project.
+
+```
+GET /vault/projects
+```
+List all projects that currently have tokens stored.
+
 ---
 
 ## 🛠️ Internals & Responsibilities
