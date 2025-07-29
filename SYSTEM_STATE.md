@@ -35,7 +35,7 @@ As of now, most engines only contain scaffold code. The Vault Engine persists to
 | Engine            | APIs            | Status       |
 |-------------------|------------------|--------------|
 | Platform Builder  | `POST /builder/create` | 🟢 In Progress |
-| Vault Engine      | `POST /vault/store`, `POST /vault/token`, `GET /vault/token/:project/:service`, `DELETE /vault/token/:project/:service` | 🟢 In Progress |
+| Vault Engine      | `POST /vault/store`, `POST /vault/token`, `GET /vault/token/:project/:service`, `DELETE /vault/token/:project/:service`, `GET /vault/tokens/:project`, `GET /vault/projects` | 🟢 In Progress |
 | Execution Engine  | `POST /execute` | 🟢 In Progress |
 | Gateway           | `POST /gateway/build-platform`, `POST /gateway/execute-action`, `POST /gateway/store-token`, `POST /gateway/run-blueprint` | 🟢 In Progress |
 
@@ -72,7 +72,7 @@ As of now, most engines only contain scaffold code. The Vault Engine persists to
 
 ## 🧠 Codex Notes Map
 engines/vault/src/index.ts:
-  Note: ✅ GET, POST and DELETE endpoints implemented with encrypted token persistence to `tokens.json` when `VAULT_SECRET` is set
+  Note: ✅ GET, POST and DELETE endpoints implemented with encrypted token persistence to `tokens.json` when `VAULT_SECRET` is set. Added listing endpoints `/vault/tokens/:project` and `/vault/projects`.
 engines/platform-builder/src/index.ts:
   Note: ✅ Basic server with validation; parser supports "and", "then", comma lists
 engines/execution/src/index.ts:
