@@ -210,16 +210,75 @@ This ensures unresolved items are visible, tagged, and tracked across sessions.
 
 ---
 
-📘 Engine Specification Awareness  
-Each engine folder may include an ENGINE_SPEC.md file describing its responsibilities, endpoints, integrations, and behavior.
+## 📘 ENGINE_SPEC.md — Engine Specification
 
-If Codex runs out of todos or Codex Notes, it should:
+Every engine folder **must** contain an `ENGINE_SPEC.md` file. This document is
+the single source of truth describing how the engine is expected to behave.
 
-- Check whether ENGINE_SPEC.md exists  
-- Review it for hints, expectations, or discrepancies  
-- Log potential tasks or missing capabilities based on it  
+The specification serves as the primary reference for **all** contributors and
+automated agents. It must clearly outline:
 
-If ENGINE_SPEC.md is missing or incomplete, Codex may log a todo or a note requesting clarification or manual input.
+1. **Engine goals and scope** – what the engine is responsible for and what it
+   does *not* handle.
+2. **API interfaces** – all endpoints with input/output schemas and examples.
+3. **Dependencies and integrations** – links to other engines or external
+   services.
+4. **File structure/system map** – high level overview of important files and
+   modules.
+
+### Mandatory Maintenance
+
+Whenever code in an engine changes, the corresponding `ENGINE_SPEC.md` **must be
+updated** to remain accurate. Updates must cover:
+
+- Adjusted goals or responsibilities.
+- Added, changed or removed endpoints with examples.
+- New usage scenarios or input/output expectations.
+- Modified dependencies or integration details.
+
+Code changes without a matching spec update are considered out of compliance and
+should be rejected in review.
+
+### Required Usage
+
+Before starting any task, contributors and Codex/GPT agents **must read the
+current engine spec**. If discrepancies or missing details are found, add a note
+in `codex-todo.md` (or inline Codex Note) and document it in
+`SYSTEM_STATE.md` under the Codex Notes Map.
+
+### Format and Style
+
+Engine specs must use Markdown with these sections at minimum:
+
+1. **Introduction and Engine Goals**
+2. **File Structure and System Map**
+3. **API Endpoints and Communication Protocols**
+4. **Input/Output Examples**
+5. **Integrations and Dependencies**
+
+Make them readable and accessible so developers and automated agents can quickly
+understand the engine’s contract.
+
+### Spec Change Workflow
+
+All changes to an `ENGINE_SPEC.md` require a logged proposal. Add the proposal
+under `## Proposed Actions` in the relevant `codex-todo.md` and mirror it in
+`PROPOSED_ACTIONS_LOG.md` with a unique ID, date, description, and status. A
+human approver must explicitly mark it as **Approved** before Codex updates the
+spec. After execution, update the log entry to **Executed** with the approver’s
+name and date.
+
+### Testing Against the Spec
+
+Unit or integration tests must verify that implemented endpoints and behaviour
+match what is defined in the spec. Any mismatch should fail tests and block the
+merge until resolved.
+
+### Codex Integration
+
+Codex must always read the engine spec before performing engine related tasks.
+If a spec change is required, Codex proposes it through the process above and
+waits for approval before modifying the file.
 
 ---
 

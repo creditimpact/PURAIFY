@@ -46,7 +46,7 @@ puraify/
 │   │   ├── src/
 │   │   │   └── index.ts            ← Entry point for Vault Engine
 │   │   ├── README.md               ← Vault Engine specification
-│   │   ├── ENGINE_SPEC.md          ← Manual spec placeholder
+│   │   ├── ENGINE_SPEC.md          ← Engine specification (must stay updated)
 │   │   ├── codex-todo.md           ← Local tasks
 │   │   └── tests/                  ← Vault tests
 │   ├── platform-builder/
@@ -55,7 +55,7 @@ puraify/
 │   │   ├── src/
 │   │   │   └── index.ts            ← Entry point for Platform Builder
 │   │   ├── README.md               ← Platform Builder specification
-│   │   ├── ENGINE_SPEC.md          ← Manual spec placeholder
+│   │   ├── ENGINE_SPEC.md          ← Engine specification (must stay updated)
 │   │   ├── codex-todo.md           ← Local tasks
 │   │   └── tests/                  ← Platform Builder tests
 │   ├── execution/
@@ -64,7 +64,7 @@ puraify/
 │   │   ├── src/
 │   │   │   └── index.ts            ← Entry point for Execution Engine
 │   │   ├── README.md               ← Execution Engine specification
-│   │   ├── ENGINE_SPEC.md          ← Manual spec placeholder
+│   │   ├── ENGINE_SPEC.md          ← Engine specification (must stay updated)
 │   │   ├── codex-todo.md           ← Local tasks
 │   │   └── tests/                  ← Execution Engine tests
 ├── gateway/
@@ -74,7 +74,7 @@ puraify/
 │   ├── src/
 │   │   └── index.ts                ← Main API router for the PURAIFY system
 │   ├── README.md                   ← Gateway specification
-│   ├── ENGINE_SPEC.md              ← Manual spec placeholder
+│   ├── ENGINE_SPEC.md              ← Engine specification (must stay updated)
 │   └── codex-todo.md               ← Local tasks
 ├── docker-compose.yml              ← Docker Compose configuration
 ├── ENGINE_DEPENDENCIES.md          ← Declared engine relationships
