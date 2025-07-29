@@ -1,468 +1,225 @@
 # PURAIFY Contribution Protocol
 
-This document defines the required standards for contributing code and documentation to the PURAIFY system — either by human developers or automated agents (such as Codux or GPT).
-
-The goal is to maintain a consistent, traceable, and fully documented codebase that is always in sync with its implementation state.
+This protocol defines how both human developers and Codex contribute to the PURAIFY repository.  It ensures code and documentation stay in sync across engines and the project as a whole.
 
 ---
 
 ## 🧠 Purpose
 
-PURAIFY is a modular, multi-engine system. For this reason, **every code change must include proper documentation updates** — across system-level and engine-specific files.
+PURAIFY is a modular multi‑engine platform.  **Every change to the codebase must be mirrored in the documentation** so the system remains:
 
-This ensures the system is:
-- Understandable to AI agents (e.g., Codux)
-- Traceable by contributors
+- Understandable by humans and automated agents
+- Traceable and easy to navigate
 - Expandable without chaos
-- Aligned with its own blueprint principles
+- Aligned with its own design principles
 
 ---
 
-## ✅ Mandatory Actions for Every Contribution
-
-Every time you:
-- Add a file, endpoint, engine, or integration
-- Remove or rename a file
-- Change engine behavior
-- Extend system capabilities
-
-You **must update the following files**:
-
----
-
-### 1. `README.md` (Root)
-
-- Add/Update entries in the **📁 Project Structure** section
-- Update the engine list in **⚙️ Core Engines** (add/remove/change status)
-- Reflect new or removed components clearly
-
----
-
-### 2. `SYSTEM_STATE.md`
-
-This file reflects the current operational snapshot of PURAIFY.
-
-Update it to:
-- Add new engines or mark progress (✅ / 🟡 / 🔲)
-- Add new endpoints
-- Show current status (e.g., “under construction”, “ready”, “connected to gateway”)
-- Track live capabilities
-
----
-
-### 3. The relevant engine’s `README.md`
-
-If you touch a specific engine:
-- Add the new route to the API documentation
-- Update its capabilities and responsibilities
-- Clarify integration points if modified
-
-#### 🔄 Per-Engine Structure Maintenance
+## ✅ Core Documentation Updates
 
 Whenever you:
-- Add, remove or reorganize files/folders inside an engine
-- Change entrypoints, core logic files, or structure
 
-You **must update** that engine’s `README.md` to reflect the new structure.
+- Add, remove or rename a file
+- Change engine behaviour or extend capabilities
+- Introduce a new endpoint, engine or integration
 
-Each engine’s README must include:
-- A `📁 Engine Structure` section with an updated tree view
-- Short explanation of key files
+You **must** update the following files:
 
-#### 🔄 Engine Development Tracking
+### 1. Root `README.md`
+- Reflect added or removed components in **📁 Project Structure**
+- Update the engine list in **⚙️ Core Engines**
 
-Whenever you are actively working on an engine — adding features, wiring
-connections, refactoring logic, or developing endpoints — you **must update**
-that engine’s `README.md` to reflect:
-- The engine’s current role and capabilities
-- Which features/endpoints are implemented, in progress, or planned
-- Any current connections to other engines (e.g. “This engine now interacts with
-  the Execution engine via X endpoint”)
-- The current development status (even partial or WIP)
-- Any assumptions or architectural decisions made so far
+### 2. `SYSTEM_STATE.md`
+- Record new engines or progress status (✅ / 🟡 / 🔲)
+- List new endpoints and current capabilities
 
-This keeps each README as a *live mirror* of the engine’s real state.
+### 3. The affected engine’s `README.md` and `ENGINE_SPEC.md`
+- Document new routes, responsibilities and integration points
+- Keep the `📁 Engine Structure` tree and status information current
 
----
-
-### 4. Optional: Add to `CHANGELOG.md` (future)
-
-You may log versioned changes here for long-term releases.
+### 4. (Optional) `CHANGELOG.md`
+- Use for versioned release notes if maintained
 
 ---
 
 ## ✍️ Format Guidelines
 
-- All documentation must be written in clear English.
-- Use consistent Markdown headers and formatting (e.g., `##`, tables, code blocks).
-- Keep documentation close to the code it describes.
-- Use examples (inputs/outputs) when defining new endpoints.
-
----
+- Write in clear English using consistent Markdown headers
+- Keep docs close to the code they describe
+- Provide input/output examples for new endpoints
 
 ## ⚠️ Violations
 
-Changes that do not follow this protocol will be flagged and rejected — whether by human reviewers or future CI checks.
-
-This protocol is required for all code merges, pull requests, or AI-generated changes.
+Changes that ignore this protocol may be rejected during review or CI checks.  The rules apply to all pull requests and Codex operations.
 
 ---
-
-## 🤖 Codux/GPT Integration
-
-When working with Codux or similar systems:
-- Start each prompt with:  
-  `Please follow the PURAIFY Contribution Protocol.`  
-- Make sure to instruct Codux to **update all documentation** as part of the request.
-- Ensure `README.md`, `SYSTEM_STATE.md`, and engine docs reflect changes accurately.
-
----
-
-## 🤖 Codex Responsibilities
-
-### 🔍 Engine Awareness via ENGINES_INDEX.md
-
-Before performing tasks involving cross-engine logic, Codex must:
-
-1. Check for the presence of `ENGINES_INDEX.md` in the root directory.
-2. Use this file to determine:
-   - Which engines exist (✅)
-   - Which engines are missing but required (🔲)
-   - Dependency chains between engines
-
-❗ Codex must never fill or update this file automatically. It is manually maintained and considered source-of-truth for orchestration logic.
-
-If a missing engine prevents task execution:
-- Log a Codex Note or add a todo in `codex-todo.md` (see `CODEX_TODO_FORMAT.md`)
-- Await human clarification before proceeding
-
----
-
-## 🧠 Codex Internal Notes and Self-Tasks
-
-Codex may encounter ideas, inconsistencies, or potential improvements that are **outside the scope of the current task**. This protocol allows Codex to track such insights responsibly and persistently.
-
-### 🔹 Allowed Tracking Methods
-
-Codex may use one of two approaches (or both):
-
-#### A. Inline Codex Notes in Code
-
-Place structured comment blocks at the top of `src/index.ts` or near relevant code:
-
-/**
- * 🧠 Codex Note:
- * - Noticed SYSTEM_STATE lists /vault/get but router exposes /vault/token/:project/:service
- * - Should unify naming
- * - Consider updating SYSTEM_STATE.md accordingly
- */
-
-These are Codex-facing notes intended for future context — not user documentation.
-
-#### B. Local codex-todo.md File (Optional)
-
-Each engine folder (e.g., `engines/vault/`) may contain its own `codex-todo.md` file for engine-specific tasks. Follow the structure and management rules defined in `CODEX_TODO_FORMAT.md`.
-
-🔁 Execution Rules  
-Whenever Codex completes a task originally recorded as a note or todo:
-
-✅ Remove the item (or mark it as completed)  
-✅ Update the relevant documentation:  
-
-- README.md of the engine  
-- SYSTEM_STATE.md if API/state changed  
-- Any other impacted files (including the root README or contribution protocol)  
-
-This ensures internal alignment and traceability of thought process.
-
-🔍 Codex Notes Location Tracking  
-Whenever Codex creates an inline note inside any engine file (for example `src/index.ts`), it must also record that note in SYSTEM_STATE.md under a new section titled ## 🧠 Codex Notes Map.
-
-This map lists all currently active Codex Notes and their locations. Example:
-
-🧠 Codex Notes Map  
-engines/vault/src/index.ts:  
-  Note: Align /vault/get with documented /vault/token/:project/:service  
-
-engines/execution/src/index.ts:  
-  Note: Execution engine still lacks action runner registry  
-
-Notes tracked here must be updated or removed once resolved. If a file is restructured, migrate the note entry accordingly so future runs can revisit the correct context.
-
-🔍 Responsibility  
-Before starting any new task in a given engine:
-
-- Scan for Codex Notes or open todos  
-- Prioritize handling any unresolved technical debt that may affect the new task  
-
-This approach enables autonomous continuity across async work sessions.
-
-❗ Handling Failed or Unresolved Tasks  
-If Codex cannot complete a task due to technical limitations, missing dependencies, or external blockers:
-
-✅ Leave the task open in `codex-todo.md` (see `CODEX_TODO_FORMAT.md` for formatting)
-✅ Keep the corresponding entry in SYSTEM_STATE.md > 🧠 Codex Notes Map  
-✅ If human intervention is needed, tag the task as 🔧 Requires human  
-✅ If external constraints apply (e.g., internet, credentials), tag it as 🌐 External constraint  
-✅ You may note the failure inline, e.g., `Install lockfile 🔧 Requires human — npm registry access needed`
-
-This ensures unresolved items are visible, tagged, and tracked across sessions.
-
----
-
-## 📘 ENGINE_SPEC.md — Engine Specification
-
-Every engine folder **must** contain an `ENGINE_SPEC.md` file. This document is
-the single source of truth describing how the engine is expected to behave.
-
-The specification serves as the primary reference for **all** contributors and
-automated agents. It must clearly outline:
-
-1. **Engine goals and scope** – what the engine is responsible for and what it
-   does *not* handle.
-2. **API interfaces** – all endpoints with input/output schemas and examples.
-3. **Dependencies and integrations** – links to other engines or external
-   services.
-4. **File structure/system map** – high level overview of important files and
-   modules.
-
-### Mandatory Maintenance
-
-Whenever code in an engine changes, the corresponding `ENGINE_SPEC.md` **must be
-updated** to remain accurate. Updates must cover:
-
-- Adjusted goals or responsibilities.
-- Added, changed or removed endpoints with examples.
-- New usage scenarios or input/output expectations.
-- Modified dependencies or integration details.
-
-Code changes without a matching spec update are considered out of compliance and
-should be rejected in review.
-
-### Required Usage
-
-Before starting any task, contributors and Codex/GPT agents **must read the
-current engine spec**. If discrepancies or missing details are found, add a note
-in `codex-todo.md` (or inline Codex Note) and document it in
-`SYSTEM_STATE.md` under the Codex Notes Map.
-
-### Format and Style
-
-Engine specs must use Markdown with these sections at minimum:
-
-1. **Introduction and Engine Goals**
-2. **File Structure and System Map**
-3. **API Endpoints and Communication Protocols**
-4. **Input/Output Examples**
-5. **Integrations and Dependencies**
-
-Make them readable and accessible so developers and automated agents can quickly
-understand the engine’s contract.
-
-### Spec Change Workflow
-
-All changes to an `ENGINE_SPEC.md` require a logged proposal. Add the proposal
-under `## Proposed Actions` in the relevant `codex-todo.md` and mirror it in
-`PROPOSED_ACTIONS_LOG.md` with a unique ID, date, description, and status. A
-human approver must explicitly mark it as **Approved** before Codex updates the
-spec. After execution, update the log entry to **Executed** with the approver’s
-name and date.
-
-### Testing Against the Spec
-
-Unit or integration tests must verify that implemented endpoints and behaviour
-match what is defined in the spec. Any mismatch should fail tests and block the
-merge until resolved.
-
-### Codex Integration
-
-Codex must always read the engine spec before performing engine related tasks.
-If a spec change is required, Codex proposes it through the process above and
-waits for approval before modifying the file.
-
----
-
-📁 Folder & File Naming Conventions  
-Entry file per engine: always `src/index.ts`.
-Todos file: `codex-todo.md` lives in each engine root (see `CODEX_TODO_FORMAT.md`).
-Module files: use descriptive names like `token-service.ts` or `blueprint-validator.ts`.  
-API route naming: follow `/engine/action` pattern.
-
-| Expected File   | Purpose                          |
-|-----------------|---------------------------------|
-| src/index.ts    | Express entry point for the engine |
-| README.md       | Engine overview and API documentation |
-| ENGINE_SPEC.md  | Manual spec and design notes     |
-| codex-todo.md   | Local task list for Codex        |
-| tests/          | Test suite location inside each engine |
-
----
-
-📁 New File: ENGINE_DEPENDENCIES.md  
-This file lives at the root of the repo and defines dependencies between engines.
-
-Each engine should be listed with the other engines it depends on, including relevant route examples. Codex must keep this file updated when new engine interactions occur or routes are added/removed.
-
-Format example:
-
-### vault
-- depends on: platform-builder (/platform/blueprint/:id)
-- depends on: execution (/exec/token/verify)
-
-## Engine Independence and Dependencies
-
-- Each engine **must be developed, tested, and deployable independently**, ensuring modularity and maintainability.
-- Engines **may declare dependencies on other engines**, but these dependencies must be:
-  - Clearly documented in the `ENGINE_DEPENDENCIES.md` file.
-  - Managed exclusively via defined interfaces and API contracts.
-- Codebases of different engines must remain **isolated** with no direct internal code coupling.
-- Testing of each engine should be possible without requiring the entire system to run.
-- This approach ensures flexibility and avoids tight coupling, while enabling modular development and integration.
-
----
-
-🧠 New File: codex-todo.md (root-level)
-This root-level file collects system-wide tasks across engines and protocol updates. Engine-specific items should remain in each engine’s own `codex-todo.md` file.
-
-Refer to `CODEX_TODO_FORMAT.md` for the required sections and formatting, including how to track proposed actions. Mirror any proposals in `PROPOSED_ACTIONS_LOG.md` before seeking approval.
-🧑‍💻 New File: human-todo.md
-This separate root-level file tracks tasks that require manual intervention, such as installing packages, configuring environments, or resolving permissions.
-Codex should add items here when blocked by external constraints, and humans should check them off once resolved.
-
-
----
-
-📃 System Contracts  
-Codex must consult SYSTEM_RULES.md before executing logic that depends on cross-engine behavior, error fallback strategies, user permissions, or handling missing components.
-
----
-
-🧠 Codex Question Log
-Use `codex-questions.md` to raise open questions or architectural uncertainties that block progress or require clarification before continuing.
-
-Each entry should be labeled as `[Qx]`.
-
-Human contributors respond using `[Ax]` in the Answers section.
-
-Codex should review this file regularly and avoid repeating unresolved mistakes.
-
----
-
-🧪 Testing Strategy  
-Each engine must place tests inside its own `tests/` folder (e.g., `engines/vault/tests/`) and expose an `npm run test` script in its package.json.
-
-If Codex cannot run tests due to environment limits, create a `codex-test-todo.md` in that engine with planned tests and the blocker (e.g., 🌐 external constraint).
-
----
-
-📊 Engine Progress & Phase Tracking  
-SYSTEM_STATE.md tracks each engine’s progress percentage and phase. Phases reflect implementation maturity:
-
-| Phase          | Meaning                                   |
-|----------------|-------------------------------------------|
-| 📁 Initialized | Folder created, basic files exist         |
-| 🔧 Routes Stubbed | API routes defined but logic incomplete  |
-| 🔄 Logic Wired | Core logic implemented and linked          |
-| ✅ Integrated  | Connected to Gateway and other engines     |
-| 🧪 Tested      | Automated tests passing                     |
-
-Update the progress percentage and phase whenever functionality advances.
-
----
-
-🔁 Periodic Reflection Task  
-Every 5 tasks Codex should scan the repository for undocumented code, unused files or functions, and mismatches with SYSTEM_STATE.md.
-
-Record findings in `codex-todo.md` or under Reflection Notes in SYSTEM_STATE.md.
-
----
-
-💬 Human Prompt Response Types
-
-| Type       | Description                   | Action Codex Should Take                |
-|------------|-------------------------------|---------------------------------------|
-| 🔧 Instruction | Clear command to execute     | Perform it, log result, and update docs |
-| ❓ Question | Open-ended question or clarification | Answer only, don’t perform changes    |
-| 💡 Idea    | Concept or suggestion          | Log to codex-todo.md under 💡 Ideas     |
-
----
-
-✅ Example: Adding a new action to Execution Engine  
-If you add a new action called `send_email` to Execution:
-
-- Add its route + input/output to `execution/README.md`  
-- Add a status line in `SYSTEM_STATE.md` under Execution  
-- Confirm `execution/src/index.ts` exists and is mapped in root README.md  
-
----
-
-🧭 Summary
-
-| What You Did           | Must Update                                |
-|-----------------------|--------------------------------------------|
-| Added a new engine    | Root README.md, SYSTEM_STATE.md             |
-| Added endpoint to engine | Engine’s README.md, SYSTEM_STATE.md         |
-| Changed how Gateway routes | Gateway README.md, README.md               |
-| Added feature across multiple engines | All relevant engine docs + root files |
-
-Keep PURAIFY structured.
-Make it understandable by humans and machines.
-Build like the system builds itself.
-
----
-
-## 📌 Proposed Actions Workflow
-
-Environment or configuration updates require a transparent approval process:
-
-1. Add a bullet under `## Proposed Actions` in `codex-todo.md` (see `CODEX_TODO_FORMAT.md`) describing the change, rationale, and expected impact.
-2. Add the same entry to `PROPOSED_ACTIONS_LOG.md` with status **Proposed**. This log is **only** for environment or configuration proposals and should not list normal code tasks.
-3. Wait for an explicit human response of `YES` before applying the change.
-4. After approval, implement the change, update relevant docs, and update the log entry to **Executed** with date and approver.
-5. Keep both the todo item and log for historical reference.
-
-This ensures all environment changes are reviewed and fully traceable.
 
 ## 📚 Work & Communication Map
 
-Use this guide as a quick reference for where information lives and how to keep
-communication flowing between Codex and human contributors.
+This map shows where information lives and how contributors should communicate.
 
 ### Communication Documents
 
 | Document & Path | Purpose | When to Update |
 |-----------------|---------|----------------|
-| `docs/codex-todo.md` | Global backlog and reflection items | Add tasks or ideas that span multiple engines. Mark complete when done. |
-| `engines/*/codex-todo.md` | Engine‑specific todos following `CODEX_TODO_FORMAT.md` | Track implementation tasks within that engine. |
-| `PROPOSED_ACTIONS_LOG.md` | History of environment/config changes | Mirror any proposal from a todo file and update after approval/execution. |
-| `codex-questions.md` | Log of open architectural questions | Add `[Qx]` entries when uncertain. Humans reply with `[Ax]`. |
-| `docs/human-todo.md` | Manual steps requiring human help | Add tasks tagged `🔧 Requires human` or `🌐 External constraint`. |
-| `SYSTEM_STATE.md` | Snapshot of engine progress and Codex Notes | Update status tables and the **Codex Notes Map** whenever features or notes change. |
-| `ENGINE_SPEC.md` (per engine) | Canonical behavior specification | Keep in sync with code; propose edits via todo + log. |
-| `ENGINES_INDEX.md` | Registry of all engines and whether they exist | Consult before assuming an engine is available. Do **not** auto‑update. |
-| `ENGINE_DEPENDENCIES.md` | Declares runtime dependencies between engines | Update when new cross‑engine calls are added or removed. |
-| `NAMESPACE_MAP.md` | Maps file and route names across engines | Reference to avoid conflicts when creating new modules or endpoints. |
-| `CODEX_TODO_FORMAT.md` | Standard structure for todo files | Review when adding or editing a todo list. |
+| [`codex-todo.md`](codex-todo.md) | Global backlog and reflection items | Add tasks or ideas spanning multiple engines. Mark complete when done. |
+| `engines/*/codex-todo.md` | Engine‑specific todos following [`CODEX_TODO_FORMAT.md`](CODEX_TODO_FORMAT.md) | Track implementation tasks within that engine. |
+| [`PROPOSED_ACTIONS_LOG.md`](PROPOSED_ACTIONS_LOG.md) | History of environment/config changes | Mirror proposals from todo files and update after approval/execution. |
+| [`codex-questions.md`](codex-questions.md) | Log of open architectural questions | Add `[Qx]` entries when uncertain. Humans reply with `[Ax]`. |
+| [`human-todo.md`](human-todo.md) | Manual steps requiring human help | Tag tasks with `🔧 Requires human` or `🌐 External constraint`. |
+| [`SYSTEM_STATE.md`](../SYSTEM_STATE.md) | Snapshot of engine progress and the **Codex Notes Map** | Update whenever features or notes change. |
+| `ENGINE_SPEC.md` (per engine) | Canonical behaviour specification | Keep in sync with code; propose edits via todo + log. |
+| [`ENGINES_INDEX.md`](../ENGINES_INDEX.md) | Registry of all engines and their status | Consult before assuming an engine exists. Do **not** auto‑update. |
+| [`ENGINE_DEPENDENCIES.md`](../ENGINE_DEPENDENCIES.md) | Declares runtime dependencies between engines | Update when new cross‑engine calls are added or removed. |
+| [`NAMESPACE_MAP.md`](../NAMESPACE_MAP.md) | Maps file and route names across engines | Reference to avoid conflicts when creating modules or endpoints. |
 
 ### Workflow Guidelines
 
-1. **Start of a session** – read `SYSTEM_STATE.md`, root `codex-todo.md`, and any engine `codex-todo.md` you plan to modify. Check `codex-questions.md` for unresolved items.
+1. **Start of a session** – read `SYSTEM_STATE.md`, root `codex-todo.md` and any engine todo files you plan to modify. Check `codex-questions.md` for unresolved items.
 2. **During work** – document new tasks in the appropriate todo file. For environment or configuration changes, add a proposal under `## Proposed Actions` and mirror it in `PROPOSED_ACTIONS_LOG.md`.
 3. **When blocked or unsure** – create a `[Qx]` entry in `codex-questions.md` and tag related tasks with `🔧 Requires human` or `🌐 External constraint` in the todo list.
 4. **After completing a task** – mark the checkbox in the todo file, update engine READMEs and specs, and adjust `SYSTEM_STATE.md` progress or notes.
-5. **End of session** – ensure all updates are committed and summarize outstanding todos so future sessions have context.
+5. **End of session** – ensure all updates are committed and summarise outstanding todos so future sessions have context.
 
 ### System Memory Tools
 
 - `SYSTEM_STATE.md` keeps a real‑time view of engine status and houses the **Codex Notes Map** for tracking inline notes across files.
-- Todo files act as persistent memory of pending tasks. Combined with the notes map, they allow Codex to resume work seamlessly in future runs.
-- `PROPOSED_ACTIONS_LOG.md` provides historical context for environment changes, ensuring no configuration is altered without approval.
+- Todo files act as persistent memory of pending tasks. Together with the notes map they allow Codex to resume work seamlessly.
+- `PROPOSED_ACTIONS_LOG.md` provides historical context for environment changes so configuration is never altered without approval.
 
 ### Recommendations
 
 - Review this map regularly to stay oriented.
-- Keep documentation changes close to code changes to maintain traceability.
+- Keep documentation changes close to code changes for traceability.
 - When in doubt, prefer adding a question or todo rather than guessing. Clear communication keeps the system healthy.
 
-Thanks,  
-PURAIFY System Protocol
+---
+
+## 🤖 Codex Responsibilities
+
+### 🔍 Engine Awareness via `ENGINES_INDEX.md`
+
+1. Check `ENGINES_INDEX.md` to see which engines exist and the required dependencies.
+2. Never update this file automatically—it is manually maintained.
+3. If a missing engine blocks a task, add a note to `codex-todo.md` and wait for human clarification.
+
+### 🧠 Codex Notes and Self‑Tasks
+
+Codex may create inline comment blocks or todo entries when encountering ideas or inconsistencies.
+
+- Inline notes start with `/** 🧠 Codex Note:` and are meant for future context.
+- Engine folders can hold their own `codex-todo.md` for local tasks.
+- When a note or todo is resolved, remove it and update the relevant docs.
+- Track all active notes in `SYSTEM_STATE.md` under **Codex Notes Map** so future sessions can locate them.
+- If a task cannot be completed due to external limits, keep it open with the appropriate tag and document the blocker.
+
+---
+
+## 📘 `ENGINE_SPEC.md` – Engine Specification
+
+Every engine must include an up‑to‑date `ENGINE_SPEC.md` describing:
+
+1. **Engine goals and scope**
+2. **API interfaces** with examples
+3. **Dependencies and integrations**
+4. **File structure/system map**
+
+Before starting work, read the spec.  Propose changes via todo + `PROPOSED_ACTIONS_LOG.md` and wait for approval before editing the file.
+
+Tests should verify behaviour against the spec.
+
+---
+
+## 📁 Folder & File Naming Conventions
+
+- Entry file per engine: `src/index.ts`
+- Todos file: `codex-todo.md` in each engine root (see [`CODEX_TODO_FORMAT.md`](CODEX_TODO_FORMAT.md))
+- Use descriptive module names like `token-service.ts`
+- API routes follow the `/engine/action` pattern
+
+| Expected File   | Purpose                                   |
+|-----------------|-------------------------------------------|
+| `src/index.ts`  | Express entry point for the engine        |
+| `README.md`     | Engine overview and API documentation     |
+| `ENGINE_SPEC.md`| Manual spec and design notes              |
+| `codex-todo.md` | Local task list for Codex                 |
+| `tests/`        | Test suite location inside each engine    |
+
+---
+
+## 🔗 `ENGINE_DEPENDENCIES.md` and Engine Independence
+
+`ENGINE_DEPENDENCIES.md` lists which engines rely on others and the routes involved.  Keep it updated when new interactions are added.
+
+Each engine must remain deployable and testable on its own.  Dependencies are managed only through documented interfaces and should not create direct code coupling.
+
+---
+
+## 📃 System Contracts and Question Log
+
+- Consult [`SYSTEM_RULES.md`](SYSTEM_RULES.md) before implementing cross‑engine behaviour or permission logic.
+- Use [`codex-questions.md`](codex-questions.md) to document uncertainties.  Human contributors respond using the matching `[Ax]` labels.
+
+---
+
+## 🧪 Testing Strategy
+
+- Place tests inside each engine’s `tests/` folder and expose an `npm run test` script.
+- If tests cannot run due to environment limits, create a `codex-test-todo.md` in that engine noting the blocker.
+
+## 📊 Engine Progress & Phase Tracking
+
+`SYSTEM_STATE.md` records progress percentage and phase for every engine.  Update it whenever functionality advances.
+
+Phases:
+
+| Phase             | Meaning                                   |
+|-------------------|-------------------------------------------|
+| 📁 Initialized    | Folder created, basic files exist         |
+| 🔧 Routes Stubbed | API routes defined but logic incomplete   |
+| 🔄 Logic Wired    | Core logic implemented and linked         |
+| ✅ Integrated     | Connected to Gateway and other engines    |
+| 🧪 Tested         | Automated tests passing                   |
+
+---
+
+## 🔁 Periodic Reflection Task
+
+Every five tasks, scan the repository for undocumented code or mismatches with `SYSTEM_STATE.md`.  Record findings in `codex-todo.md` or under *Reflection Notes* in `SYSTEM_STATE.md`.
+
+## 💬 Human Prompt Response Types
+
+| Type          | Description                             | Action Codex Should Take              |
+|---------------|-----------------------------------------|---------------------------------------|
+| 🔧 Instruction | Clear command to execute                | Perform it, log result and update docs|
+| ❓ Question    | Open‑ended question or clarification   | Answer only, no code changes          |
+| 💡 Idea       | Concept or suggestion                   | Log to codex-todo.md under 💡 Ideas    |
+
+## ✅ Example: Adding a new action to Execution Engine
+
+1. Document the route and input/output in `execution/README.md`
+2. Add a status line in `SYSTEM_STATE.md` under Execution
+3. Confirm `execution/src/index.ts` exists and is mapped in the root `README.md`
+
+## 🧭 Summary
+
+| What You Did                        | Must Update                               |
+|------------------------------------|-------------------------------------------|
+| Added a new engine                  | Root `README.md`, `SYSTEM_STATE.md`       |
+| Added endpoint to engine            | Engine `README.md`, `SYSTEM_STATE.md`     |
+| Changed how Gateway routes          | `gateway/README.md`, root `README.md`     |
+| Added feature across multiple engines | All relevant engine docs + root files  |
+
+Keep PURAIFY structured and understandable.  Build like the system builds itself.
+
+---
+
+## 📌 Proposed Actions Workflow
+
+1. Add a bullet under `## Proposed Actions` in the relevant `codex-todo.md` describing the change and impact.
+2. Mirror the entry in `PROPOSED_ACTIONS_LOG.md` with **Status: Proposed**.
+3. Wait for explicit human approval before applying the change.
+4. After execution, update both the todo item and the log entry to **Executed** with the approver and date.
+
+---
+
