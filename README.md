@@ -47,7 +47,8 @@ puraify/
 │   │   │   └── index.ts            ← Entry point for Vault Engine
 │   │   ├── README.md               ← Vault Engine specification
 │   │   ├── ENGINE_SPEC.md          ← Manual spec placeholder
-│   │   └── codex-todo.md           ← Local tasks
+│   │   ├── codex-todo.md           ← Local tasks
+│   │   └── tests/                  ← Vault tests
 │   ├── platform-builder/
 │   │   ├── package.json
 │   │   ├── tsconfig.json
@@ -55,7 +56,8 @@ puraify/
 │   │   │   └── index.ts            ← Entry point for Platform Builder
 │   │   ├── README.md               ← Platform Builder specification
 │   │   ├── ENGINE_SPEC.md          ← Manual spec placeholder
-│   │   └── codex-todo.md           ← Local tasks
+│   │   ├── codex-todo.md           ← Local tasks
+│   │   └── tests/                  ← Platform Builder tests
 │   ├── execution/
 │   │   ├── package.json
 │   │   ├── tsconfig.json
@@ -63,13 +65,10 @@ puraify/
 │   │   │   └── index.ts            ← Entry point for Execution Engine
 │   │   ├── README.md               ← Execution Engine specification
 │   │   ├── ENGINE_SPEC.md          ← Manual spec placeholder
-│   │   └── codex-todo.md           ← Local tasks
-├── tests/
-│   ├── vault/                      ← Vault tests
-│   ├── platform-builder/           ← Platform Builder tests
-│   ├── execution/                  ← Execution Engine tests
-│   └── gateway/                    ← Gateway tests
+│   │   ├── codex-todo.md           ← Local tasks
+│   │   └── tests/                  ← Execution Engine tests
 ├── gateway/
+│   ├── tests/                      ← Gateway tests
 │   ├── package.json
 │   ├── tsconfig.json
 │   ├── src/
@@ -88,7 +87,7 @@ puraify/
 ├── README.md                       ← You are here — main project overview
 ```
 
-Automated tests for each engine live under `tests/<engine>/` and can be run with `npm test` inside the respective engine folder.
+Automated tests for each engine live inside that engine's `tests/` directory (e.g., `engines/vault/tests/` or `gateway/tests/`). Run them with `npm test` in the engine folder.
 
 Each engine is self-contained, and its README defines its APIs, responsibilities, and integration points.
 

@@ -26,7 +26,7 @@ vault/
 └── src/
     └── index.ts
 ```
-Tests for this engine live in `tests/vault/`.
+Tests for this engine live in `tests/` inside the Vault engine folder.
 ## 🚀 Development Setup
 
 Requires Node.js v20+.
@@ -145,7 +145,7 @@ List all projects that currently have tokens stored.
 The Vault Engine has no runtime dependencies on other engines. Its public APIs are documented in `ENGINE_DEPENDENCIES.md` and consumed by components like Gateway and Execution.
 
 ## 🧪 Testing
-Run `npm run test` inside `engines/vault` or `npm test` from the repo root. Tests live in `tests/vault/` and run independently.
+Run `npm run test` inside `engines/vault` or `npm test` from the repo root. Tests live in `engines/vault/tests/` and run independently.
 
 ---
 

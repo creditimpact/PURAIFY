@@ -24,7 +24,7 @@ execution/
 └── src/
     └── index.ts
 ```
-Tests for this engine live in `tests/execution/`.
+Tests for this engine live in `tests/` inside the Execution engine folder.
 ## 🚀 Development Setup
 
 Requires Node.js v20+.
@@ -151,7 +151,7 @@ Error example:
 - Requires Vault Engine for `GET /vault/token/:project/:service` when actions need credentials. See `ENGINE_DEPENDENCIES.md` for details.
 
 ## 🧪 Testing
-Run `npm run test` inside `engines/execution` or `npm test` from the repo root. Tests live in `tests/execution/` and run independently.
+Run `npm run test` inside `engines/execution` or `npm test` from the repo root. Tests live in `engines/execution/tests/` and run independently.
 
 ---
 

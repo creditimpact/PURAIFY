@@ -235,7 +235,7 @@ API route naming: follow `/engine/action` pattern.
 | README.md       | Engine overview and API documentation |
 | ENGINE_SPEC.md  | Manual spec and design notes     |
 | codex-todo.md   | Local task list for Codex        |
-| tests/<engine>/ | Test suite location              |
+| tests/          | Test suite location inside each engine |
 
 ---
 
@@ -290,7 +290,7 @@ Codex should review this file regularly and avoid repeating unresolved mistakes.
 ---
 
 🧪 Testing Strategy  
-Each engine must place tests under `tests/<engine>/` and expose an `npm run test` script in its package.json.
+Each engine must place tests inside its own `tests/` folder (e.g., `engines/vault/tests/`) and expose an `npm run test` script in its package.json.
 
 If Codex cannot run tests due to environment limits, create a `codex-test-todo.md` in that engine with planned tests and the blocker (e.g., 🌐 external constraint).
 
