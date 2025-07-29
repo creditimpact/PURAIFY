@@ -1,9 +1,6 @@
 import express, { Request, Response } from "express";
 
-interface BlueprintAction {
-  type: string;
-  params?: Record<string, any>;
-}
+import { parsePrompt, BlueprintAction } from './parser.js';
 
 interface Blueprint {
   trigger: { type: string };
@@ -24,11 +21,7 @@ app.post('/builder/create', (req: Request, res: Response) => {
     return res.status(400).json({ error: 'prompt and project are required' });
   }
 
-  const messages = String(prompt)
-    .split(/\band\b|\bthen\b|,/i)
-    .map(p => p.trim())
-    .filter(Boolean);
-  const actions: BlueprintAction[] = messages.map(m => ({ type: 'log_message', params: { message: m } }));
+  const actions: BlueprintAction[] = parsePrompt(prompt);
 
   const blueprint: BlueprintResponse = {
     project,
