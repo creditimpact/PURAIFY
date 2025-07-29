@@ -10,8 +10,7 @@
 
 - [x] Document gateway's `codex-todo.md` in both root README and gateway README
 - [ ] Create integration tests that run blueprint creation via Gateway and execute actions 🌐 External constraint (npm install blocked)
-- [ ] Review ENGINE_DEPENDENCIES.md for accuracy against code implementation
-- [ ] Expand NAMESPACE_MAP.md with file references as new engines are added
+- [x] Review ENGINE_DEPENDENCIES.md for accuracy against code implementation
 - [x] Expand NAMESPACE_MAP.md with file references as new engines are added
 
 

@@ -31,11 +31,17 @@
 
 | Engine           | Route                     | Notes                          |
 |------------------|---------------------------|--------------------------------|
-| vault            | /vault/token              | Token & secrets API            |
+| vault            | /vault/store              | Legacy token storage route |
+| vault            | /vault/token              | Create token entry |
+| vault            | /vault/token/:project/:service | Fetch stored token |
+| vault            | DELETE /vault/token/:project/:service | Remove token |
 | platform-builder | /builder/create           | Platform creation & updates    |
 | execution        | /execute                  | Run actions & flows            |
-| gateway          | /gateway/*                    | API gateway router
-| gateway          | /gateway/run-blueprint           | Orchestrates sequential execution
+| gateway          | /gateway/*                    | API gateway router |
+| gateway          | /gateway/build-platform       | Passes prompt to Builder |
+| gateway          | /gateway/execute-action       | Runs single action via Execution |
+| gateway          | /gateway/store-token          | Saves credentials via Vault |
+| gateway          | /gateway/run-blueprint        | Orchestrates sequential execution |
 | knowledge        | /knowledge/blueprint      | Planned                       |
 | validation       | /validation/check         | Planned                       |
 | integration      | /integration/connect      | Planned                       |
