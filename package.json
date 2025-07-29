@@ -26,6 +26,8 @@
   "homepage": "https://github.com/creditimpact/PURAIFY#readme",
   "devDependencies": {
     "mocha": "^11.7.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
     "uvu": "^0.5.6"
   }
 }
