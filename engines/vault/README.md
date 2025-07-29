@@ -52,7 +52,7 @@ npm test
 - **Stores credentials** per project and service.
 - **Serves tokens on demand** to authorized internal engines (such as Execution).
 - **Interfaces with Gateway** to accept token creation, deletion, and retrieval requests.
-- Will later support encryption at rest, expiration policies, and user-based access control.
+- Supports encryption at rest via `VAULT_SECRET`, with plans for expiration policies and user-based access control.
 
 Example Flow:
 1. During platform setup, the user provides a Slack token via the PURAIFY UI.
@@ -142,13 +142,13 @@ This endpoint is **implemented** in `src/index.ts` and deletes the token entry i
 - Node.js (TypeScript)
 - Express.js
 - (Planned) Redis for secure token storage
-- Optional: AES encryption on stored tokens
+- AES-256 encryption on stored tokens when `VAULT_SECRET` is provided
 
 ---
 
 ## 🚧 Development Notes
 
-- For MVP: tokens are stored in memory using a simple in-app map object.
+- For MVP: tokens are stored encrypted on disk at `tokens.json` using AES-256 when `VAULT_SECRET` is set. Without the secret, tokens remain in plain text.
 - Vault assumes secure, trusted internal access — no external exposure in MVP.
 - The Vault will eventually support token expiration, rotation, and audit logging.
 
