@@ -2,7 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 
-const DATA_FILE = path.join(__dirname, 'tokens.json');
+// Location for the token store file can be overridden for testing
+// or custom deployments via the VAULT_DATA_FILE environment variable.
+const DATA_FILE = process.env.VAULT_DATA_FILE || path.join(__dirname, 'tokens.json');
 
 const ALGORITHM = 'aes-256-ctr';
 const SECRET = (process.env.VAULT_SECRET || 'puraify_default_secret_key_32bytes!').slice(0, 32);
@@ -55,4 +57,16 @@ export function saveStore(store: TokenStore): void {
     }
   }
   fs.writeFileSync(DATA_FILE, JSON.stringify(toSave, null, 2));
+}
+
+/**
+ * Remove all tokens for the given project from the in-memory store.
+ * Returns true if the project existed and was removed.
+ */
+export function deleteProjectTokens(store: TokenStore, project: string): boolean {
+  if (store[project]) {
+    delete store[project];
+    return true;
+  }
+  return false;
 }

@@ -11,6 +11,7 @@ It functions as a centralized "secret manager", allowing engines to **query for 
 The Vault Engine does not execute actions or orchestrate flows — it exists to **hold and serve sensitive authentication data** safely and efficiently.
 
 Tokens are persisted to a local `tokens.json` file on disk so that restarts do not lose stored credentials.
+The location of this file can be customized via the `VAULT_DATA_FILE` environment variable.
 
 ---
 
@@ -131,9 +132,20 @@ GET /vault/tokens/:project
 Return all stored service tokens for the given project.
 
 ```
+DELETE /vault/tokens/:project
+```
+Delete all stored tokens for the given project.
+
+```
 GET /vault/projects
 ```
 List all projects that currently have tokens stored.
+
+## 🧩 Dependencies
+The Vault Engine has no runtime dependencies on other engines. Its public APIs are documented in `ENGINE_DEPENDENCIES.md` and consumed by components like Gateway and Execution.
+
+## 🧪 Testing
+Run `npm run test` inside `engines/vault` or `npm test` from the repo root. Tests live in `tests/vault/` and run independently.
 
 ---
 

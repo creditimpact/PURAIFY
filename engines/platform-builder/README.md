@@ -162,6 +162,13 @@ The response conforms to the `Blueprint` interface defined in `src/index.ts`.
 | "Save responses in Google Sheet" | `trigger: form_submit`, `action: create_google_sheet_row` |
 | "Send email when checkbox is checked" | `trigger: checkbox_checked`, `action: send_email` |
 
+
+## 🧩 Dependencies
+Currently self-contained. Other engines consume the generated blueprints via Gateway.
+
+## 🧪 Testing
+Run `npm run test` inside `engines/platform-builder` or `npm test` from the repo root. Tests reside in `tests/platform-builder/`.
+
 ---
 
 ## 🧭 Summary

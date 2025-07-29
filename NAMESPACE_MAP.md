@@ -35,6 +35,9 @@
 | vault            | /vault/token              | Create token entry |
 | vault            | /vault/token/:project/:service | Fetch stored token |
 | vault            | DELETE /vault/token/:project/:service | Remove token |
+| vault            | /vault/tokens/:project | List tokens for a project |
+| vault            | DELETE /vault/tokens/:project | Remove all tokens for a project |
+| vault            | /vault/projects | List projects with stored tokens |
 | platform-builder | /builder/create           | Platform creation & updates    |
 | execution        | /execute                  | Run actions & flows            |
 | gateway          | /gateway/*                    | API gateway router |
