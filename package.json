@@ -1,0 +1,31 @@
+{
+  "name": "puraify",
+  "version": "1.0.0",
+  "description": "PURAIFY is a modular, AI-assisted system that allows users to define digital platforms in natural language — and automatically turns those ideas into working, executable backends.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test:vault": "npm --prefix engines/vault test",
+    "test:execution": "npm --prefix engines/execution test",
+    "test:platform-builder": "npm --prefix engines/platform-builder test",
+    "test:gateway": "npm --prefix gateway test",
+    "test": "npm run test:vault && npm run test:execution && npm run test:platform-builder && npm run test:gateway"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creditimpact/PURAIFY.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/creditimpact/PURAIFY/issues"
+  },
+  "homepage": "https://github.com/creditimpact/PURAIFY#readme",
+  "devDependencies": {
+    "mocha": "^11.7.1",
+    "uvu": "^0.5.6"
+  }
+}
