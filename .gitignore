@@ -5,7 +5,7 @@
 **/dist/
 **/build/
 
-# npm cache folders (הוספתי כדי למנוע מעקב על התיקיות האלה)
+# npm cache folders
 **/npm-cache/
 npm-cache/
 
@@ -33,14 +33,14 @@ Thumbs.db
 # קבצי TypeScript
 **/.tsbuildinfo
 
-# קבצי סביבה (אם יהיו בהמשך)
+# קבצי סביבה
 **/.env
 .env.local
 .env.*.local
 
-# דוחות כיסוי (אם יהיה testing)
+# דוחות כיסוי
 coverage/
 .nyc_output/
 
-# קובץ סודי, כנראה צריך להיות מחוץ למעקב
+# קובץ סודי - לא לעקוב!
 engines/vault/src/tokens.json
