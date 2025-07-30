@@ -1,6 +1,7 @@
 # PURAIFY Contribution Protocol
 
 This protocol defines how both human developers and Codex contribute to the PURAIFY repository.  It ensures code and documentation stay in sync across engines and the project as a whole.
+It complements the broader policies described in [SYSTEM_RULES.md](SYSTEM_RULES.md). Read both documents together to understand responsibilities and approval flows.
 
 ---
 
