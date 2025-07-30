@@ -1,2 +1,2 @@
 ## Planned Tests
-- [ ] Vault API integration tests 🌐 uvu not installed
+- [ ] Vault API integration tests 🌐 External constraint (supertest not available offline)

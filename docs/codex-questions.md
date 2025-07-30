@@ -110,4 +110,8 @@ _Status: ✅ Resolved_
 ### [Q8] Test runner inconsistency
 **Context:**
 Docs mention Node built-in test runner but package.json uses uvu. Should we switch to Node built-in or update docs to prefer uvu?
-_Status: Open_
+_Status: ✅ Resolved_
+
+### [A8]
+The repository now uses Node's built-in test runner across all engines. Removed unused uvu dependency from package.json.
+_Status: ✅ Resolved_
