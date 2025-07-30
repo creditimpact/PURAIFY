@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Node modules (בכל מנוע וב־gateway ובשורש)
 **/node_modules/
 node_modules/
@@ -5,6 +6,10 @@ node_modules/
 # npm cache (בכל מנוע וב־gateway ובשורש)
 **/npm-cache/
 npm-cache/
+=======
+# Node modules (בכל מנוע וב־gateway)
+**/node_modules/
+>>>>>>> 43aa6c5adda821c40dc5e32e6b41694fafb5d4c7
 
 # תוצרי build
 **/dist/
