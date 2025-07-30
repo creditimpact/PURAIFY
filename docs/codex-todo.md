@@ -22,6 +22,7 @@
 
 
 
+- [ ] Verify test runner configuration across repo. Docs say Node built-in tests but package.json uses uvu. Align documentation or scripts.
 ## Proposed Actions
 **Log proposed environment updates here.** Each entry should include:
 - Description and rationale

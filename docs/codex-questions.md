@@ -106,3 +106,8 @@ _Status: ✅ Resolved_
 Execution Engine is responsible for fetching tokens from the Vault during action execution. Gateway only orchestrates requests.
 _Status: ✅ Resolved_
 
+
+### [Q8] Test runner inconsistency
+**Context:**
+Docs mention Node built-in test runner but package.json uses uvu. Should we switch to Node built-in or update docs to prefer uvu?
+_Status: Open_
