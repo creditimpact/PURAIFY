@@ -1,5 +1,10 @@
-# Node modules (בכל מנוע וב־gateway)
+# Node modules (בכל מנוע וב־gateway ובשורש)
 **/node_modules/
+node_modules/
+
+# npm cache (בכל מנוע וב־gateway ובשורש)
+**/npm-cache/
+npm-cache/
 
 # תוצרי build
 **/dist/
