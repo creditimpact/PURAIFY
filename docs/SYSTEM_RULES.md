@@ -1,6 +1,7 @@
 # ⚖️ PURAIFY System Rules — Flexible and Communicative
 
-This document defines guiding principles and governance for the PURAIFY system with an emphasis on communication, understanding, and collaboration between Codex and human developers.
+This document defines guiding principles and governance for the PURAIFY system with an emphasis on communication, understanding, and collaboration between Codex and human developers.  
+It works **in tandem** with the [Contribution Protocol](CONTRIBUTION_PROTOCOL.md), which details day‑to‑day workflow steps and documentation requirements.
 
 ---
 
@@ -50,6 +51,7 @@ This document defines guiding principles and governance for the PURAIFY system w
 ## 🧠 Communication and Reporting
 
 - Codex will document all questions, ambiguities, and architectural notes in `codex-questions.md` with clear requests for clarification.
+- Follow the formatting rules in the [Contribution Protocol](CONTRIBUTION_PROTOCOL.md) when adding `[Qx]` entries or todo items.
 - Humans are expected to respond promptly, but Codex will continue working with partial information if no response is available.
 - Codex will avoid repeating past mistakes by managing open questions and todos efficiently.
 - Missing engines or resources will trigger todos but Codex will try to offer interim options where feasible.
@@ -95,6 +97,24 @@ This document defines guiding principles and governance for the PURAIFY system w
 
 ---
 
+## 🚧 Handling Uncertainty & Blockers (Examples)
+
+When Codex encounters a situation that is unclear or blocked:
+
+1. **Document a question** in `codex-questions.md` using the `[Qx]` format.
+2. **Tag a todo** with `🔧 Requires human` or `🌐 External constraint` in the appropriate `codex-todo.md` file.
+3. **Continue work where possible**, noting any assumptions or temporary workarounds in comments.
+
+Example:
+
+```
+// 🧠 Codex Note: Missing `VAULT_SECRET`. Added [Q8] in codex-questions.md.
+```
+
+This approach keeps progress visible and encourages quick human feedback.
+
+---
+
 ## Engine Independence and Dependencies
 
 - Each engine **must be developed, tested, and deployable independently**, ensuring modularity and maintainability.
@@ -116,8 +136,11 @@ This document defines guiding principles and governance for the PURAIFY system w
   - Any files or settings explicitly marked with approval flags (e.g., in `PROPOSED_ACTIONS_LOG.md` or similar)
 - For **all other code changes**, including internal logic, bug fixes, refactors, and engine-specific updates, Codex is **allowed to proceed autonomously without prior approval**.
 - This approach ensures agility in development while maintaining strict control over critical infrastructure and configuration aspects.
+- When approval is needed, follow the **Proposed Actions Workflow** outlined in the [Contribution Protocol](CONTRIBUTION_PROTOCOL.md#-%EF%B8%8F-proposed-actions-workflow) and mirror updates in `PROPOSED_ACTIONS_LOG.md`.
 
 ---
 
-Thank you for the collaboration,  
+For day-to-day guidance, refer to the [Contribution Protocol](CONTRIBUTION_PROTOCOL.md) which expands these rules with concrete steps.
+
+Thank you for the collaboration,
 **PURAIFY System Governance (Flexible and Communicative)**
