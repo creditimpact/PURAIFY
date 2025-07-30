@@ -7,10 +7,10 @@
     "test": "tests"
   },
   "scripts": {
-    "test:vault": "uvu tests/vault",
-    "test:execution": "uvu tests/execution",
-    "test:platform-builder": "uvu tests/platform-builder",
-    "test:gateway": "uvu tests/gateway",
+    "test:vault": "npm --prefix engines/vault test",
+    "test:execution": "npm --prefix engines/execution test",
+    "test:platform-builder": "npm --prefix engines/platform-builder test",
+    "test:gateway": "npm --prefix gateway test",
     "test": "npm run test:vault && npm run test:execution && npm run test:platform-builder && npm run test:gateway"
   },
   "repository": {
