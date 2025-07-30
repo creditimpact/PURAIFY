@@ -1,2 +1,2 @@
 ## Planned Tests
-- [ ] Blueprint parsing tests 🌐 uvu not installed
+- [ ] Blueprint parsing tests 🌐 External constraint (assert library only, needs supertest)

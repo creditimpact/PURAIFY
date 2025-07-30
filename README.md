@@ -87,7 +87,7 @@ puraify/
 ├── README.md                       ← You are here — main project overview
 ```
 
-Automated tests for each engine live inside that engine's `tests/` directory (e.g., `engines/vault/tests/` or `gateway/tests/`). Run them with `npm test` in the engine folder.
+Automated tests for each engine live inside that engine's `tests/` directory (e.g., `engines/vault/tests/` or `gateway/tests/`). Run them with `npm test` in the engine folder. Tests execute via Node's built-in module loader through each engine's `run-tests.js` script.
 
 Each engine is self-contained, and its README defines its APIs, responsibilities, and integration points.
 
