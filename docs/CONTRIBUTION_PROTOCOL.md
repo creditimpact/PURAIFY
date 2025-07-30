@@ -21,9 +21,9 @@ PURAIFY is a modular multi‑engine platform.  **Every change to the codebase mu
 Codex participates in development just like a human contributor. Always:
 
 - **Ask for clarification** when uncertain and log the question in `codex-questions.md` using `[Qx]` markers.
-- **Report missing code or documentation** in the related `codex-todo.md` file so it can be addressed.
+- **Report missing code or documentation** in the related `human-todo.md` file so a human contributor can provide the missing pieces.
 - **Propose alternative solutions** through a todo entry or inline Codex Note when multiple approaches exist.
-- **Tag blockers** with `🔧 Requires human` or `🌐 External constraint` to signal where progress stops.
+- **Tag blockers** with `🔧 Requires human` or `🌐 External constraint` in `human-todo.md` to signal where progress stops.
 - **Seek approval for critical configuration or governance changes** before editing files. Record the approver and date.
 
 Update questions and approvals once resolved so the history stays clear.
@@ -87,22 +87,29 @@ This map shows where information lives and how contributors should communicate.
 
 | Document & Path | Purpose | When to Update |
 |-----------------|---------|----------------|
-| [`codex-todo.md`](codex-todo.md) | Global backlog and reflection items | Add tasks or ideas spanning multiple engines. Mark complete when done. |
+| [`codex-todo.md`](codex-todo.md) | Tasks Codex can handle autonomously and cross-engine backlog | Add tasks or ideas spanning multiple engines. Mark complete when done. |
 | `engines/*/codex-todo.md` | Engine‑specific todos following [`CODEX_TODO_FORMAT.md`](CODEX_TODO_FORMAT.md) | Track implementation tasks within that engine. |
 | [`PROPOSED_ACTIONS_LOG.md`](PROPOSED_ACTIONS_LOG.md) | History of environment/config changes | Mirror proposals from todo files and update after approval/execution. |
 | [`codex-questions.md`](codex-questions.md) | Log of open architectural questions | Add `[Qx]` entries when uncertain. Humans reply with `[Ax]`. |
-| [`human-todo.md`](human-todo.md) | Manual steps requiring human help | Tag tasks with `🔧 Requires human` or `🌐 External constraint`. |
+| [`human-todo.md`](human-todo.md) | Tasks requiring human intervention or missing context | Tag tasks with `🔧 Requires human` or `🌐 External constraint`. |
 | [`SYSTEM_STATE.md`](../SYSTEM_STATE.md) | Snapshot of engine progress and the **Codex Notes Map** | Update whenever features or notes change. |
 | `ENGINE_SPEC.md` (per engine) | Canonical behaviour specification | Keep in sync with code; propose edits via todo + log. |
 | [`ENGINES_INDEX.md`](../ENGINES_INDEX.md) | Registry of all engines and their status | Consult before assuming an engine exists. Do **not** auto‑update. |
 | [`ENGINE_DEPENDENCIES.md`](../ENGINE_DEPENDENCIES.md) | Declares runtime dependencies between engines | Update when new cross‑engine calls are added or removed. |
 | [`NAMESPACE_MAP.md`](../NAMESPACE_MAP.md) | Maps file and route names across engines | Reference to avoid conflicts when creating modules or endpoints. |
+### Todo File Usage
+
+- Use `codex-todo.md` for tasks Codex can complete autonomously.
+  - Example: `[ ] Implement new token refresh logic in Execution Engine`
+- Use `human-todo.md` for missing code or documentation and anything needing manual help.
+  - Example: `[ ] Provide API spec for Vault integration 🔧 Requires human`
+
 
 ### Workflow Guidelines
 
-1. **Start of a session** – read `SYSTEM_STATE.md`, root `codex-todo.md` and any engine todo files you plan to modify. Check `codex-questions.md` for unresolved items.
+1. **Start of a session** – read `SYSTEM_STATE.md`, root `codex-todo.md`, `human-todo.md` and any engine todo files you plan to modify. Check `codex-questions.md` for unresolved items.
 2. **During work** – document new tasks in the appropriate todo file. For environment or configuration changes, add a proposal under `## Proposed Actions` and mirror it in `PROPOSED_ACTIONS_LOG.md`.
-3. **When blocked or unsure** – create a `[Qx]` entry in `codex-questions.md` and tag related tasks with `🔧 Requires human` or `🌐 External constraint` in the todo list.
+3. **When blocked or unsure** – create a `[Qx]` entry in `codex-questions.md` and record the blocking task in `human-todo.md` tagged with `🔧 Requires human` or `🌐 External constraint`.
 4. **After completing a task** – mark the checkbox in the todo file, update engine READMEs and specs, and adjust `SYSTEM_STATE.md` progress or notes.
 5. **End of session** – ensure all updates are committed and summarise outstanding todos so future sessions have context.
 
@@ -127,7 +134,7 @@ This map shows where information lives and how contributors should communicate.
 
 1. Check `ENGINES_INDEX.md` to see which engines exist and the required dependencies.
 2. Never update this file automatically—it is manually maintained.
-3. If a missing engine blocks a task, add a note to `codex-todo.md` and wait for human clarification.
+3. If a missing engine blocks a task, add a note to `human-todo.md` tagged with `🔧 Requires human` and wait for clarification.
 
 ### 🧠 Codex Notes and Self‑Tasks
 
