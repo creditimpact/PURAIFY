@@ -5,6 +5,10 @@
 **/dist/
 **/build/
 
+# npm cache folders (הוספתי כדי למנוע מעקב על התיקיות האלה)
+**/npm-cache/
+npm-cache/
+
 # קבצי לוג
 *.log
 npm-debug.log*
@@ -37,4 +41,6 @@ Thumbs.db
 # דוחות כיסוי (אם יהיה testing)
 coverage/
 .nyc_output/
+
+# קובץ סודי, כנראה צריך להיות מחוץ למעקב
 engines/vault/src/tokens.json
