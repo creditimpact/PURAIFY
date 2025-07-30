@@ -16,7 +16,9 @@
     "test": "node run-tests.js"
   },
   "devDependencies": {
-    "@types/express": "^5.0.3"
+    "@types/express": "^5.0.3",
+    "fetch-mock": "^12.5.3",
+    "supertest": "^7.1.4"
   },
   "type": "module"
 }
