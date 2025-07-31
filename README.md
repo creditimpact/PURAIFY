@@ -104,11 +104,11 @@ puraify/
 ├── ENGINE_DEPENDENCIES.md          ← Declared engine relationships
 ├── NAMESPACE_MAP.md                ← Cross-engine name map
 ├── docs/SYSTEM_RULES.md                 ← High-level system policies
-├── codex-questions.md              ← Architecture question log
-├── codex-todo.md                   ← Global tasks
-├── codex-proposed-actions.md       ← Proposed system changes
-├── docs/codex-notes.md              ← Codex internal notes and process log
-├── docs/human-todo.md              ← Manual setup tasks
+├── communication/codex-questions.md              ← Architecture question log
+├── communication/codex-todo.md                   ← Global tasks
+├── communication/codex-proposed-actions.md       ← Proposed system changes
+├── communication/codex-notes.md              ← Codex internal notes and process log
+├── communication/human-todo.md              ← Manual setup tasks
 ├── docs/CODEX_TODO_FORMAT.md            ← Standard todo file format
 ├── README.md                       ← You are here — main project overview
 ```
@@ -167,7 +167,7 @@ documentation rules. The latest implementation snapshot is kept in
 [SYSTEM_STATE.md](SYSTEM_STATE.md).
 Environment or configuration updates follow the "Proposed Actions" workflow defined in
 `CONTRIBUTION_PROTOCOL.md` and logged in `docs/PROPOSED_ACTIONS_LOG.md`.
-Manual setup tasks that need human attention are tracked in `docs/human-todo.md`.
+Manual setup tasks that need human attention are tracked in `communication/human-todo.md`.
 
 ---
 

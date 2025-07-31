@@ -71,7 +71,7 @@ As of now, most engines only contain scaffold code. The Vault Engine persists to
 - Gateway only orchestrates flow and stores new credentials; it does not fetch tokens for other engines.
 
 
-All Codex notes are now kept in `docs/codex-notes.md`.
+All Codex notes are now kept in `communication/codex-notes.md`.
 ---
 
 ## 🧭 Summary

@@ -70,7 +70,7 @@ It works **in tandem** with the [Contribution Protocol](CONTRIBUTION_PROTOCOL.md
 - Codex will keep documentation close to the code and may add notes and explanations where certainty is lacking.
 - Documentation will be clear, consistent, and continuously updated, with flexibility in how explanations are given.
 - Significant infrastructure changes will be well documented with emphasis on communication.
-- Engine-level todo files are forbidden. Track all tasks in the root `codex-todo.md`.
+- Engine-level todo files are forbidden. Track all tasks in the root `communication/codex-todo.md`.
 
 ---
 
@@ -103,7 +103,7 @@ It works **in tandem** with the [Contribution Protocol](CONTRIBUTION_PROTOCOL.md
 When Codex encounters a situation that is unclear or blocked:
 
 1. **Document a question** in `codex-questions.md` using the `[Qx]` format.
-2. **Tag a todo** with `🔧 Requires human` or `🌐 External constraint` in the appropriate `codex-todo.md` file.
+2. **Tag a todo** with `🔧 Requires human` or `🌐 External constraint` in the appropriate `communication/codex-todo.md` file.
 3. **Continue work where possible**, noting any assumptions or temporary workarounds in comments.
 
 Example:
