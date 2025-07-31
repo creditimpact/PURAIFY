@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import fs from 'fs';
 import path from 'path';
-import { logMessage, sendSlack } from './actions.js';
+import { logMessage, sendSlack, httpRequest, createSheet } from './actions.js';
 
 function loadEnv() {
   const paths = [
@@ -46,6 +46,28 @@ app.post('/execute', async (req: Request, res: Response) => {
         const result = await sendSlack(project!, params || {});
         if (result.status === 'error') {
           return res.status(result.message === 'Slack token not found' ? 404 : 400).json(result);
+        }
+        return res.json(result);
+      } catch (err: any) {
+        return res.status(500).json({ status: 'error', message: err.message });
+      }
+    }
+    case 'http_request': {
+      try {
+        const result = await httpRequest(project, params || {});
+        if (result.status === 'error') {
+          return res.status(400).json(result);
+        }
+        return res.json(result);
+      } catch (err: any) {
+        return res.status(500).json({ status: 'error', message: err.message });
+      }
+    }
+    case 'create_sheet': {
+      try {
+        const result = await createSheet(project!, params || {});
+        if (result.status === 'error') {
+          return res.status(400).json(result);
         }
         return res.json(result);
       } catch (err: any) {

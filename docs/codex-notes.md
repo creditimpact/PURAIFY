@@ -10,6 +10,7 @@ engines/execution/src/index.ts:
   Note: ✅ send_slack now calls Slack API via fetch; token fetched from Vault and 404 when missing
 engines/execution/src/actions.ts:
   Note: ✅ Action handlers split into separate module for isolation
+  Note: ✅ Added httpRequest and createSheet actions using fetch and Vault tokens
 gateway/src/index.ts:
   Note: ✅ Gateway routing implemented; run-blueprint now continues after failures
 integration-design:
@@ -19,3 +20,5 @@ root-level:
   and human-todo.md added for manual environment tasks
 engines/validation/src/index.ts:
   Note: ✅ /validation/check now validates trigger.type and ensures at least one action with a type string.
+engines/validation/src/validator.ts:
+  Note: ✅ Added checks for known actions and required parameters

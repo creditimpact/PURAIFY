@@ -9,6 +9,8 @@ Currently has no runtime dependencies on other engines.
 - depends on: vault (`/vault/token/:project/:service`)
 - provides: action execution via `/execute`
 - external: Slack API via `send_slack` action
+- external: generic HTTP APIs via `http_request` action
+- external: Google Sheets API via `create_sheet` action
 
 ### gateway
 - depends on: vault (`/vault/token` for storing credentials)

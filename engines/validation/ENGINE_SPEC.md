@@ -139,7 +139,7 @@ It acts as the **first line of defense** against broken automations, data model 
 | Monitoring Engine      | Audit logging and error/warning telemetry                  |
 
 ### Current Implementation
-The engine verifies that `trigger.type` exists and that the `actions` array contains at least one action with a `type` string.
+The engine verifies that `trigger.type` exists and that the `actions` array contains at least one action with a valid `type` string. Allowed actions are `log_message`, `send_slack`, `http_request`, and `create_sheet`. Each action's parameters are also checked for required fields.
 
 
 ## 👥 User Interaction Triggers
