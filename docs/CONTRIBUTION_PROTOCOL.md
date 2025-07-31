@@ -79,6 +79,18 @@ Changes that ignore this protocol may be rejected during review or CI checks.  T
 
 ---
 
+## 📌 Codex Task Files
+
+The repository tracks Codex-related tasks and questions in three root documents.
+
+- **`codex-todo.md`** – unified backlog for all engines. Update when adding or completing tasks.
+- **`codex-proposed-actions.md`** – proposed architectural or configuration changes. Mirror updates in `PROPOSED_ACTIONS_LOG.md`.
+- **`codex-questions.md`** – open questions for human clarification. Mark answers with `[Ax]` entries.
+
+Always keep these files current so work remains visible across sessions.
+
+---
+
 ## 📚 Work & Communication Map
 
 This map shows where information lives and how contributors should communicate.
@@ -87,10 +99,10 @@ This map shows where information lives and how contributors should communicate.
 
 | Document & Path | Purpose | When to Update |
 |-----------------|---------|----------------|
-| [`codex-todo.md`](codex-todo.md) | Tasks Codex can handle autonomously and cross-engine backlog | Add tasks or ideas spanning multiple engines. Mark complete when done. |
-| `engines/*/codex-todo.md` | Engine‑specific todos following [`CODEX_TODO_FORMAT.md`](CODEX_TODO_FORMAT.md) | Track implementation tasks within that engine. |
+| [`codex-todo.md`](../codex-todo.md) | Unified backlog for all engines | Add or complete tasks here. |
+| [`codex-proposed-actions.md`](../codex-proposed-actions.md) | Suggested system changes from Codex | Update when proposing or resolving an action. |
+| [`codex-questions.md`](../codex-questions.md) | Log of open architectural questions | Add `[Qx]` entries when uncertain. Humans reply with `[Ax]`. |
 | [`PROPOSED_ACTIONS_LOG.md`](PROPOSED_ACTIONS_LOG.md) | History of environment/config changes | Mirror proposals from todo files and update after approval/execution. |
-| [`codex-questions.md`](codex-questions.md) | Log of open architectural questions | Add `[Qx]` entries when uncertain. Humans reply with `[Ax]`. |
 | [`human-todo.md`](human-todo.md) | Tasks requiring human intervention or missing context | Tag tasks with `🔧 Requires human` or `🌐 External constraint`. |
 | [`SYSTEM_STATE.md`](../SYSTEM_STATE.md) | Snapshot of engine progress | Update whenever features change. |
 | [`codex-notes.md`](codex-notes.md) | Codex notes, questions, and process logs | Record internal observations. |
@@ -108,7 +120,7 @@ This map shows where information lives and how contributors should communicate.
 
 ### Workflow Guidelines
 
-1. **Start of a session** – read `SYSTEM_STATE.md`, `codex-notes.md`, root `codex-todo.md`, `human-todo.md` and any engine todo files you plan to modify. Check `codex-questions.md` for unresolved items.
+1. **Start of a session** – read `SYSTEM_STATE.md`, `codex-notes.md`, `codex-todo.md`, `human-todo.md` and `codex-questions.md` for unresolved items.
 2. **During work** – document new tasks in the appropriate todo file. For environment or configuration changes, add a proposal under `## Proposed Actions` and mirror it in `PROPOSED_ACTIONS_LOG.md`.
 3. **When blocked or unsure** – create a `[Qx]` entry in `codex-questions.md` and record the blocking task in `human-todo.md` tagged with `🔧 Requires human` or `🌐 External constraint`.
 4. **After completing a task** – mark the checkbox in the todo file, update engine READMEs and specs, and adjust `SYSTEM_STATE.md` progress and log new notes in `codex-notes.md`.
@@ -142,7 +154,6 @@ This map shows where information lives and how contributors should communicate.
 Codex may create inline comment blocks or todo entries when encountering ideas or inconsistencies.
 
 - Inline notes start with `/** 🧠 Codex Note:` and are meant for future context.
-- Engine folders can hold their own `codex-todo.md` for local tasks.
 - When a note or todo is resolved, remove it and update the relevant docs.
 - Record all active notes in `codex-notes.md` so future sessions can locate them.
 - Do not store notes in `SYSTEM_STATE.md`; keep them only in `codex-notes.md`.
@@ -168,7 +179,7 @@ Tests should verify behaviour against the spec.
 ## 📁 Folder & File Naming Conventions
 
 - Entry file per engine: `src/index.ts`
-- Todos file: `codex-todo.md` in each engine root (see [`CODEX_TODO_FORMAT.md`](CODEX_TODO_FORMAT.md))
+- Todos are tracked centrally in `codex-todo.md` at the repository root
 - Use descriptive module names like `token-service.ts`
 - API routes follow the `/engine/action` pattern
 
@@ -177,7 +188,7 @@ Tests should verify behaviour against the spec.
 | `src/index.ts`  | Express entry point for the engine        |
 | `README.md`     | Engine overview and API documentation     |
 | `ENGINE_SPEC.md`| Manual spec and design notes              |
-| `codex-todo.md` | Local task list for Codex                 |
+| `codex-todo.md` (root) | Central task list for all engines |
 | `tests/`        | Test suite location inside each engine    |
 
 
@@ -186,7 +197,6 @@ For every engine in this system, ensure these items exist and remain current:
 
 - **README.md** – explains the engine purpose and usage. Include examples and list available endpoints.
 - **ENGINE_SPEC.md** – technical specification of all endpoints, key functions, data structures and dependencies. Document input/output schemas and error formats.
-- **codex-todo.md** – tracks internal tasks, planned improvements and technical debt.
 - **run-tests.js** and a /tests directory – at least one working unit or integration test demonstrating the engine logic.
 - **Separated Logic Layer** – keep business logic in a dedicated module such as `actions.ts`, `logic.ts` or `service.ts` instead of inline in `src/index.ts`.
 - **Engine Registration** – update `NAMESPACE_MAP.md` with the engine name, entry point and responsibilities, and declare dependencies in `ENGINE_DEPENDENCIES.md`.
@@ -265,7 +275,7 @@ Keep PURAIFY structured and understandable.  Build like the system builds itself
 
 ## 📌 Proposed Actions Workflow
 
-1. Create a bullet under `## Proposed Actions` in the relevant `codex-todo.md`.
+1. Create an entry in `codex-proposed-actions.md` with a unique `[PA<n>]` tag.
    - Format it as `[PA<n>] Description. Impact: <short impact>. **Status: Proposed**`.
 2. Mirror the proposal in `PROPOSED_ACTIONS_LOG.md` using the same ID and mark **Status: Proposed**.
 3. Request human approval by leaving a note in the pull request or `codex-questions.md`.

@@ -70,6 +70,7 @@ It works **in tandem** with the [Contribution Protocol](CONTRIBUTION_PROTOCOL.md
 - Codex will keep documentation close to the code and may add notes and explanations where certainty is lacking.
 - Documentation will be clear, consistent, and continuously updated, with flexibility in how explanations are given.
 - Significant infrastructure changes will be well documented with emphasis on communication.
+- Engine-level todo files are forbidden. Track all tasks in the root `codex-todo.md`.
 
 ---
 

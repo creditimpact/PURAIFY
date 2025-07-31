@@ -58,7 +58,6 @@ puraify/
 │   │   │   └── index.ts            ← Entry point for Vault Engine
 │   │   ├── README.md               ← Vault Engine specification
 │   │   ├── ENGINE_SPEC.md          ← Engine specification (must stay updated)
-│   │   ├── codex-todo.md           ← Local tasks
 │   │   └── tests/                  ← Vault tests
 │   ├── platform-builder/
 │   │   ├── package.json
@@ -67,7 +66,6 @@ puraify/
 │   │   │   └── index.ts            ← Entry point for Platform Builder
 │   │   ├── README.md               ← Platform Builder specification
 │   │   ├── ENGINE_SPEC.md          ← Engine specification (must stay updated)
-│   │   ├── codex-todo.md           ← Local tasks
 │   │   └── tests/                  ← Platform Builder tests
 │   ├── execution/
 │   │   ├── package.json
@@ -76,7 +74,6 @@ puraify/
 │   │   │   └── index.ts            ← Entry point for Execution Engine
 │   │   ├── README.md               ← Execution Engine specification
 │   │   ├── ENGINE_SPEC.md          ← Engine specification (must stay updated)
-│   │   ├── codex-todo.md           ← Local tasks
 │   │   └── tests/                  ← Execution Engine tests
 │   ├── validation/
 │   │   ├── package.json
@@ -85,7 +82,6 @@ puraify/
 │   │   │   └── index.ts            ← Entry point for Validation Engine
 │   │   ├── README.md               ← Validation Engine specification
 │   │   ├── ENGINE_SPEC.md          ← Engine specification (must stay updated)
-│   │   ├── codex-todo.md           ← Local tasks
 │   │   └── tests/                  ← Validation Engine tests
 │   ├── logs/
 │   │   ├── package.json
@@ -94,7 +90,6 @@ puraify/
 │   │   │   └── index.ts            ← Entry point for Logs Engine
 │   │   ├── README.md               ← Logs Engine specification
 │   │   ├── ENGINE_SPEC.md          ← Engine specification (must stay updated)
-│   │   ├── codex-todo.md           ← Local tasks
 │   │   └── tests/                  ← Logs Engine tests
 ├── gateway/
 │   ├── tests/                      ← Gateway tests
@@ -104,14 +99,14 @@ puraify/
 │   │   └── index.ts                ← Main API router for the PURAIFY system
 │   ├── README.md                   ← Gateway specification
 │   ├── ENGINE_SPEC.md              ← Engine specification (must stay updated)
-│   └── codex-todo.md               ← Local tasks
 ├── docker-compose.yml              ← Docker Compose configuration
 ├── .env.example                    ← Sample environment variables
 ├── ENGINE_DEPENDENCIES.md          ← Declared engine relationships
 ├── NAMESPACE_MAP.md                ← Cross-engine name map
 ├── docs/SYSTEM_RULES.md                 ← High-level system policies
-├── docs/codex-questions.md              ← Architecture question log
-├── docs/codex-todo.md                   ← Global tasks
+├── codex-questions.md              ← Architecture question log
+├── codex-todo.md                   ← Global tasks
+├── codex-proposed-actions.md       ← Proposed system changes
 ├── docs/codex-notes.md              ← Codex internal notes and process log
 ├── docs/human-todo.md              ← Manual setup tasks
 ├── docs/CODEX_TODO_FORMAT.md            ← Standard todo file format
