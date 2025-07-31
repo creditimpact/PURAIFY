@@ -30,6 +30,7 @@ PURAIFY is composed of specialized engines, each with a single responsibility:
 | Gateway | Routes requests and orchestrates calls between engines | 🟢 In Progress |
 
 Each engine is an isolated microservice that communicates through internal APIs.
+Each engine fetches its own tokens from the Vault Engine when needed; the Gateway only orchestrates requests and stores new credentials.
 
 ---
 

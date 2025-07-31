@@ -11,7 +11,7 @@ Currently has no runtime dependencies on other engines.
 - external: Slack API via `send_slack` action
 
 ### gateway
-- depends on: vault (`/vault/token` & `/vault/token/:project/:service`)
+- depends on: vault (`/vault/token` for storing credentials)
 - depends on: platform-builder (`/builder/create`)
 - depends on: execution (`/execute`)
 
