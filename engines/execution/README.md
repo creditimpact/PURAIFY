@@ -35,6 +35,8 @@ npm run dev
 npm test
 ```
 
+Use the shared `.env` file (`../../.env.example`) to configure `EXECUTION_PORT` and related URLs.
+
 > Use `npm ci --prefer-offline` if installing without internet access.
 
 - `src/index.ts` is the placeholder Express entry point for action execution.

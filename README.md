@@ -77,6 +77,7 @@ puraify/
 │   ├── ENGINE_SPEC.md              ← Engine specification (must stay updated)
 │   └── codex-todo.md               ← Local tasks
 ├── docker-compose.yml              ← Docker Compose configuration
+├── .env.example                    ← Sample environment variables
 ├── ENGINE_DEPENDENCIES.md          ← Declared engine relationships
 ├── NAMESPACE_MAP.md                ← Cross-engine name map
 ├── docs/SYSTEM_RULES.md                 ← High-level system policies
@@ -115,6 +116,7 @@ To start working on the project:
    npm run dev
    npm test
    ```
+3. Copy `.env.example` to `.env` in the repository root and adjust service URLs if needed.
 3. Use the Gateway to connect everything (`docker-compose up` to run all engines)
 4. Orchestrate a full workflow via `POST /gateway/run-blueprint`.
    This endpoint executes each action sequentially and returns a
