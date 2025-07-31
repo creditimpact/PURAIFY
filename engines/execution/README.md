@@ -135,6 +135,8 @@ Error example:
 
 - `send_slack` now performs a real Slack API call via `chat.postMessage`. The engine fetches a token using `GET /vault/token/:project/slack` and posts the message with Node's built‑in `fetch`.
 - Missing tokens return a clear `404` error instead of a generic `500`.
+- `http_request` performs arbitrary HTTP requests and can inject a token from Vault when `service` is provided.
+- `create_sheet` appends a row to a Google Sheet using the stored `google_sheets` token.
 - The engine will evolve to support retries, fallback handlers, and async task queues.
 - Logs should be structured and sent to Logs Engine in the future.
 

@@ -64,7 +64,7 @@ Use `npm ci --prefer-offline` if installing without internet access.
 **POST /validation/check**
 Validates a Blueprint object.
 
-**Current behavior:** checks for `trigger.type` and at least one action. Returns structured `{ valid, errors, warnings }`.
+**Current behavior:** checks for `trigger.type`, ensures actions are known (`log_message`, `send_slack`, `http_request`, `create_sheet`), and validates required parameters. Returns structured `{ valid, errors, warnings }`.
 **Planned:** expand to type checking, cross-reference validation, policy rules, and token availability.
 
 ### Request Body

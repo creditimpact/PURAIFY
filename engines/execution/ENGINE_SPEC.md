@@ -103,6 +103,15 @@ execution/
 }
 ```
 
+## 🔨 Supported Actions
+
+| Action         | Description                          |
+|----------------|--------------------------------------|
+| `log_message`  | Prints a message to stdout           |
+| `send_slack`   | Posts a message to Slack             |
+| `http_request` | Performs an arbitrary HTTP request   |
+| `create_sheet` | Appends a row to a Google Sheet      |
+
 ---
 
 ## 🔄 Execution Flow

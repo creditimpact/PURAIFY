@@ -1,9 +1,9 @@
-export async function logMessage(params: { message?: string }) {
+export async function logMessage(params) {
   console.log(params?.message);
   return { status: 'success' };
 }
 
-export async function sendSlack(project: string, params: { channel?: string; message?: string }) {
+export async function sendSlack(project, params) {
   if (!project) {
     throw new Error('project required');
   }
@@ -13,7 +13,7 @@ export async function sendSlack(project: string, params: { channel?: string; mes
   const vaultUrl = process.env.VAULT_URL || 'http://localhost:4003';
   const tokenResp = await fetch(`${vaultUrl}/vault/token/${project}/slack`);
   if (tokenResp.status === 404) {
-    return { status: 'error', message: 'Slack token not found' } as const;
+    return { status: 'error', message: 'Slack token not found' };
   }
   if (!tokenResp.ok) {
     throw new Error(`Vault error: ${tokenResp.status}`);
@@ -29,23 +29,23 @@ export async function sendSlack(project: string, params: { channel?: string; mes
   });
   const slackJson = await slackResp.json();
   if (!slackJson.ok) {
-    return { status: 'error', message: slackJson.error } as const;
+    return { status: 'error', message: slackJson.error };
   }
-  return { status: 'success', data: { ts: slackJson.ts } } as const;
+  return { status: 'success', data: { ts: slackJson.ts } };
 }
 
-export async function httpRequest(project: string | undefined, params: { url?: string; method?: string; service?: string; body?: any; headers?: Record<string, string> }) {
+export async function httpRequest(project, params) {
   if (!params.url) {
     throw new Error('url required');
   }
   const method = (params.method || 'GET').toUpperCase();
-  const headers: Record<string, string> = { ...(params.headers || {}) };
+  const headers = { ...(params.headers || {}) };
 
   if (params.service && project) {
     const vaultUrl = process.env.VAULT_URL || 'http://localhost:4003';
     const tokenResp = await fetch(`${vaultUrl}/vault/token/${project}/${params.service}`);
     if (tokenResp.status === 404) {
-      return { status: 'error', message: `${params.service} token not found` } as const;
+      return { status: 'error', message: `${params.service} token not found` };
     }
     if (!tokenResp.ok) {
       throw new Error(`Vault error: ${tokenResp.status}`);
@@ -62,23 +62,22 @@ export async function httpRequest(project: string | undefined, params: { url?: s
 
   const data = await resp.json().catch(() => undefined);
   if (!resp.ok) {
-    return { status: 'error', message: data?.error || resp.statusText } as const;
+    return { status: 'error', message: data?.error || resp.statusText };
   }
-  return { status: 'success', data } as const;
+  return { status: 'success', data };
 }
 
-export async function createSheet(project: string, params: { sheetId?: string; row?: any[] }) {
+export async function createSheet(project, params) {
   if (!project) {
     throw new Error('project required');
   }
   if (!params.sheetId || !Array.isArray(params.row)) {
     throw new Error('sheetId and row required');
   }
-
   const vaultUrl = process.env.VAULT_URL || 'http://localhost:4003';
   const tokenResp = await fetch(`${vaultUrl}/vault/token/${project}/google_sheets`);
   if (tokenResp.status === 404) {
-    return { status: 'error', message: 'google_sheets token not found' } as const;
+    return { status: 'error', message: 'google_sheets token not found' };
   }
   if (!tokenResp.ok) {
     throw new Error(`Vault error: ${tokenResp.status}`);
@@ -95,7 +94,7 @@ export async function createSheet(project: string, params: { sheetId?: string; r
   });
   const apiJson = await apiResp.json().catch(() => undefined);
   if (!apiResp.ok) {
-    return { status: 'error', message: apiJson?.error?.message || apiResp.statusText } as const;
+    return { status: 'error', message: apiJson?.error?.message || apiResp.statusText };
   }
-  return { status: 'success', data: apiJson } as const;
+  return { status: 'success', data: apiJson };
 }

@@ -47,7 +47,7 @@ As of now, most engines only contain scaffold code. The Vault Engine persists to
 |----------------|------------|-------|
 | Slack          | 🟢 Basic   | `send_slack` posts via Slack API |
 | Notion         | 🔲 Not Yet | Planned |
-| Google Sheets  | 🔲 Not Yet | Planned |
+| Google Sheets  | 🟡 Partial | `create_sheet` action implemented |
 | Email (SMTP)   | 🔲 Not Yet | Planned |
 
 ---
@@ -77,8 +77,8 @@ All Codex notes are now kept in `docs/codex-notes.md`.
 
 The PURAIFY project is in the **early development phase**, with initial endpoints implemented for each engine.
 Basic blueprint schema validation is now in place. The next step is to expand features and integrate across engines.
-Documentation updated for engine dependencies and namespace mapping to reflect current implementation.
+Documentation updated for engine dependencies and namespace mapping to reflect current implementation. Execution Engine now supports `http_request` and `create_sheet` actions.
 
 ---
 
-Last updated: August 1, 2025
+Last updated: July 31, 2025

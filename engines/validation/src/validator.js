@@ -1,8 +1,6 @@
-import { Blueprint, ValidationResult } from './schema.js';
-
-export function validateBlueprint(blueprint: any): ValidationResult {
-  const errors: { field: string; reason: string }[] = [];
-  const warnings: { field: string; reason: string }[] = [];
+export function validateBlueprint(blueprint) {
+  const errors = [];
+  const warnings = [];
 
   if (!blueprint || typeof blueprint !== 'object') {
     errors.push({ field: 'blueprint', reason: 'object required' });
@@ -21,7 +19,7 @@ export function validateBlueprint(blueprint: any): ValidationResult {
     errors.push({ field: 'actions', reason: 'at least one action required' });
   } else {
     const allowed = ['log_message', 'send_slack', 'http_request', 'create_sheet'];
-    blueprint.actions.forEach((a: any, idx: number) => {
+    blueprint.actions.forEach((a, idx) => {
       if (!a || typeof a !== 'object') {
         errors.push({ field: `actions[${idx}]`, reason: 'action object required' });
         return;
