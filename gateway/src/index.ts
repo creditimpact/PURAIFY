@@ -28,6 +28,7 @@ app.use(express.json());
 const BUILDER_URL = process.env.BUILDER_URL || "http://localhost:4001";
 const EXECUTION_URL = process.env.EXECUTION_URL || "http://localhost:4002";
 const VAULT_URL = process.env.VAULT_URL || "http://localhost:4003";
+const VALIDATION_URL = process.env.VALIDATION_URL || "http://localhost:4004";
 
 app.post('/gateway/build-platform', async (req: Request, res: Response) => {
   try {
@@ -61,6 +62,16 @@ app.post('/gateway/run-blueprint', async (req: Request, res: Response) => {
   const { project, blueprint } = req.body || {};
   if (!project || !blueprint?.actions) {
     return res.status(400).json({ error: 'project and blueprint required' });
+  }
+  // Validate blueprint via Validation Engine before execution
+  try {
+    const validateRes = await axios.post(`${VALIDATION_URL}/validation/check`, { blueprint });
+    if (!validateRes.data?.valid) {
+      return res.status(400).json(validateRes.data);
+    }
+  } catch (err: any) {
+    // If validation service fails, halt execution and return error
+    return res.status(500).json({ error: err.message });
   }
   const results: ActionResult[] = [];
   for (const action of blueprint.actions) {

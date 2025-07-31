@@ -60,7 +60,7 @@ The Gateway coordinates with the following PURAIFY engines during request proces
 | Vault Engine        | Token issuance, authentication checks |
 | Execution Engine    | Executes flows and system actions |
 | Platform Builder    | Processes project structure and blueprint changes |
-| Validation Engine   | Validates project blueprints before execution |
+| Validation Engine   | Validates project blueprints before execution via `/validation/check` |
 | Knowledge Engine    | Retrieves or updates project knowledge |
 | Engine Control      | Manages engine-level permissions and session validation |
 | Monitoring Engine   | Logs request lifecycle and execution metrics |

@@ -129,8 +129,10 @@ To start working on the project:
    npm test
    ```
 3. Copy `.env.example` to `.env` in the repository root and adjust service URLs if needed.
-3. Use the Gateway to connect everything (`docker-compose up` to run all engines)
-4. Orchestrate a full workflow via `POST /gateway/run-blueprint`.
+   The file now also includes `VALIDATION_URL` and `VALIDATION_PORT` for the
+   Validation Engine.
+4. Use the Gateway to connect everything (`docker-compose up` to run all engines)
+5. Orchestrate a full workflow via `POST /gateway/run-blueprint`.
    This endpoint executes each action sequentially and returns a
    `results` array detailing success or error for every step.
 

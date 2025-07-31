@@ -16,6 +16,7 @@ Currently has no runtime dependencies on other engines.
 - depends on: vault (`/vault/token` for storing credentials)
 - depends on: platform-builder (`/builder/create`)
 - depends on: execution (`/execute`)
+- depends on: validation (`/validation/check` for blueprint verification)
 
 ### knowledge-engine
 - depends on: vault (/vault/token/fetch)
