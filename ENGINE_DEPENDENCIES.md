@@ -8,6 +8,7 @@ Currently has no runtime dependencies on other engines.
 ### execution
 - depends on: vault (`/vault/token/:project/:service`)
 - provides: action execution via `/execute`
+- external: Slack API via `send_slack` action
 
 ### gateway
 - depends on: vault (`/vault/token` & `/vault/token/:project/:service`)
