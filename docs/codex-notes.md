@@ -24,3 +24,6 @@ engines/validation/src/index.ts:
   Note: ✅ /validation/check now validates trigger.type and ensures at least one action with a type string.
 engines/validation/src/validator.ts:
   Note: ✅ Added checks for known actions and required parameters
+engines/platform-builder/src/index.ts:\n  Note: ✅ Blueprint creation logs to Monitoring Engine
+gateway/src/index.ts:\n  Note: ✅ Gateway logs requests to Monitoring Engine
+engines/validation/src/index.ts:\n  Note: ✅ Validation results logged to Monitoring Engine
