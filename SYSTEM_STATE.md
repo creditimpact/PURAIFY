@@ -66,8 +66,8 @@ As of now, most engines only contain scaffold code. The Vault Engine persists to
 ---
 ## 🔄 Next Integration Steps
 
-- Execution Engine must fetch tokens from Vault via `GET /vault/token/:project/:service` when actions need credentials.
-- Gateway orchestrates flow; Execution handles token retrieval; Vault serves tokens; Platform Builder supplies the blueprint.
+- Each engine must fetch its own tokens from Vault as needed via endpoints like `GET /vault/token/:project/:service`.
+- Gateway only orchestrates flow and stores new credentials; it does not fetch tokens for other engines.
 
 
 ## 🧠 Codex Notes Map
@@ -82,7 +82,7 @@ engines/execution/src/actions.ts:
 gateway/src/index.ts:
   Note: ✅ Gateway routing implemented; run-blueprint now continues after failures
 integration-design:
-  Note: ❓ Should Gateway or Execution Engine fetch Vault tokens during action execution?
+  Note: ✅ Each engine fetches its own tokens from Vault during action execution; Gateway only routes calls and stores credentials.
 root-level:
   Note: ENGINE_DEPENDENCIES.md, NAMESPACE_MAP.md and codex-todo.md added for cross-engine tracking. Engine-level codex-todo format expected.
   and human-todo.md added for manual environment tasks

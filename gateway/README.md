@@ -130,6 +130,7 @@ export interface ActionResult {
 ## 🚧 Development Notes
 
 - Gateway is intentionally “thin” – it does not do logic, only routing and orchestration.
+- Tokens are fetched directly from the Vault by each engine; Gateway only stores credentials and forwards requests.
 - Future versions will include:
   - JWT-based auth
   - Rate limiting / API keys
