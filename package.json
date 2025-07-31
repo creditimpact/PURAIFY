@@ -10,8 +10,9 @@
     "test:vault": "npm --prefix engines/vault test",
     "test:execution": "npm --prefix engines/execution test",
     "test:platform-builder": "npm --prefix engines/platform-builder test",
+    "test:validation": "npm --prefix engines/validation test",
     "test:gateway": "npm --prefix gateway test",
-    "test": "npm run test:vault && npm run test:execution && npm run test:platform-builder && npm run test:gateway"
+    "test": "npm run test:vault && npm run test:execution && npm run test:platform-builder && npm run test:validation && npm run test:gateway"
   },
   "repository": {
     "type": "git",
