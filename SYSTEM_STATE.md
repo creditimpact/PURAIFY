@@ -12,7 +12,7 @@ As of now, most engines only contain scaffold code. The Vault Engine persists to
 | Vault Engine        | Stores and retrieves tokens per service/project | 🟢 In Progress | `engines/vault/src/index.ts`      |
 | Execution Engine    | Executes actions defined in blueprint JSON     | 🟢 In Progress | `engines/execution/src/index.ts`  |
 | Gateway             | API entry point and engine orchestrator        | 🟢 In Progress | `gateway/src/index.ts`            |
-| Validation Engine   | Validates blueprints before execution          | 🟡 Planned     | `engines/validation/` (TBD)       |
+| Validation Engine   | Validates blueprints before execution          | 🟢 In Progress | `engines/validation/src/index.ts` |
 | Logs Engine         | Tracks activity and runs (future)              | 🔲 Not Started | `engines/logs/` (TBD)             |
 
 ---

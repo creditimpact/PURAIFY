@@ -7,7 +7,7 @@
 | Platform Builder        | Visual no-code platform builder interface                     | Yes       | Yes     | Knowledge Engine, Validation Engine, Integration Manager |
 | Gateway Engine          | Central API entry point and request router                    | Yes       | Yes     | All engines                                  |
 | Knowledge Engine        | Parses and formalizes platform blueprints                     | Yes       | No      | Platform Builder, Validation Engine          |
-| Validation Engine       | Validates platform blueprints and logic                       | Yes       | No      | Knowledge Engine, Execution Engine, Vault Engine |
+| Validation Engine       | Validates platform blueprints and logic          | Yes       | Yes      | Knowledge Engine, Execution Engine, Vault Engine |
 | Integration Manager     | Manages OAuth and API connections to external platforms      | Yes       | No      | Vault Engine, Execution Engine                |
 | Monitoring & Logs Engine| Tracks logs, errors, and performance across the system       | Yes       | No      | Execution Engine, Validation Engine           |
 | Feedback Loop           | Manages user interaction, approvals, and confirmations       | Yes       | No      | Execution Engine, Validation Engine           |
