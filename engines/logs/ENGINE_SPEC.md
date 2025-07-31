@@ -68,6 +68,14 @@ This engine serves as the **“black box”** of every platform created in PURAI
 
 ## 🔄 Sample Flow
 
+### REST Endpoints
+
+| Method & Route          | Purpose                          |
+|-------------------------|----------------------------------|
+| `POST /monitoring/logs` | Ingest a structured log event    |
+| `POST /monitoring/alert`| Record a high severity alert     |
+| `GET  /monitoring/logs` | Query stored logs by filter      |
+
 ### Error Input:
 
 ```json

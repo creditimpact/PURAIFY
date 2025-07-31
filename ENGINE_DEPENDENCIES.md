@@ -11,12 +11,14 @@ Currently has no runtime dependencies on other engines.
 - external: Slack API via `send_slack` action
 - external: generic HTTP APIs via `http_request` action
 - external: Google Sheets API via `create_sheet` action
+- depends on: monitoring-logs-engine (`/monitoring/logs` for execution logging)
 
 ### gateway
 - depends on: vault (`/vault/token` for storing credentials)
 - depends on: platform-builder (`/builder/create`)
 - depends on: execution (`/execute`)
 - depends on: validation (`/validation/check` for blueprint verification)
+- depends on: monitoring-logs-engine (`/monitoring/logs` for request logging)
 
 ### knowledge-engine
 - depends on: vault (/vault/token/fetch)

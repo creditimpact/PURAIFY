@@ -58,7 +58,7 @@ Use `npm ci --prefer-offline` if working in offline environments.
 
 ## ⚙️ API Endpoints
 
-### `POST /log`  
+### `POST /monitoring/logs`
 Ingest a structured log from another engine.
 
 #### Request Example
@@ -84,7 +84,7 @@ Ingest a structured log from another engine.
 
 ---
 
-### `POST /alert`  
+### `POST /monitoring/alert`
 Send a high-priority event alert.
 
 ```json
@@ -100,16 +100,13 @@ Send a high-priority event alert.
 
 ---
 
-### `GET /logs`  
+### `GET /monitoring/logs`
 Query logs by filters.
 
 **Supported filters:**
 
-- `project_id`  
-- `engine`  
-- `status`  
-- `event_type`  
-- `from` / `to` timestamps  
+- `engine` – filter by originating engine
+- `level` – filter by log level
 
 ---
 

@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import fs from 'fs';
 import path from 'path';
+import { addLog, queryLogs } from './service.js';
 
 function loadEnv() {
   const paths = [
@@ -19,31 +20,6 @@ function loadEnv() {
   }
 }
 loadEnv();
-
-interface LogEntry {
-  timestamp: string;
-  level: string;
-  message: string;
-  engine?: string;
-}
-
-const DATA_FILE = process.env.LOGS_DATA_FILE || path.join(__dirname, 'logs.json');
-
-function loadLogs(): LogEntry[] {
-  try {
-    const data = fs.readFileSync(DATA_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
-
-function saveLogs(logs: LogEntry[]): void {
-  fs.writeFileSync(DATA_FILE, JSON.stringify(logs, null, 2));
-}
-
-let logs = loadLogs();
-
 const app = express();
 app.use(express.json());
 
@@ -52,18 +28,22 @@ app.post('/monitoring/logs', (req: Request, res: Response) => {
   if (!message) {
     return res.status(400).json({ error: 'message required' });
   }
-  const entry: LogEntry = {
-    timestamp: new Date().toISOString(),
-    level,
-    message,
-    engine,
-  };
-  logs.push(entry);
-  saveLogs(logs);
+  addLog({ level, message, engine });
   res.json({ success: true });
 });
 
-app.get('/monitoring/logs', (_req: Request, res: Response) => {
+app.post('/monitoring/alert', (req: Request, res: Response) => {
+  const { message, severity = 'critical', engine } = req.body || {};
+  if (!message) {
+    return res.status(400).json({ error: 'message required' });
+  }
+  addLog({ level: severity, message, engine });
+  res.json({ received: true });
+});
+
+app.get('/monitoring/logs', (req: Request, res: Response) => {
+  const { engine, level } = req.query as any;
+  const logs = queryLogs({ engine, level });
   res.json({ logs });
 });
 

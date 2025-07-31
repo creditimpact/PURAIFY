@@ -138,7 +138,7 @@ Error example:
 - `http_request` performs arbitrary HTTP requests and can inject a token from Vault when `service` is provided.
 - `create_sheet` appends a row to a Google Sheet using the stored `google_sheets` token.
 - The engine will evolve to support retries, fallback handlers, and async task queues.
-- Logs should be structured and sent to Logs Engine in the future.
+- The engine now records basic success/error logs to the Logs Engine via `POST /monitoring/logs`.
 
 ---
 
