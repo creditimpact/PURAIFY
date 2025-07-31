@@ -8,6 +8,7 @@
 | vault            | src/storage.ts             | Loads and saves tokens to disk |
 | platform-builder | src/index.ts               | Blueprint generation server |
 | execution        | src/index.ts               | Executes actions |
+| execution        | src/actions.ts             | Individual action handlers |
 | gateway          | src/index.ts               | Main API gateway |
 | gateway          | src/types.ts               | Shared ActionResult interface |
 | knowledge        | knowledge.parser.ts        | Planned module placeholder      |

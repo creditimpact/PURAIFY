@@ -77,6 +77,8 @@ engines/platform-builder/src/index.ts:
   Note: ✅ Basic server with validation; parser supports "and", "then", comma lists
 engines/execution/src/index.ts:
   Note: ✅ send_slack now calls Slack API via fetch; token fetched from Vault and 404 when missing
+engines/execution/src/actions.ts:
+  Note: ✅ Action handlers split into separate module for isolation
 gateway/src/index.ts:
   Note: ✅ Gateway routing implemented; run-blueprint now continues after failures
 integration-design:
