@@ -36,6 +36,8 @@ npm run dev
 npm test
 ```
 
+Copy `../../.env.example` to `.env` to configure `BUILDER_PORT` and service URLs.
+
 > Use `npm ci --prefer-offline` if installing without internet access.
 
 - `src/index.ts` is the planned Express entry point for blueprint generation.

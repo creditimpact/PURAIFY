@@ -35,5 +35,5 @@ Refer to `PROPOSED_ACTIONS_LOG.md` for the historical record.
 - [PA1] Establish a standard format guide for `codex-todo.md` files across engines. Rationale: ensure consistency for automated parsing. Impact: documentation only. **Status: Executed**
 - [PA2] Populate `docker-compose.yml` with services for each engine to simplify local development. Impact: easier startup. **Status: Executed**
 - [PA3] Add minimal test infrastructure using Node's built-in test runner with `ts-node` loader. Impact: enable basic CI testing. **Status: Executed**
-- [PA4] Introduce shared `.env` files for service URLs across engines. Impact: simplified configuration. **Status: Approved**
+- [PA4] Introduce shared `.env` files for service URLs across engines. Impact: simplified configuration. **Status: Executed**
 

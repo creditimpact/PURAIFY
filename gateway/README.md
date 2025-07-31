@@ -40,6 +40,8 @@ npm run dev
 npm test
 ```
 
+Copy the root `\.env.example` to `\.env` so the Gateway knows where each engine runs (`BUILDER_URL`, `EXECUTION_URL`, `VAULT_URL`).
+
 > Use `npm ci --prefer-offline` if installing without internet access.
 
 - `src/index.ts` is the central Express router that delegates to all engines.

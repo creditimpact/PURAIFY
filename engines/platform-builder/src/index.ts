@@ -1,6 +1,26 @@
 import express, { Request, Response } from "express";
 
 import { parsePrompt, BlueprintAction } from './parser.js';
+import fs from 'fs';
+import path from 'path';
+
+function loadEnv() {
+  const paths = [
+    path.resolve(__dirname, '../.env'),
+    path.resolve(__dirname, '../../../.env')
+  ];
+  for (const p of paths) {
+    if (fs.existsSync(p)) {
+      for (const line of fs.readFileSync(p, 'utf-8').split('\n')) {
+        const m = line.match(/^([^#=\s]+)\s*=\s*(.*)$/);
+        if (m && !process.env[m[1]]) {
+          process.env[m[1]] = m[2];
+        }
+      }
+    }
+  }
+}
+loadEnv();
 
 interface Blueprint {
   trigger: { type: string };
@@ -34,7 +54,7 @@ app.post('/builder/create', (req: Request, res: Response) => {
   res.json(blueprint);
 });
 
-const port = Number(process.env.PORT) || 4001;
+const port = Number(process.env.BUILDER_PORT || process.env.PORT) || 4001;
 if (require.main === module) {
   app.listen(port, () => {
     console.log(`Platform Builder running on port ${port}`);

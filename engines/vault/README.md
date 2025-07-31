@@ -37,6 +37,8 @@ npm run dev
 npm test
 ```
 
+Create a `.env` file (or copy `../../.env.example` to `.env`) to define `VAULT_PORT` and other shared URLs.
+
 > Use `npm ci --prefer-offline` if installing without internet access.
 
 

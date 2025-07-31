@@ -1,5 +1,25 @@
 import express, { Request, Response } from "express";
 import { loadStore, saveStore, TokenStore, deleteProjectTokens } from "./storage";
+import fs from 'fs';
+import path from 'path';
+
+function loadEnv() {
+  const paths = [
+    path.resolve(__dirname, '../.env'),
+    path.resolve(__dirname, '../../../.env')
+  ];
+  for (const p of paths) {
+    if (fs.existsSync(p)) {
+      for (const line of fs.readFileSync(p, 'utf-8').split('\n')) {
+        const m = line.match(/^([^#=\s]+)\s*=\s*(.*)$/);
+        if (m && !process.env[m[1]]) {
+          process.env[m[1]] = m[2];
+        }
+      }
+    }
+  }
+}
+loadEnv();
 
 const app = express();
 app.use(express.json());
@@ -94,7 +114,7 @@ app.get('/vault/projects', (_req: Request, res: Response) => {
   return res.json({ projects: Object.keys(tokenStore) });
 });
 
-const port = Number(process.env.PORT) || 4003;
+const port = Number(process.env.VAULT_PORT || process.env.PORT) || 4003;
 if (require.main === module) {
   app.listen(port, () => {
     console.log(`Vault engine running on port ${port}`);
