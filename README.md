@@ -108,7 +108,7 @@ Each engine is self-contained, and its README defines its APIs, responsibilities
 
 ## 🔮 Future Goals
 
-- Add a **Validation Engine** to ensure blueprints are complete and safe
+- Expand the **Validation Engine** with deeper schema checks and policy enforcement
 - Integrate with **frontend builders** to auto-generate UIs
 - Support **scheduling, async tasks**, and conditional logic
 - Enable a **blueprint marketplace** for sharing and reusing flows

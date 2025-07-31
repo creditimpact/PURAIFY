@@ -27,8 +27,8 @@ validation/
 ├── run-tests.js
 ├── src/
 │   ├── index.ts
-│   ├── schema.ts       # Schema and type validation logic (planned)
-│   ├── validator.ts    # Main validation logic
+│   ├── schema.ts       # Blueprint interfaces and result types
+│   ├── validator.ts    # Core validation logic
 │   └── policy.ts       # Future: permission / policy enforcement
 └── tests/
     ├── sample.test.js
@@ -61,11 +61,11 @@ Use `npm ci --prefer-offline` if installing without internet access.
 
 ## ⚙️ API Endpoint
 
-**POST /validation/check**  
+**POST /validation/check**
 Validates a Blueprint object.
 
-**Current behavior:** returns `{ valid: true }` if a non-empty `actions` array exists.  
-**Planned:** validate triggers, fields, types, entity references, policy rules, and token availability.
+**Current behavior:** checks for `trigger.type` and at least one action. Returns structured `{ valid, errors, warnings }`.
+**Planned:** expand to type checking, cross-reference validation, policy rules, and token availability.
 
 ### Request Body
 

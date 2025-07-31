@@ -138,6 +138,10 @@ It acts as the **first line of defense** against broken automations, data model 
 | Vault Engine           | (Planned) Checks for required integration tokens           |
 | Monitoring Engine      | Audit logging and error/warning telemetry                  |
 
+### Current Implementation
+The engine verifies that `trigger.type` exists and that the `actions` array contains at least one action with a `type` string.
+
+
 ## 👥 User Interaction Triggers
 
 | Scenario                  | Trigger                                                                    |
