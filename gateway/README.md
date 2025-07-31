@@ -1,5 +1,7 @@
 # Gateway
 
+**Status:** ✅ implemented (orchestrates existing engines; auth features planned)
+
 > This engine is part of the PURAIFY system. For full system overview, see the main [README.md](../README.md)
 
 ## 🧠 Overview
@@ -135,9 +137,9 @@ export interface ActionResult {
 - Gateway is intentionally “thin” – it does not do logic, only routing and orchestration.
 - Tokens are fetched directly from the Vault by each engine; Gateway only stores credentials and forwards requests.
 - Future versions will include:
-  - JWT-based auth
-  - Rate limiting / API keys
-  - Smart fallback/retry logic
+  - 🛠 JWT-based auth
+  - 🛠 Rate limiting / API keys
+  - 🛠 Smart fallback/retry logic
 
 ---
 

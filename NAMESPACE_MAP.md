@@ -11,20 +11,20 @@
 | execution        | src/actions.ts             | Individual action handlers |
 | gateway          | src/index.ts               | Main API gateway |
 | gateway          | src/types.ts               | Shared ActionResult interface |
-| knowledge        | knowledge.parser.ts        | Planned module placeholder      |
+| knowledge        | knowledge.parser.ts        | 🛠 planned module placeholder      |
 | validation       | src/index.ts, src/validator.ts | Blueprint validation logic |
-| integration      | integration.manager.ts     | Planned module placeholder      |
+| integration      | integration.manager.ts     | 🛠 planned module placeholder      |
 | monitoring       | src/index.ts               | Logs Engine server |
-| feedback-loop    | feedback.loop.ts           | Planned module placeholder      |
-| ai-interaction   | ai.interaction.ts          | Planned module placeholder      |
-| project-composer | project.composer.ts        | Planned module placeholder      |
-| deployment-planner | deployment.planner.ts     | Planned module placeholder      |
-| documentation    | documentation.generator.ts | Planned module placeholder      |
-| permission       | permission.engine.ts       | Planned module placeholder      |
-| environment      | environment.manager.ts     | Planned module placeholder      |
-| cleanup          | cleanup.engine.ts          | Planned module placeholder      |
+| feedback-loop    | feedback.loop.ts           | 🛠 planned module placeholder      |
+| ai-interaction   | ai.interaction.ts          | 🛠 planned module placeholder      |
+| project-composer | project.composer.ts        | 🛠 planned module placeholder      |
+| deployment-planner | deployment.planner.ts     | 🛠 planned module placeholder      |
+| documentation    | documentation.generator.ts | 🛠 planned module placeholder      |
+| permission       | permission.engine.ts       | 🛠 planned module placeholder      |
+| environment      | environment.manager.ts     | 🛠 planned module placeholder      |
+| cleanup          | cleanup.engine.ts          | 🛠 planned module placeholder      |
 | engine-control   | engine.control.core.ts     | Core control engine (stable)    |
-| sync             | sync.engine.ts             | Planned module placeholder      |
+| sync             | sync.engine.ts             | 🛠 planned module placeholder      |
 
 ---
 
@@ -46,17 +46,17 @@
 | gateway          | /gateway/execute-action       | Runs single action via Execution |
 | gateway          | /gateway/store-token          | Saves credentials via Vault |
 | gateway          | /gateway/run-blueprint        | Validates then executes blueprint sequentially |
-| knowledge        | /knowledge/blueprint      | Planned                       |
-| validation       | /validation/check         | Implemented                   |
-| integration      | /integration/connect      | Planned                       |
-| monitoring       | /monitoring/logs          | Implemented                   |
-| feedback-loop    | /feedback/requests        | Planned                       |
-| ai-interaction   | /ai/interaction           | Planned                       |
-| project-composer | /composer/assemble        | Planned                       |
-| deployment-planner | /deployment/start        | Planned                       |
-| documentation    | /docs/generate            | Planned                       |
-| permission       | /permission/check         | Planned                       |
-| environment      | /environment/manage       | Planned                       |
-| cleanup          | /cleanup/delete           | Planned                       |
+| knowledge        | /knowledge/blueprint      | 🛠 planned                       |
+| validation       | /validation/check         | ✅ implemented                   |
+| integration      | /integration/connect      | 🛠 planned                       |
+| monitoring       | /monitoring/logs          | ✅ implemented                   |
+| feedback-loop    | /feedback/requests        | 🛠 planned                       |
+| ai-interaction   | /ai/interaction           | 🛠 planned                       |
+| project-composer | /composer/assemble        | 🛠 planned                       |
+| deployment-planner | /deployment/start        | 🛠 planned                       |
+| documentation    | /docs/generate            | 🛠 planned                       |
+| permission       | /permission/check         | 🛠 planned                       |
+| environment      | /environment/manage       | 🛠 planned                       |
+| cleanup          | /cleanup/delete           | 🛠 planned                       |
 | engine-control   | /control/authorize        | Core authorization control    |
-| sync             | /sync/data                | Planned                       |
+| sync             | /sync/data                | 🛠 planned                       |

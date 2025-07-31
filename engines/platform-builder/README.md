@@ -1,5 +1,7 @@
 # Platform Builder Engine
 
+**Status:** ✅ implemented (basic blueprint generation; advanced UI planned)
+
 > This engine is part of the PURAIFY system. For full system overview, see the main [README.md](../../README.md)
 
 ## 🧠 Overview
@@ -151,9 +153,9 @@ The response conforms to the `Blueprint` interface defined in `src/index.ts`.
 - It will still use pre-defined mappings for action types.
 - Every generated blueprint is also logged to the Monitoring & Logs Engine.
 - In the future, builder will support:
-  - Multiple triggers and conditional flows
-  - Rich UI/UX generation hints
-  - Contextual clarification (e.g., "Which email address to send to?")
+  - 🛠 Multiple triggers and conditional flows
+  - 🛠 Rich UI/UX generation hints
+  - 🛠 Contextual clarification (e.g., "Which email address to send to?")
 
 ---
 

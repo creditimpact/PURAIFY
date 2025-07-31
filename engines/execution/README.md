@@ -1,5 +1,7 @@
 # Execution Engine
 
+**Status:** ✅ implemented (core action execution; more integrations planned)
+
 > This engine is part of the PURAIFY system. For full system overview, see the main [README.md](../../README.md)
 
 ## 🧠 Overview
@@ -117,7 +119,7 @@ Error example:
 - **Credential Fetching:** Queries Vault Engine to retrieve API keys or tokens.
 - **External Communication:** Uses Axios (or similar) to call third-party APIs.
 - **Unified Output Format:** All responses follow a standard `{ status, data, error }` model.
-- **Pluggable Design:** New integrations (e.g., Notion, Google Drive, Zapier) can be added modularly.
+ - 🛠 **Pluggable Design:** New integrations (e.g., Notion, Google Drive, Zapier) can be added modularly.
 
 ---
 
@@ -126,7 +128,7 @@ Error example:
 - Node.js (TypeScript)
 - Express.js for routing
 - Axios for HTTP requests
-- (Future) Redis for token caching
+ - 🛠 Redis for token caching
 - OpenAPI Spec for documentation
 
 ---

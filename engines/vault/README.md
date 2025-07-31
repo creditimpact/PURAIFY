@@ -1,5 +1,7 @@
 # Vault Engine
 
+**Status:** ✅ implemented (basic token CRUD; advanced policies planned)
+
 > This engine is part of the PURAIFY system. For full system overview, see the main [README.md](../../README.md)
 
 ## 🧠 Overview
@@ -153,11 +155,11 @@ Run `npm run test` inside `engines/vault` or `npm test` from the repo root. Test
 
 ## 🛠️ Internals & Responsibilities
 
-- **Token Storage:** Credentials are persisted to `tokens.json` on disk. Future versions may move to Redis or an encrypted database.
+ - **Token Storage:** Credentials are persisted to `tokens.json` on disk. 🛠 Future versions may move to Redis or an encrypted database.
 - **Keyed Access:** Tokens are indexed by `project + service` pairs.
 - **Strict API Exposure:** Only internal engines or trusted gateway should access the Vault endpoints.
-- **Pluggable Storage Backend:** Abstraction layer allows switching between in-memory, Redis, or cloud vaults (e.g., HashiCorp Vault, AWS Secrets Manager).
-- **No User Auth at this stage:** Vault is assumed to be behind internal firewall; future versions may support scoped tokens and fine-grained permissions.
+ - 🛠 **Pluggable Storage Backend:** Abstraction layer allows switching between in-memory, Redis, or cloud vaults (e.g., HashiCorp Vault, AWS Secrets Manager).
+ - **No User Auth at this stage:** Vault is assumed to be behind internal firewall; 🛠 future versions may support scoped tokens and fine-grained permissions.
 
 ---
 
@@ -165,7 +167,7 @@ Run `npm run test` inside `engines/vault` or `npm test` from the repo root. Test
 
 - Node.js (TypeScript)
 - Express.js
-- (Planned) Redis for secure token storage
+ - 🛠 Redis for secure token storage
 - AES-256 encryption on stored tokens when `VAULT_SECRET` is provided
 
 ---
