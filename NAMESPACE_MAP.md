@@ -14,7 +14,7 @@
 | knowledge        | knowledge.parser.ts        | Planned module placeholder      |
 | validation       | src/index.ts, src/validator.ts | Blueprint validation logic |
 | integration      | integration.manager.ts     | Planned module placeholder      |
-| monitoring       | monitoring.engine.ts       | Planned module placeholder      |
+| monitoring       | src/index.ts               | Logs Engine server |
 | feedback-loop    | feedback.loop.ts           | Planned module placeholder      |
 | ai-interaction   | ai.interaction.ts          | Planned module placeholder      |
 | project-composer | project.composer.ts        | Planned module placeholder      |
@@ -49,7 +49,7 @@
 | knowledge        | /knowledge/blueprint      | Planned                       |
 | validation       | /validation/check         | Implemented                   |
 | integration      | /integration/connect      | Planned                       |
-| monitoring       | /monitoring/logs          | Planned                       |
+| monitoring       | /monitoring/logs          | Implemented                   |
 | feedback-loop    | /feedback/requests        | Planned                       |
 | ai-interaction   | /ai/interaction           | Planned                       |
 | project-composer | /composer/assemble        | Planned                       |

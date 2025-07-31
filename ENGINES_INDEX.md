@@ -9,7 +9,7 @@
 | Knowledge Engine        | Parses and formalizes platform blueprints                     | Yes       | No      | Platform Builder, Validation Engine          |
 | Validation Engine       | Validates platform blueprints and logic          | Yes       | Yes      | Knowledge Engine, Execution Engine, Vault Engine |
 | Integration Manager     | Manages OAuth and API connections to external platforms      | Yes       | No      | Vault Engine, Execution Engine                |
-| Monitoring & Logs Engine| Tracks logs, errors, and performance across the system       | Yes       | No      | Execution Engine, Validation Engine           |
+| Monitoring & Logs Engine| Tracks logs, errors, and performance across the system       | Yes       | Yes     | Execution Engine, Validation Engine           |
 | Feedback Loop           | Manages user interaction, approvals, and confirmations       | Yes       | No      | Execution Engine, Validation Engine           |
 | AI Interaction Layer    | Mediates GPT communication for suggestions and analysis      | No        | No      | Knowledge Engine, Feedback Loop               |
 | Project Composer        | Automatically completes and organizes platform components    | No        | No      | Knowledge Engine, Validation Engine           |

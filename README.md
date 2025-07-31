@@ -29,6 +29,7 @@ PURAIFY is composed of specialized engines, each with a single responsibility:
 | Execution Engine | Executes actions defined in the blueprint (e.g. Slack API) | 🟢 In Progress |
 | Gateway | Routes requests and orchestrates calls between engines | 🟢 In Progress |
 | Validation Engine | Ensures blueprints are well-formed before execution | 🟢 In Progress |
+| Monitoring & Logs Engine | Stores and retrieves run logs | 🟢 In Progress |
 
 Each engine is an isolated microservice that communicates through internal APIs.
 Each engine fetches its own tokens from the Vault Engine when needed; the Gateway only orchestrates requests and stores new credentials.
@@ -78,6 +79,15 @@ puraify/
 │   │   ├── ENGINE_SPEC.md          ← Engine specification (must stay updated)
 │   │   ├── codex-todo.md           ← Local tasks
 │   │   └── tests/                  ← Validation Engine tests
+│   ├── logs/
+│   │   ├── package.json
+│   │   ├── tsconfig.json
+│   │   ├── src/
+│   │   │   └── index.ts            ← Entry point for Logs Engine
+│   │   ├── README.md               ← Logs Engine specification
+│   │   ├── ENGINE_SPEC.md          ← Engine specification (must stay updated)
+│   │   ├── codex-todo.md           ← Local tasks
+│   │   └── tests/                  ← Logs Engine tests
 ├── gateway/
 │   ├── tests/                      ← Gateway tests
 │   ├── package.json

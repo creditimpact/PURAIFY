@@ -30,8 +30,7 @@ Currently has no runtime dependencies on other engines.
 - depends on: vault (/vault/token)
 
 ### monitoring-logs-engine
-- depends on: execution (/exec/logs)
-- depends on: validation-engine (/validation/report)
+- depends on: none (other engines POST logs here)
 
 ### feedback-loop-engine
 - depends on: execution (/exec/approval)

@@ -1,0 +1,22 @@
+{
+  "name": "@puraify/logs",
+  "version": "0.1.0",
+  "description": "PURAIFY Monitoring & Logs Engine",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "test": "node run-tests.js"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "supertest": "^7.1.4"
+  },
+  "type": "module"
+}
