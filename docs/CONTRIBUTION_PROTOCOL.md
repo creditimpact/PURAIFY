@@ -92,7 +92,8 @@ This map shows where information lives and how contributors should communicate.
 | [`PROPOSED_ACTIONS_LOG.md`](PROPOSED_ACTIONS_LOG.md) | History of environment/config changes | Mirror proposals from todo files and update after approval/execution. |
 | [`codex-questions.md`](codex-questions.md) | Log of open architectural questions | Add `[Qx]` entries when uncertain. Humans reply with `[Ax]`. |
 | [`human-todo.md`](human-todo.md) | Tasks requiring human intervention or missing context | Tag tasks with `🔧 Requires human` or `🌐 External constraint`. |
-| [`SYSTEM_STATE.md`](../SYSTEM_STATE.md) | Snapshot of engine progress and the **Codex Notes Map** | Update whenever features or notes change. |
+| [`SYSTEM_STATE.md`](../SYSTEM_STATE.md) | Snapshot of engine progress | Update whenever features change. |
+| [`codex-notes.md`](codex-notes.md) | Codex notes, questions, and process logs | Record internal observations. |
 | `ENGINE_SPEC.md` (per engine) | Canonical behaviour specification | Keep in sync with code; propose edits via todo + log. |
 | [`ENGINES_INDEX.md`](../ENGINES_INDEX.md) | Registry of all engines and their status | Consult before assuming an engine exists. Do **not** auto‑update. |
 | [`ENGINE_DEPENDENCIES.md`](../ENGINE_DEPENDENCIES.md) | Declares runtime dependencies between engines | Update when new cross‑engine calls are added or removed. |
@@ -107,15 +108,15 @@ This map shows where information lives and how contributors should communicate.
 
 ### Workflow Guidelines
 
-1. **Start of a session** – read `SYSTEM_STATE.md`, root `codex-todo.md`, `human-todo.md` and any engine todo files you plan to modify. Check `codex-questions.md` for unresolved items.
+1. **Start of a session** – read `SYSTEM_STATE.md`, `codex-notes.md`, root `codex-todo.md`, `human-todo.md` and any engine todo files you plan to modify. Check `codex-questions.md` for unresolved items.
 2. **During work** – document new tasks in the appropriate todo file. For environment or configuration changes, add a proposal under `## Proposed Actions` and mirror it in `PROPOSED_ACTIONS_LOG.md`.
 3. **When blocked or unsure** – create a `[Qx]` entry in `codex-questions.md` and record the blocking task in `human-todo.md` tagged with `🔧 Requires human` or `🌐 External constraint`.
-4. **After completing a task** – mark the checkbox in the todo file, update engine READMEs and specs, and adjust `SYSTEM_STATE.md` progress or notes.
+4. **After completing a task** – mark the checkbox in the todo file, update engine READMEs and specs, and adjust `SYSTEM_STATE.md` progress and log new notes in `codex-notes.md`.
 5. **End of session** – ensure all updates are committed and summarise outstanding todos so future sessions have context.
 
 ### System Memory Tools
 
-- `SYSTEM_STATE.md` keeps a real‑time view of engine status and houses the **Codex Notes Map** for tracking inline notes across files.
+- `SYSTEM_STATE.md` keeps a real-time view of engine status. `codex-notes.md` tracks all internal notes, questions, and logs.
 - Todo files act as persistent memory of pending tasks. Together with the notes map they allow Codex to resume work seamlessly.
 - `PROPOSED_ACTIONS_LOG.md` provides historical context for environment changes so configuration is never altered without approval.
 - Open questions in these files represent tasks waiting for human input.  Codex will pause that work until feedback arrives, ensuring sessions remain connected over time.
@@ -143,7 +144,8 @@ Codex may create inline comment blocks or todo entries when encountering ideas o
 - Inline notes start with `/** 🧠 Codex Note:` and are meant for future context.
 - Engine folders can hold their own `codex-todo.md` for local tasks.
 - When a note or todo is resolved, remove it and update the relevant docs.
-- Track all active notes in `SYSTEM_STATE.md` under **Codex Notes Map** so future sessions can locate them.
+- Record all active notes in `codex-notes.md` so future sessions can locate them.
+- Do not store notes in `SYSTEM_STATE.md`; keep them only in `codex-notes.md`.
 - If a task cannot be completed due to external limits, keep it open with the appropriate tag and document the blocker.
 
 ---
