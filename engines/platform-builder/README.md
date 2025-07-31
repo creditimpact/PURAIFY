@@ -149,6 +149,7 @@ The response conforms to the `Blueprint` interface defined in `src/index.ts`.
 
 - MVP now supports simple parsing of prompts containing `"and"`, `"then"`, or commas to generate multiple `log_message` actions.
 - It will still use pre-defined mappings for action types.
+- Every generated blueprint is also logged to the Monitoring & Logs Engine.
 - In the future, builder will support:
   - Multiple triggers and conditional flows
   - Rich UI/UX generation hints

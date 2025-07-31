@@ -3,7 +3,7 @@ Currently standalone; no direct engine dependencies.
 
 ### platform-builder
 Provides blueprint generation to Gateway via `/builder/create`.
-Currently has no runtime dependencies on other engines.
+- depends on: monitoring-logs-engine (`/monitoring/logs` for blueprint logging)
 
 ### execution
 - depends on: vault (`/vault/token/:project/:service`)
@@ -27,6 +27,7 @@ Currently has no runtime dependencies on other engines.
 ### validation-engine
 - depends on: knowledge-engine (/knowledge/blueprint/:id)
 - depends on: vault (/vault/token/verify)
+- depends on: monitoring-logs-engine (`/monitoring/logs` for validation events)
 
 ### integration-manager
 - depends on: vault (/vault/token)

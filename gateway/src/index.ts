@@ -4,6 +4,13 @@ import { ActionResult } from "./types";
 import fs from 'fs';
 import path from 'path';
 
+export async function logEvent(level: string, message: string) {
+  const logsUrl = process.env.LOGS_URL || 'http://localhost:4005';
+  try {
+    await axios.post(`${logsUrl}/monitoring/logs`, { level, message, engine: 'gateway' });
+  } catch {}
+}
+
 function loadEnv() {
   const paths = [
     path.resolve(__dirname, '../.env'),
@@ -32,27 +39,33 @@ const VALIDATION_URL = process.env.VALIDATION_URL || "http://localhost:4004";
 
 app.post('/gateway/build-platform', async (req: Request, res: Response) => {
   try {
+    logEvent('info', 'build-platform request');
     const response = await axios.post(`${BUILDER_URL}/builder/create`, req.body);
     res.json(response.data);
   } catch (err: any) {
+    logEvent('error', 'build-platform failed');
     res.status(500).json({ error: err.message });
   }
 });
 
 app.post('/gateway/execute-action', async (req: Request, res: Response) => {
   try {
+    logEvent('info', 'execute-action request');
     const response = await axios.post(`${EXECUTION_URL}/execute`, req.body);
     res.json(response.data);
   } catch (err: any) {
+    logEvent('error', 'execute-action failed');
     res.status(500).json({ error: err.message });
   }
 });
 
 app.post('/gateway/store-token', async (req: Request, res: Response) => {
   try {
+    logEvent('info', 'store-token request');
     const response = await axios.post(`${VAULT_URL}/vault/token`, req.body);
     res.json(response.data);
   } catch (err: any) {
+    logEvent('error', 'store-token failed');
     res.status(500).json({ error: err.message });
   }
 });
@@ -65,12 +78,15 @@ app.post('/gateway/run-blueprint', async (req: Request, res: Response) => {
   }
   // Validate blueprint via Validation Engine before execution
   try {
+    logEvent('info', 'run-blueprint validation start');
     const validateRes = await axios.post(`${VALIDATION_URL}/validation/check`, { blueprint });
     if (!validateRes.data?.valid) {
+      logEvent('error', 'run-blueprint validation failed');
       return res.status(400).json(validateRes.data);
     }
   } catch (err: any) {
     // If validation service fails, halt execution and return error
+    logEvent('error', 'run-blueprint validation error');
     return res.status(500).json({ error: err.message });
   }
   const results: ActionResult[] = [];
@@ -82,8 +98,10 @@ app.post('/gateway/run-blueprint', async (req: Request, res: Response) => {
         params: action.params
       });
       results.push({ status: 'success', data: response.data });
+      logEvent('info', `${action.type} success`);
     } catch (err: any) {
       results.push({ status: 'error', error: err.message });
+      logEvent('error', `${action.type} failed`);
     }
   }
   res.json({ results });

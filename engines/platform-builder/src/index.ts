@@ -4,6 +4,17 @@ import { parsePrompt, BlueprintAction } from './parser.js';
 import fs from 'fs';
 import path from 'path';
 
+export async function logEvent(level: string, message: string) {
+  const logsUrl = process.env.LOGS_URL || 'http://localhost:4005';
+  try {
+    await fetch(`${logsUrl}/monitoring/logs`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ level, message, engine: 'platform-builder' })
+    });
+  } catch {}
+}
+
 function loadEnv() {
   const paths = [
     path.resolve(__dirname, '../.env'),
@@ -50,7 +61,7 @@ app.post('/builder/create', (req: Request, res: Response) => {
       actions
     }
   };
-
+  logEvent('info', `blueprint created for ${project}`);
   res.json(blueprint);
 });
 

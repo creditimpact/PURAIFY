@@ -157,6 +157,7 @@ interface BlueprintResponse {
 | AI Interaction Layer     | Conversational interface for platform building |
 | Feedback Loop Engine     | Prompts, alerts, and user guidance |
 | Codux                    | API client for syncing blueprints |
+| Monitoring & Logs Engine | Records blueprint creation events |
 
 ---
 

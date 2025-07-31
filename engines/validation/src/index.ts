@@ -3,6 +3,17 @@ import fs from 'fs';
 import path from 'path';
 import { validateBlueprint } from './validator.js';
 
+export async function logEvent(level: string, message: string) {
+  const logsUrl = process.env.LOGS_URL || 'http://localhost:4005';
+  try {
+    await fetch(`${logsUrl}/monitoring/logs`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ level, message, engine: 'validation' })
+    });
+  } catch {}
+}
+
 function loadEnv() {
   const paths = [
     path.resolve(__dirname, '../.env'),
@@ -32,8 +43,10 @@ app.post('/validation/check', (req: Request, res: Response) => {
 
   const result = validateBlueprint(blueprint);
   if (!result.valid) {
+    logEvent('error', 'validation failed');
     return res.status(400).json(result);
   }
+  logEvent('info', 'validation success');
   return res.json(result);
 });
 

@@ -189,7 +189,7 @@ Future versions will include full unit and schema coverage with mocks for extern
 | Knowledge Engine       | (Planned) Provides schema definitions, context       |
 | Vault Engine           | (Planned) Verifies integration tokens exist          |
 | Engine Control Core    | (Planned) Enforces permission/policy-based validation|
-| Monitoring Engine      | (Planned) Logs validation attempts + errors/warnings |
+| Monitoring Engine      | Logs validation attempts and errors |
 
 ---
 

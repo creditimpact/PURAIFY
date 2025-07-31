@@ -115,7 +115,7 @@ export interface ActionResult {
 - **Routing Layer:** Determines which engine to invoke per route.
 - **Standardized Request Format:** Expects incoming requests to follow defined shape.
 - **Error Handling:** Converts engine errors into readable client errors.
-- **Logging:** Basic request/response logging for now; later integrates with Logs Engine.
+- **Logging:** Requests and action results are sent to the Monitoring & Logs Engine.
 - **Security:** No external exposure of internal engines. Only Gateway communicates with outside world.
 
 ---
