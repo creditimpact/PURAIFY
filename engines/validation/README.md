@@ -1,5 +1,7 @@
 # ✅ Validation Engine
 
+**Status:** ✅ implemented (basic checks; full policy validation planned)
+
 > This engine is part of the PURAIFY system. For the full platform architecture, see the main [README.md](../../README.md).
 
 ---
@@ -125,11 +127,11 @@ Validates a Blueprint object.
 ## 🛠️ Internals & Responsibilities
 
 - **Schema Validation:** Ensures required fields exist (actions, triggers, etc.)
-- **Type Checking:** Validates data types for common fields (planned)
-- **Cross-Reference:** Ensures that action references (e.g., entities, fields) exist (planned)
+ - 🛠 **Type Checking:** Validates data types for common fields
+ - 🛠 **Cross-Reference:** Ensures that action references (e.g., entities, fields) exist
 - **Policy Checks:** Future enforcement of platform-level or org-level policies
-- **Dry Run Capability:** Simulate execution feasibility (planned)
-- **Token Verification:** Ensure Vault credentials exist for integration-based actions (planned)
+ - 🛠 **Dry Run Capability:** Simulate execution feasibility
+ - 🛠 **Token Verification:** Ensure Vault credentials exist for integration-based actions
 
 ---
 
@@ -137,7 +139,7 @@ Validates a Blueprint object.
 
 - Node.js (TypeScript)
 - Express.js for routing
-- Zod or JSON Schema (planned)
+ - 🛠 Zod or JSON Schema
 - dotenv / internal config
 
 ---

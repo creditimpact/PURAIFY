@@ -1,5 +1,7 @@
 ## 📡 Monitoring & Logs Engine
 
+**Status:** ✅ implemented (basic log ingestion; advanced alerting planned)
+
 > This engine is part of the PURAIFY system. For full system overview, see the main [README.md](../../README.md)
 
 ---
@@ -141,7 +143,7 @@ Query logs by filters.
 | `alert-dispatcher.ts` | Sends critical alerts to Slack/email/UI |
 | `aggregator.ts`     | Groups similar errors for reporting        |
 | `query.ts`          | Supports filtering and search              |
-| `replay.ts` (future)| Reconstructs session history               |
+| `replay.ts` (🛠 planned)| Reconstructs session history               |
 
 ---
 

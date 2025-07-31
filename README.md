@@ -16,6 +16,14 @@ And PURAIFY will:
 
 This enables fast creation of business logic and automations — without writing code manually.
 
+**Status:** early prototype. Many advanced features are still in planning.
+
+### System Flow
+
+`prompt → blueprint → validation → execution → deployment`
+
+The current implementation covers the first three steps. Deployment automation is still a planned feature.
+
 ---
 
 ## 🔧 Core Architecture
@@ -24,12 +32,12 @@ PURAIFY is composed of specialized engines, each with a single responsibility:
 
 | Engine | Purpose | Status |
 |---|---|---|
-| Platform Builder | Converts user prompts into structured blueprints | 🟢 In Progress |
-| Vault Engine | Stores API tokens and credentials securely (encrypted in `tokens.json` when `VAULT_SECRET` is set) | 🟢 In Progress |
-| Execution Engine | Executes actions defined in the blueprint (e.g. Slack API) | 🟢 In Progress |
-| Gateway | Routes requests and orchestrates calls between engines | 🟢 In Progress |
-| Validation Engine | Ensures blueprints are well-formed before execution | 🟢 In Progress |
-| Monitoring & Logs Engine | Stores and retrieves run logs | 🟢 In Progress |
+| Platform Builder | Converts user prompts into structured blueprints | ✅ Implemented |
+| Vault Engine | Stores API tokens and credentials securely (encrypted in `tokens.json` when `VAULT_SECRET` is set) | ✅ Implemented |
+| Execution Engine | Executes actions defined in the blueprint (e.g. Slack API) | ✅ Implemented |
+| Gateway | Routes requests and orchestrates calls between engines | ✅ Implemented |
+| Validation Engine | Ensures blueprints are well-formed before execution | ✅ Implemented |
+| Monitoring & Logs Engine | Stores and retrieves run logs | ✅ Implemented |
 
 Each engine is an isolated microservice that communicates through internal APIs.
 Each engine fetches its own tokens from the Vault Engine when needed; the Gateway only orchestrates requests and stores new credentials.
@@ -118,11 +126,11 @@ Each engine is self-contained, and its README defines its APIs, responsibilities
 
 ## 🔮 Future Goals
 
-- Expand the **Validation Engine** with deeper schema checks and policy enforcement
-- Integrate with **frontend builders** to auto-generate UIs
-- Support **scheduling, async tasks**, and conditional logic
-- Enable a **blueprint marketplace** for sharing and reusing flows
-- Connect to more external services (Google Drive, Airtable, Zapier, etc.)
+- 🛠 Expand the **Validation Engine** with deeper schema checks and policy enforcement
+- 🛠 Integrate with **frontend builders** to auto-generate UIs
+- 🛠 Support **scheduling, async tasks**, and conditional logic
+- 🛠 Enable a **blueprint marketplace** for sharing and reusing flows
+- 🛠 Connect to more external services (Google Drive, Airtable, Zapier, etc.)
 
 ---
 
