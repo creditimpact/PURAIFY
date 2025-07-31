@@ -180,6 +180,18 @@ Tests should verify behaviour against the spec.
 | `codex-todo.md` | Local task list for Codex                 |
 | `tests/`        | Test suite location inside each engine    |
 
+
+## 🛠 Engine Structure & Best Practices Checklist
+For every engine in this system, ensure these items exist and remain current:
+
+- **README.md** – explains the engine purpose and usage. Include examples and list available endpoints.
+- **ENGINE_SPEC.md** – technical specification of all endpoints, key functions, data structures and dependencies. Document input/output schemas and error formats.
+- **codex-todo.md** – tracks internal tasks, planned improvements and technical debt.
+- **run-tests.js** and a /tests directory – at least one working unit or integration test demonstrating the engine logic.
+- **Separated Logic Layer** – keep business logic in a dedicated module such as `actions.ts`, `logic.ts` or `service.ts` instead of inline in `src/index.ts`.
+- **Engine Registration** – update `NAMESPACE_MAP.md` with the engine name, entry point and responsibilities, and declare dependencies in `ENGINE_DEPENDENCIES.md`.
+- **Documentation of Dependencies** – document any use of other engines' APIs in both `README.md` and `ENGINE_SPEC.md`.
+- **Synchronize Code, Tests and Docs** – any code or API change must be mirrored in docs and tests. Missing documentation or tests should be logged as a TODO.
 ---
 
 ## 🔗 `ENGINE_DEPENDENCIES.md` and Engine Independence
