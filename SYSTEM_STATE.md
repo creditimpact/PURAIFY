@@ -76,9 +76,9 @@ All Codex notes are now kept in `docs/codex-notes.md`.
 ## 🧭 Summary
 
 The PURAIFY project is in the **early development phase**, with initial endpoints implemented for each engine.
-The next step is to expand features, add validation, and integrate across engines.
+Basic blueprint schema validation is now in place. The next step is to expand features and integrate across engines.
 Documentation updated for engine dependencies and namespace mapping to reflect current implementation.
 
 ---
 
-Last updated: July 29, 2025
+Last updated: August 1, 2025

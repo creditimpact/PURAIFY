@@ -12,7 +12,7 @@
 | gateway          | src/index.ts               | Main API gateway |
 | gateway          | src/types.ts               | Shared ActionResult interface |
 | knowledge        | knowledge.parser.ts        | Planned module placeholder      |
-| validation       | validation.checker.ts      | Planned module placeholder      |
+| validation       | src/index.ts, src/validator.ts | Blueprint validation logic |
 | integration      | integration.manager.ts     | Planned module placeholder      |
 | monitoring       | monitoring.engine.ts       | Planned module placeholder      |
 | feedback-loop    | feedback.loop.ts           | Planned module placeholder      |
@@ -47,7 +47,7 @@
 | gateway          | /gateway/store-token          | Saves credentials via Vault |
 | gateway          | /gateway/run-blueprint        | Orchestrates sequential execution |
 | knowledge        | /knowledge/blueprint      | Planned                       |
-| validation       | /validation/check         | Planned                       |
+| validation       | /validation/check         | Implemented                   |
 | integration      | /integration/connect      | Planned                       |
 | monitoring       | /monitoring/logs          | Planned                       |
 | feedback-loop    | /feedback/requests        | Planned                       |

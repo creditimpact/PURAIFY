@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import fs from 'fs';
 import path from 'path';
+import { validateBlueprint } from './validator.js';
 
 function loadEnv() {
   const paths = [
@@ -26,13 +27,14 @@ app.use(express.json());
 app.post('/validation/check', (req: Request, res: Response) => {
   const { blueprint } = req.body || {};
   if (!blueprint) {
-    return res.status(400).json({ error: 'blueprint required' });
+    return res.status(400).json({ valid: false, errors: [{ field: 'blueprint', reason: 'blueprint required' }], warnings: [] });
   }
-  // Simple placeholder validation
-  if (!Array.isArray(blueprint.actions)) {
-    return res.status(400).json({ error: 'actions array required' });
+
+  const result = validateBlueprint(blueprint);
+  if (!result.valid) {
+    return res.status(400).json(result);
   }
-  return res.json({ valid: true });
+  return res.json(result);
 });
 
 const port = Number(process.env.VALIDATION_PORT || process.env.PORT) || 4004;

@@ -18,4 +18,4 @@ root-level:
   Note: ENGINE_DEPENDENCIES.md, NAMESPACE_MAP.md and codex-todo.md added for cross-engine tracking. Engine-level codex-todo format expected.
   and human-todo.md added for manual environment tasks
 engines/validation/src/index.ts:
-  Note: ✅ Basic /validation/check endpoint created; returns { valid: true } when actions array exists.
+  Note: ✅ /validation/check now validates trigger.type and ensures at least one action with a type string.
