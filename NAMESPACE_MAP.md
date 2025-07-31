@@ -45,7 +45,7 @@
 | gateway          | /gateway/build-platform       | Passes prompt to Builder |
 | gateway          | /gateway/execute-action       | Runs single action via Execution |
 | gateway          | /gateway/store-token          | Saves credentials via Vault |
-| gateway          | /gateway/run-blueprint        | Orchestrates sequential execution |
+| gateway          | /gateway/run-blueprint        | Validates then executes blueprint sequentially |
 | knowledge        | /knowledge/blueprint      | Planned                       |
 | validation       | /validation/check         | Implemented                   |
 | integration      | /integration/connect      | Planned                       |

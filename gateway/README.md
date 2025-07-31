@@ -93,6 +93,9 @@ POST /gateway/run-blueprint
 ```
 Iterates over a blueprint's actions and invokes the Execution Engine sequentially.
 Execution continues even if an individual action fails.
+Before execution begins, the blueprint is sent to the Validation Engine at
+`POST /validation/check`. If the validation response reports `valid: false`
+the gateway returns the validation errors and no actions are executed.
 The response includes a `results` array. Each entry conforms to the
 `ActionResult` interface defined in `src/types.ts`:
 ```ts

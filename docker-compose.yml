@@ -24,6 +24,14 @@ services:
     command: npm run dev
     ports:
       - "4003:4003"
+  validation:
+    image: node:20
+    working_dir: /app
+    volumes:
+      - ./engines/validation:/app
+    command: npm run dev
+    ports:
+      - "4004:4004"
   gateway:
     image: node:20
     working_dir: /app
@@ -36,3 +44,4 @@ services:
       - platform-builder
       - execution
       - vault
+      - validation

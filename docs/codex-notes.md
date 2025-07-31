@@ -18,6 +18,8 @@ integration-design:
 root-level:
   Note: ENGINE_DEPENDENCIES.md, NAMESPACE_MAP.md and codex-todo.md added for cross-engine tracking. Engine-level codex-todo format expected.
   and human-todo.md added for manual environment tasks
+gateway/src/index.ts:
+  Note: ✅ run-blueprint now validates blueprints via Validation Engine before executing actions
 engines/validation/src/index.ts:
   Note: ✅ /validation/check now validates trigger.type and ensures at least one action with a type string.
 engines/validation/src/validator.ts:

@@ -77,6 +77,8 @@ All Codex notes are now kept in `docs/codex-notes.md`.
 
 The PURAIFY project is in the **early development phase**, with initial endpoints implemented for each engine.
 Basic blueprint schema validation is now in place. The next step is to expand features and integrate across engines.
+Gateway now calls the Validation Engine before executing a blueprint to ensure
+the structure is valid.
 Documentation updated for engine dependencies and namespace mapping to reflect current implementation. Execution Engine now supports `http_request` and `create_sheet` actions.
 
 ---
