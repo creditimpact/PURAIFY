@@ -145,6 +145,7 @@ You can contribute by:
 - Adding a new service integration (Slack, Notion, etc.)
 - Expanding the Gateway with new orchestration flows
 - Creating reusable blueprints
+- Ensure all new engines or updates follow the **Engine Structure & Best Practices** checklist described in `CONTRIBUTION_PROTOCOL.md`.
 
 Please see [CONTRIBUTION_PROTOCOL.md](docs/CONTRIBUTION_PROTOCOL.md) for required
 documentation rules. The latest implementation snapshot is kept in
