@@ -177,6 +177,7 @@ Run `npm run test` inside `engines/vault` or `npm test` from the repo root. Test
 - For MVP: tokens are stored encrypted on disk at `tokens.json` using AES-256 when `VAULT_SECRET` is set. Without the secret, tokens remain in plain text.
 - Vault assumes secure, trusted internal access — no external exposure in MVP.
 - The Vault will eventually support token expiration, rotation, and audit logging.
+- All token changes are logged to the Monitoring & Logs Engine for traceability.
 
 ---
 

@@ -149,9 +149,11 @@ The response conforms to the `Blueprint` interface defined in `src/index.ts`.
 
 ## 🚧 Development Notes
 
-- MVP now supports simple parsing of prompts containing `"and"`, `"then"`, or commas to generate multiple `log_message` actions.
-- It will still use pre-defined mappings for action types.
-- Every generated blueprint is also logged to the Monitoring & Logs Engine.
+- Prompt parsing supports simple Slack and HTTP commands.
+  - `send slack #channel message` → `send_slack`
+  - `http get https://example.com` → `http_request`
+- Phrases are still split on `and`, `then`, or commas.
+- Every generated blueprint is logged to the Monitoring & Logs Engine.
 - In the future, builder will support:
   - 🛠 Multiple triggers and conditional flows
   - 🛠 Rich UI/UX generation hints
