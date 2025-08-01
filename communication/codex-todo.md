@@ -6,7 +6,7 @@ Track all system-wide and per-engine tasks in one place
 ---
 
 ## 🔧 Global Tasks
-- [ ] Example: Align all engine specs with SYSTEM_STATE
+- [x] Example: Align all engine specs with SYSTEM_STATE
 - [ ] Create integration tests that run blueprint creation via Gateway and execute actions 🌐 External constraint (npm install blocked)
 
 ---
@@ -32,8 +32,8 @@ Track all system-wide and per-engine tasks in one place
 
 - [ ] Integration test for full pipeline via Gateway 🔧 Requires dependencies
   - Blocked: npm install cannot run (no internet)
-- [ ] Validate `/gateway/run-blueprint` continues after failed actions
-  - Blocked: supertest not available offline
+- [x] Validate `/gateway/run-blueprint` continues after failed actions
+  - Implemented using axios and mock HTTP servers
 
 ## 📝 Knowledge Engine
 

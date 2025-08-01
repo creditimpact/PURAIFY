@@ -29,6 +29,14 @@ It acts as the **first line of defense** against broken automations, data model 
 - ❌ Does not authorize actions or API access (Engine Control’s responsibility)
 - ❌ Does not store any data — validation is always stateless
 
+---
+
+## 🌐 API Endpoint
+
+| Method | Route | Purpose |
+|--------|-------|---------|
+| `POST` | `/validation/check` | Validate a Blueprint and return `{ valid, errors, warnings }` |
+
 ## 🔗 Engine Integrations
 
 | Engine            | Role                                                                 |
