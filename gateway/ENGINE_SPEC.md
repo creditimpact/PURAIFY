@@ -37,11 +37,22 @@ To maintain separation of concerns and system modularity, the Gateway **does not
 - ❌ It does **not** call or handle external APIs  
   (This is handled by the Execution Engine)
 
-- ❌ It does **not** store or persist any data  
+- ❌ It does **not** store or persist any data
   (It only relays data between engines)
+
 
 - ❌ It does **not** execute business logic of other engines  
   (Each engine owns its own logic; the Gateway only routes and aggregates)
+---
+## 🌐 API Endpoints
+
+| Route | Description |
+|-------|-------------|
+| `POST /gateway/build-platform` | Convert a prompt into a Blueprint via Platform Builder |
+| `POST /gateway/execute-action` | Trigger a single action through the Execution Engine |
+| `POST /gateway/store-token` | Persist credentials in the Vault Engine |
+| `POST /gateway/run-blueprint` | Validate then execute each Blueprint action sequentially (continues on failure) |
+
 
 The Gateway is strictly responsible for:
 - Receiving  

@@ -39,6 +39,14 @@ Think of it as the “studio” or “IDE” for platform creators.
 
 ---
 
+## 🌐 API Endpoint
+
+| Method | Route | Purpose |
+|--------|-------|---------|
+| `POST` | `/builder/create` | Generate a Blueprint from a user prompt |
+
+---
+
 ## 🔗 Engine Integrations
 
 | Engine                | Role |
