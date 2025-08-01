@@ -104,12 +104,12 @@ This map shows where information lives and how contributors should communicate.
 | [`codex-questions.md`](../communication/codex-questions.md) | Log of open architectural questions | Add `[Qx]` entries when uncertain. Humans reply with `[Ax]`. |
 | [`PROPOSED_ACTIONS_LOG.md`](PROPOSED_ACTIONS_LOG.md) | History of environment/config changes | Mirror proposals from todo files and update after approval/execution. |
 | [`human-todo.md`](../communication/human-todo.md) | Tasks requiring human intervention or missing context | Tag tasks with `🔧 Requires human` or `🌐 External constraint`. |
-| [`SYSTEM_STATE.md`](../SYSTEM_STATE.md) | Snapshot of engine progress | Update whenever features change. |
+| [`SYSTEM_STATE.md`](SYSTEM_STATE.md) | Snapshot of engine progress | Update whenever features change. |
 | [`codex-notes.md`](../communication/codex-notes.md) | Codex notes, questions, and process logs | Record internal observations. |
 | `ENGINE_SPEC.md` (per engine) | Canonical behaviour specification | Keep in sync with code; propose edits via todo + log. |
-| [`ENGINES_INDEX.md`](../ENGINES_INDEX.md) | Registry of all engines and their status | Consult before assuming an engine exists. Do **not** auto‑update. |
-| [`ENGINE_DEPENDENCIES.md`](../ENGINE_DEPENDENCIES.md) | Declares runtime dependencies between engines | Update when new cross‑engine calls are added or removed. |
-| [`NAMESPACE_MAP.md`](../NAMESPACE_MAP.md) | Maps file and route names across engines | Reference to avoid conflicts when creating modules or endpoints. |
+| [`ENGINES_INDEX.md`](ENGINES_INDEX.md) | Registry of all engines and their status | Consult before assuming an engine exists. Do **not** auto‑update. |
+| [`ENGINE_DEPENDENCIES.md`](ENGINE_DEPENDENCIES.md) | Declares runtime dependencies between engines | Update when new cross‑engine calls are added or removed. |
+| [`NAMESPACE_MAP.md`](NAMESPACE_MAP.md) | Maps file and route names across engines | Reference to avoid conflicts when creating modules or endpoints. |
 ### Todo File Usage
 
 - Use `../communication/codex-todo.md` for tasks Codex can complete autonomously.

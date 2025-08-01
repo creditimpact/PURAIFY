@@ -101,8 +101,8 @@ puraify/
 │   ├── ENGINE_SPEC.md              ← Engine specification (must stay updated)
 ├── docker-compose.yml              ← Docker Compose configuration
 ├── .env.example                    ← Sample environment variables
-├── ENGINE_DEPENDENCIES.md          ← Declared engine relationships
-├── NAMESPACE_MAP.md                ← Cross-engine name map
+├── docs/ENGINE_DEPENDENCIES.md     ← Declared engine relationships
+├── docs/NAMESPACE_MAP.md           ← Cross-engine name map
 ├── docs/SYSTEM_RULES.md                 ← High-level system policies
 ├── communication/codex-questions.md              ← Architecture question log
 ├── communication/codex-todo.md                   ← Global tasks
@@ -164,7 +164,7 @@ You can contribute by:
 
 Please see [CONTRIBUTION_PROTOCOL.md](docs/CONTRIBUTION_PROTOCOL.md) for required
 documentation rules. The latest implementation snapshot is kept in
-[SYSTEM_STATE.md](SYSTEM_STATE.md).
+[SYSTEM_STATE.md](docs/SYSTEM_STATE.md).
 Environment or configuration updates follow the "Proposed Actions" workflow defined in
 `CONTRIBUTION_PROTOCOL.md` and logged in `docs/PROPOSED_ACTIONS_LOG.md`.
 Manual setup tasks that need human attention are tracked in `communication/human-todo.md`.
