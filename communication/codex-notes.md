@@ -27,3 +27,6 @@ engines/validation/src/validator.ts:
 engines/platform-builder/src/index.ts:\n  Note: ✅ Blueprint creation logs to Monitoring Engine
 gateway/src/index.ts:\n  Note: ✅ Gateway logs requests to Monitoring Engine
 engines/validation/src/index.ts:\n  Note: ✅ Validation results logged to Monitoring Engine
+root-level:
+  Note: ❗ Codex was operating in offline mode due to `offline=true` in `.npmrc`, which blocked installation of packages like `supertest` and `fetch-mock`
+  Note: ✅ `.npmrc` has been updated — Codex can now install new packages and run integration tests as needed
