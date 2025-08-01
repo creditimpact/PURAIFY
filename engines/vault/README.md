@@ -146,7 +146,7 @@ GET /vault/projects
 List all projects that currently have tokens stored.
 
 ## 🧩 Dependencies
-The Vault Engine has no runtime dependencies on other engines. Its public APIs are documented in `ENGINE_DEPENDENCIES.md` and consumed by components like Gateway and Execution.
+The Vault Engine has no runtime dependencies on other engines. Its public APIs are documented in `docs/ENGINE_DEPENDENCIES.md` and consumed by components like Gateway and Execution.
 
 ## 🧪 Testing
 Run `npm run test` inside `engines/vault` or `npm test` from the repo root. Tests live in `engines/vault/tests/` and run independently.

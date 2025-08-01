@@ -155,7 +155,7 @@ Error example:
 
 
 ## 🧩 Dependencies
-- Requires Vault Engine for `GET /vault/token/:project/:service` when actions need credentials. See `ENGINE_DEPENDENCIES.md` for details.
+ - Requires Vault Engine for `GET /vault/token/:project/:service` when actions need credentials. See `docs/ENGINE_DEPENDENCIES.md` for details.
 
 ## 🧪 Testing
 Run `npm run test` inside `engines/execution` or `npm test` from the repo root. Tests live in `engines/execution/tests/` and run independently.
