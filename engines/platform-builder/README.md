@@ -48,6 +48,16 @@ Copy `../../.env.example` to `.env` to configure `BUILDER_PORT` and service URLs
 - `README.md` (this file) describes the engine's purpose and API.
 - `ENGINE_SPEC.md` contains the canonical specification for this engine and must remain in sync with the implemented code.
 
+## 🧪 Local Prompt Runner
+
+Test how the builder parses a prompt without running the server:
+
+```bash
+node run-prompt.ts "Build a task management system with a form, users, and Slack notifications"
+```
+
+This prints the detected platform type, referenced components, and the generated blueprint JSON.
+
 ---
 
 ## 🧩 Role within the PURAIFY System
