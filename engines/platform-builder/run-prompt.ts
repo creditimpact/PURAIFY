@@ -1,5 +1,4 @@
-import { parsePrompt, detectPlatformType } from './src/parser.js';
-import type { BlueprintAction } from './src/parser.js';
+import { parsePrompt } from './src/parser.js';
 
 const prompt = process.argv.slice(2).join(' ');
 
@@ -12,8 +11,7 @@ console.log("📦 Prompt received:", prompt);
 
 (async () => {
   try {
-    const platformType = await detectPlatformType(prompt);
-    const actions: BlueprintAction[] = await parsePrompt(prompt);
+    const { platformType, actions } = await parsePrompt(prompt);
 
     const components = Array.from(new Set(
       actions
