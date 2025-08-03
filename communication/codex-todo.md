@@ -11,6 +11,12 @@ Track all system-wide and per-engine tasks in one place
 
 ---
 
+## 📚 Platform Knowledge
+
+- [x] Add platform-knowledge module with platform types and components
+
+---
+
 ## 🧩 Platform Builder
 
 - [ ] Blueprint parsing tests 🌐 External constraint (assert library only, needs supertest)

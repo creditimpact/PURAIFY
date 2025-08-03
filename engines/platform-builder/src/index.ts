@@ -1,8 +1,9 @@
 import express, { Request, Response } from "express";
 
-import { parsePrompt, BlueprintAction } from './parser.js';
+import { parsePrompt, BlueprintAction, detectPlatformType } from './parser.js';
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 export async function logEvent(level: string, message: string) {
   const logsUrl = process.env.LOGS_URL || 'http://localhost:4005';
@@ -15,6 +16,8 @@ export async function logEvent(level: string, message: string) {
   } catch {}
 }
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 function loadEnv() {
   const paths = [
     path.resolve(__dirname, '../.env'),
@@ -34,6 +37,7 @@ function loadEnv() {
 loadEnv();
 
 interface Blueprint {
+  platformType?: string;
   trigger: { type: string };
   actions: BlueprintAction[];
 }
@@ -53,10 +57,12 @@ app.post('/builder/create', (req: Request, res: Response) => {
   }
 
   const actions: BlueprintAction[] = parsePrompt(prompt);
+  const platformType = detectPlatformType(prompt);
 
   const blueprint: BlueprintResponse = {
     project,
     blueprint: {
+      platformType,
       trigger: { type: 'manual' },
       actions
     }
@@ -66,11 +72,10 @@ app.post('/builder/create', (req: Request, res: Response) => {
 });
 
 const port = Number(process.env.BUILDER_PORT || process.env.PORT) || 4001;
-if (require.main === module) {
+if (process.argv[1] === __filename) {
   app.listen(port, () => {
     console.log(`Platform Builder running on port ${port}`);
   });
 }
 
 export default app;
-

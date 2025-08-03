@@ -72,6 +72,7 @@ Example Flow:
 {
   "project": "slack-alert-platform",
   "blueprint": {
+    "platformType": "CRM Platform",
     "trigger": {
       "type": "form_submission",
       "fields": ["name", "email"]
@@ -119,6 +120,7 @@ The response conforms to the `Blueprint` interface defined in `src/index.ts`.
 {
   "project": "lead-capture",
   "blueprint": {
+    "platformType": "CRM Platform",
     "trigger": { "type": "form_submission" },
     "actions": [
       { "type": "send_email", "params": { "to": "you@example.com" } }
@@ -133,6 +135,7 @@ The response conforms to the `Blueprint` interface defined in `src/index.ts`.
 
 - **Prompt Parsing / Understanding:** (Initially manual or stubbed, later powered by GPT or Codux)
 - **Blueprint Generation:** Output a standardized JSON object with triggers and actions.
+- **Knowledge Base Loading:** Uses `/platform-knowledge/` definitions for platform types and components.
 - **Schema Validation:** (planned) ensure blueprint complies with global schema format.
 - **Metadata Handling:** Tag each blueprint with project ID, timestamps, etc.
 
@@ -152,6 +155,7 @@ The response conforms to the `Blueprint` interface defined in `src/index.ts`.
 - Prompt parsing supports simple Slack and HTTP commands.
   - `send slack #channel message` → `send_slack`
   - `http get https://example.com` → `http_request`
+- Loads platform definitions from `/platform-knowledge/` for component and platform type recognition.
 - Phrases are still split on `and`, `then`, or commas.
 - Every generated blueprint is logged to the Monitoring & Logs Engine.
 - In the future, builder will support:

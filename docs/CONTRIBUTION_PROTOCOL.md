@@ -182,6 +182,7 @@ Tests should verify behaviour against the spec.
 - Todos are tracked centrally in `../communication/codex-todo.md` at the repository root
 - Use descriptive module names like `token-service.ts`
 - API routes follow the `/engine/action` pattern
+- Shared modules like `platform-knowledge/` live at the repository root and provide reusable data across engines.
 
 | Expected File   | Purpose                                   |
 |-----------------|-------------------------------------------|

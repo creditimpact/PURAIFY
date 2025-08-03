@@ -58,6 +58,7 @@ Think of it as the “studio” or “IDE” for platform creators.
 | AI Interaction Layer  | Allows conversational building (“create a meetings system”) |
 | Project Composer      | Completes missing components in the structure |
 | Feedback Loop         | Displays issues, suggestions, or confirmations to the user |
+| Platform Knowledge Base | Supplies platform types and component definitions |
 
 ---
 
@@ -89,6 +90,7 @@ interface BlueprintAction {
 }
 
 interface Blueprint {
+  platformType?: string;
   trigger: { type: string };
   actions: BlueprintAction[];
 }
@@ -107,6 +109,7 @@ interface BlueprintResponse {
 {
   "project_id": "pf_456",
   "blueprint_source": "studio",
+  "platformType": "CRM Platform",
   "structure": {
     "entities": ["lead", "agent"],
     "fields": ["name", "email", "status"],

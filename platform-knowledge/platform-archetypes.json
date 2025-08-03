@@ -1,0 +1,7 @@
+{
+  "CRM Platform": ["Forms", "Users", "Tasks", "Triggers"],
+  "AI Agent System": ["Chat Prompt Input", "AI Agent Decision Making", "Users"],
+  "Project Management Tool": ["Tasks", "Projects", "Users", "Triggers"],
+  "E-Commerce Dashboard": ["Products / Services", "Orders", "Graphs / Dashboards"],
+  "Internal Admin Panel": ["Tables / Grids", "Role-based Access", "Audit Logs"]
+}
