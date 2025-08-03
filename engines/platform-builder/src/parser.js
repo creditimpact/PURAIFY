@@ -91,6 +91,7 @@ export async function parsePrompt(prompt) {
   const components = actions.filter(a => a.type === 'add_component');
   if (platformType === 'unknown' || components.length === 0) {
     const hints = await askGPTForBlueprintHints(prompt);
+    console.log('📨 GPT Hints:', hints);
     if (platformType === 'unknown' && hints.platformType && hints.platformType !== 'unknown') {
       platformType = hints.platformType;
       if (!isKnownPlatformType(platformType)) {
