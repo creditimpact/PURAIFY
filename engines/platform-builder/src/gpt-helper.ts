@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
-dotenv.config({ path: '../../.env' }); // טוען את מפתח ה-API
+import 'dotenv/config';
+console.log('🔑 Loaded API key:', process.env.OPENAI_API_KEY?.slice(0, 10) + '...');
 
 export interface GPTComponentHint {
   component: string;
