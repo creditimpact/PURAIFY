@@ -4,6 +4,7 @@
   "description": "PURAIFY Platform Builder Engine",
   "dependencies": {
     "body-parser": "^1.20.3",
+    "dotenv": "^17.2.1",
     "express": "^4.21.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
