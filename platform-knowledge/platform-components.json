@@ -3,9 +3,12 @@
     "Forms",
     "Custom Fields",
     "Webhooks",
-    "File Uploads",
+    "File Upload",
     "API Triggers",
-    "Chat Prompt Input"
+    "Chat Prompt Input",
+    "Date Picker",
+    "Location Selector",
+    "Multi-Step Forms"
   ],
   "Logic": [
     "Triggers",
@@ -13,7 +16,11 @@
     "Sequential Actions",
     "Loops",
     "AI Agent Decision Making",
-    "Scheduler / Cron"
+    "Scheduler / Cron",
+    "Approval Workflows",
+    "Conditional Routing",
+    "Rate Limiting",
+    "Scheduled Notifications"
   ],
   "Entities": [
     "Users",
@@ -23,21 +30,34 @@
     "Orders",
     "Tickets",
     "Documents",
-    "FAQs"
+    "FAQs",
+    "Students",
+    "Courses",
+    "Reviews",
+    "Appointments",
+    "Listings",
+    "Invoices",
+    "Comments"
   ],
   "Storage": [
     "Data Tables",
     "Versioning",
     "Audit Logs",
     "API Sync",
-    "Session Cache"
+    "Session Cache",
+    "File Storage (S3, local)",
+    "Auto-save Drafts",
+    "Offline Mode Cache"
   ],
   "Users & Permissions": [
     "Role-based Access",
     "Object-level Permissions",
     "Time-based Access",
     "OAuth / Login",
-    "Internal vs External Users"
+    "Internal vs External Users",
+    "Guest Access",
+    "Session Timeout",
+    "Multi-User Roles"
   ],
   "Output": [
     "Email Sending",
@@ -47,7 +67,11 @@
     "Update Record",
     "Open Task / Ticket",
     "Calendar Event",
-    "Email Alerts"
+    "Email Alerts",
+    "Export to CSV",
+    "Send SMS",
+    "Trigger Zapier",
+    "Log to Audit Trail"
   ],
   "UI / Visualization": [
     "Tables / Grids",
@@ -55,13 +79,19 @@
     "Graphs / Dashboards",
     "Status Bars",
     "Timelines",
-    "Config Modules"
+    "Config Modules",
+    "Tabbed Interfaces",
+    "Custom Widgets",
+    "Dynamic Filters"
   ],
   "Security": [
     "Encryption",
     "Access Configuration",
     "IP/Geo/Device Restrictions",
-    "Two-Factor Auth"
+    "Two-Factor Auth",
+    "CAPTCHA",
+    "IP Whitelist",
+    "Role-based field access"
   ],
   "Validation": [
     "Real-time Data Validation",
