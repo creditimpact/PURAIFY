@@ -40,3 +40,5 @@ platform-knowledge/:
   Note: 🆕 Added Support Platform type with aliases and Email Alerts component with alias mappings
 engines/platform-builder/src/parser.ts:
   Note: 🆕 detectPlatformType now handles alias objects in platform-types.json
+engines/platform-builder/src/parser.ts:
+  Note: 🆕 Added GPT fallback to supplement platformType and components; unknown types logged to codex-notes

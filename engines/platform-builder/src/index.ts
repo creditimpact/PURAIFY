@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 
-import { parsePrompt, BlueprintAction, detectPlatformType } from './parser.js';
+import { parsePrompt, BlueprintAction } from './parser.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -50,15 +50,12 @@ interface BlueprintResponse {
 const app = express();
 app.use(express.json());
 
-app.post('/builder/create', (req: Request, res: Response) => {
+app.post('/builder/create', async (req: Request, res: Response) => {
   const { prompt, project } = req.body || {};
   if (typeof prompt !== 'string' || typeof project !== 'string') {
     return res.status(400).json({ error: 'prompt and project are required' });
   }
-
-  const actions: BlueprintAction[] = parsePrompt(prompt);
-  const platformType = detectPlatformType(prompt);
-
+  const { platformType, actions } = await parsePrompt(prompt);
   const blueprint: BlueprintResponse = {
     project,
     blueprint: {

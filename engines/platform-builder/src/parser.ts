@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { askGPTForBlueprintHints } from './gpt-helper.js';
 
 export interface BlueprintAction {
   type: string;
@@ -80,10 +81,54 @@ function toAction(phrase: string): BlueprintAction {
   return { type: 'log_message', params: { message: phrase } };
 }
 
-export function parsePrompt(prompt: string): BlueprintAction[] {
+function parseActions(prompt: string): BlueprintAction[] {
   const parts = String(prompt)
     .split(/\band\b|\bthen\b|,/i)
     .map(p => p.trim())
     .filter(Boolean);
   return parts.map(toAction);
+}
+
+function isKnownPlatformType(type: string): boolean {
+  return platformTypes.some(t => {
+    const name = typeof t === 'string' ? t : t.name;
+    return name.toLowerCase() === type.toLowerCase();
+  });
+}
+
+function logMissingPlatformType(type: string) {
+  if (process.env.SKIP_CODEX_NOTES === '1') return;
+  try {
+    const notesPath = path.resolve(__dirname, '../../../communication/codex-notes.md');
+    const note = `engines/platform-builder/src/parser.ts:\n  Note: Suggested platform type "${type}"\n`;
+    fs.appendFileSync(notesPath, note);
+  } catch {}
+}
+
+export async function parsePrompt(prompt: string): Promise<{ platformType: string; actions: BlueprintAction[] }> {
+  const actions = parseActions(prompt);
+  let platformType = detectPlatformType(prompt) || 'unknown';
+  const components = actions.filter(a => a.type === 'add_component');
+  if (platformType === 'unknown' || components.length === 0) {
+    const hints = await askGPTForBlueprintHints(prompt);
+    if (platformType === 'unknown' && hints.platformType && hints.platformType !== 'unknown') {
+      platformType = hints.platformType;
+      if (!isKnownPlatformType(platformType)) {
+        logMissingPlatformType(platformType);
+      }
+    }
+    for (const hint of hints.components || []) {
+      const exists = components.some(c => c.params?.component.toLowerCase() === hint.component.toLowerCase());
+      if (!exists) {
+        const category = hint.category || findCategory(hint.component);
+        const action: BlueprintAction = {
+          type: 'add_component',
+          params: { component: hint.component, category }
+        };
+        actions.push(action);
+        components.push(action);
+      }
+    }
+  }
+  return { platformType, actions };
 }

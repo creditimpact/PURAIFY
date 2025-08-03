@@ -1,5 +1,5 @@
 import express from "express";
-import { parsePrompt, detectPlatformType } from './parser.js';
+import { parsePrompt } from './parser.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -34,13 +34,12 @@ function loadEnv() {
 loadEnv();
 const app = express();
 app.use(express.json());
-app.post('/builder/create', (req, res) => {
+app.post('/builder/create', async (req, res) => {
   const { prompt, project } = req.body || {};
   if (typeof prompt !== 'string' || typeof project !== 'string') {
     return res.status(400).json({ error: 'prompt and project are required' });
   }
-  const actions = parsePrompt(prompt);
-  const platformType = detectPlatformType(prompt);
+  const { platformType, actions } = await parsePrompt(prompt);
   const blueprint = {
     project,
     blueprint: {

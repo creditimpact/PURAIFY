@@ -20,6 +20,7 @@ Track all system-wide and per-engine tasks in one place
 ## 🧩 Platform Builder
 
 - [ ] Blueprint parsing tests 🌐 External constraint (assert library only, needs supertest)
+- [ ] Mock GPT fallback in parser tests
 
 ## 🔐 Vault
 
