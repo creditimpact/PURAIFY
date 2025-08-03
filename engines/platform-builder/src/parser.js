@@ -25,7 +25,18 @@ function findCategory(component) {
 }
 export function detectPlatformType(prompt) {
   const lower = prompt.toLowerCase();
-  return platformTypes.find(t => lower.includes(t.toLowerCase()));
+  for (const type of platformTypes) {
+    if (typeof type === 'string') {
+      if (lower.includes(type.toLowerCase())) {
+        return type;
+      }
+    } else {
+      const names = [type.name, ...(type.aliases || [])];
+      if (names.some(n => lower.includes(n.toLowerCase()))) {
+        return type.name;
+      }
+    }
+  }
 }
 function toAction(phrase) {
   const slack = phrase.match(/slack.*#(\S+)\s+(.*)/i);

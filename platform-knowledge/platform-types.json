@@ -12,4 +12,9 @@
   "SaaS App Builder",
   "Data Dashboard Platform",
   "Workflow Orchestration Tool"
+  ,
+  {
+    "name": "Support Platform",
+    "aliases": ["support platform", "ticketing system", "customer service platform"]
+  }
 ]

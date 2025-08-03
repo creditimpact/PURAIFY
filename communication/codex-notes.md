@@ -36,3 +36,7 @@ engines/platform-builder/src/parser.ts:
   Note: ✅ Loads platform knowledge to map prompts to components and platform types
 engines/platform-builder/src/index.ts:
   Note: ✅ Blueprints now include optional platformType detected from prompts
+platform-knowledge/:
+  Note: 🆕 Added Support Platform type with aliases and Email Alerts component with alias mappings
+engines/platform-builder/src/parser.ts:
+  Note: 🆕 detectPlatformType now handles alias objects in platform-types.json
