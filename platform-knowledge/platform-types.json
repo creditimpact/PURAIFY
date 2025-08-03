@@ -1,7 +1,10 @@
 [
   "CRM Platform",
   "AI Agent System",
-  "Project Management Tool",
+  {
+    "name": "Project Management Tool",
+    "aliases": ["task manager", "team board"]
+  },
   "E-Commerce Dashboard",
   "Internal Admin Panel",
   "Helpdesk Ticketing System",
@@ -16,5 +19,41 @@
   {
     "name": "Support Platform",
     "aliases": ["support platform", "ticketing system", "customer service platform"]
+  },
+  {
+    "name": "Education Platform",
+    "aliases": ["learning platform", "course platform", "online school"]
+  },
+  {
+    "name": "Marketplace",
+    "aliases": ["freelancer marketplace", "product marketplace"]
+  },
+  {
+    "name": "Community Platform",
+    "aliases": ["forum", "user community", "discussion platform"]
+  },
+  {
+    "name": "Analytics Dashboard",
+    "aliases": ["reporting tool", "metrics viewer"]
+  },
+  {
+    "name": "Finance Tracker",
+    "aliases": ["budgeting app", "expense tracker"]
+  },
+  {
+    "name": "Booking System",
+    "aliases": ["appointment system", "reservation tool"]
+  },
+  {
+    "name": "Survey Tool",
+    "aliases": ["form builder", "questionnaire app"]
+  },
+  {
+    "name": "E-Library",
+    "aliases": ["digital archive", "knowledge base"]
+  },
+  {
+    "name": "Internal Tools Suite",
+    "aliases": ["admin dashboard", "operations panel"]
   }
 ]
