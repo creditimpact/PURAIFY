@@ -26,3 +26,18 @@ assert.strictEqual(fuzzy.platformType, 'Support Platform');
 assert.ok(fuzzy.actions.some(a => a.params?.component === 'Signups'));
 assert.ok(fuzzy.actions.some(a => a.params?.component === 'Calendar Slots'));
 assert.ok(fuzzy.actions.some(a => a.params?.component === 'Email Confirmations'));
+
+// GPT fallback example for task management prompt
+globalThis.__mockAskGPTForBlueprintHints = async () => ({
+  platformType: 'Task Management',
+  components: [
+    { component: 'Form', category: 'Input' },
+    { component: 'Users', category: 'Entities' },
+    { component: 'Slack', category: 'Output' }
+  ]
+});
+const task = await parsePrompt('Build a task management system with a form, users, and Slack notifications');
+assert.strictEqual(task.platformType, 'Task Management');
+assert.ok(task.actions.some(a => a.params?.component === 'Form'));
+assert.ok(task.actions.some(a => a.params?.component === 'Users'));
+assert.ok(task.actions.some(a => a.params?.component === 'Slack'));
