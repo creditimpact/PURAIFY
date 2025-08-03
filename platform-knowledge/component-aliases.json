@@ -5,5 +5,9 @@
   "upload doc": "File Uploads",
   "upload file": "File Uploads",
   "send message": "Chat Prompt Input",
-  "start chat": "Chat Prompt Input"
+  "start chat": "Chat Prompt Input",
+  "email alert": "Email Alerts",
+  "email alerts": "Email Alerts",
+  "email notification": "Email Alerts",
+  "notifications via email": "Email Alerts"
 }

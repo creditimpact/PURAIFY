@@ -46,7 +46,8 @@
     "Generate File (PDF / Excel)",
     "Update Record",
     "Open Task / Ticket",
-    "Calendar Event"
+    "Calendar Event",
+    "Email Alerts"
   ],
   "UI / Visualization": [
     "Tables / Grids",

@@ -18,7 +18,8 @@ function readJson(file: string, fallback: any) {
   }
 }
 
-export const platformTypes: string[] = readJson('platform-types.json', []);
+export type PlatformTypeEntry = string | { name: string; aliases: string[] };
+export const platformTypes: PlatformTypeEntry[] = readJson('platform-types.json', []);
 export const platformComponents: Record<string, string[]> = readJson('platform-components.json', {});
 export const componentAliases: Record<string, string> = readJson('component-aliases.json', {});
 export const platformArchetypes: Record<string, string[]> = readJson('platform-archetypes.json', {});
@@ -33,7 +34,18 @@ function findCategory(component: string): string | undefined {
 
 export function detectPlatformType(prompt: string): string | undefined {
   const lower = prompt.toLowerCase();
-  return platformTypes.find(t => lower.includes(t.toLowerCase()));
+  for (const type of platformTypes) {
+    if (typeof type === 'string') {
+      if (lower.includes(type.toLowerCase())) {
+        return type;
+      }
+    } else {
+      const names = [type.name, ...(type.aliases || [])];
+      if (names.some(n => lower.includes(n.toLowerCase()))) {
+        return type.name;
+      }
+    }
+  }
 }
 
 function toAction(phrase: string): BlueprintAction {
