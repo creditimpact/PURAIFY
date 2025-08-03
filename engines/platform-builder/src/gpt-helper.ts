@@ -11,6 +11,13 @@ export interface GPTBlueprintHints {
   components: GPTComponentHint[];
 }
 
+function sanitizeGPTResponse(text: string): string {
+  return text
+    .replace(/^\s*```(?:json)?\s*\n?/, '')
+    .replace(/\n?```\s*$/, '')
+    .trim();
+}
+
 export async function askGPTForBlueprintHints(prompt: string): Promise<GPTBlueprintHints> {
   const mock = (globalThis as any).__mockAskGPTForBlueprintHints;
   if (typeof mock === 'function') {
@@ -37,6 +44,8 @@ Return ONLY a JSON object in this exact format:
   ]
 }
 
+Return ONLY raw JSON. Do NOT include any code fences like \`\`\`json or language tags. Just the JSON object.
+
 Use clear internal naming. If unsure, make the best educated guess.`;
 
   try {
@@ -57,10 +66,11 @@ Use clear internal naming. If unsure, make the best educated guess.`;
 
     const data = await res.json();
     const text = data?.choices?.[0]?.message?.content || '{}';
+    const cleanText = sanitizeGPTResponse(text);
     try {
-      return JSON.parse(text);
+      return JSON.parse(cleanText);
     } catch (err) {
-      console.error('Failed to parse GPT hints:', text, err);
+      console.error('Failed to parse GPT hints:', cleanText, err);
       return { platformType: 'unknown', components: [] };
     }
   } catch (err) {
