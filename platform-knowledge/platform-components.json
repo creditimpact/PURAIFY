@@ -1,0 +1,75 @@
+{
+  "Input": [
+    "Forms",
+    "Custom Fields",
+    "Webhooks",
+    "File Uploads",
+    "API Triggers",
+    "Chat Prompt Input"
+  ],
+  "Logic": [
+    "Triggers",
+    "If / Else Conditions",
+    "Sequential Actions",
+    "Loops",
+    "AI Agent Decision Making",
+    "Scheduler / Cron"
+  ],
+  "Entities": [
+    "Users",
+    "Tasks",
+    "Projects",
+    "Products / Services",
+    "Orders",
+    "Tickets",
+    "Documents",
+    "FAQs"
+  ],
+  "Storage": [
+    "Data Tables",
+    "Versioning",
+    "Audit Logs",
+    "API Sync",
+    "Session Cache"
+  ],
+  "Users & Permissions": [
+    "Role-based Access",
+    "Object-level Permissions",
+    "Time-based Access",
+    "OAuth / Login",
+    "Internal vs External Users"
+  ],
+  "Output": [
+    "Email Sending",
+    "Slack / Discord / Telegram",
+    "API Calls (Webhooks)",
+    "Generate File (PDF / Excel)",
+    "Update Record",
+    "Open Task / Ticket",
+    "Calendar Event"
+  ],
+  "UI / Visualization": [
+    "Tables / Grids",
+    "Cards",
+    "Graphs / Dashboards",
+    "Status Bars",
+    "Timelines",
+    "Config Modules"
+  ],
+  "Security": [
+    "Encryption",
+    "Access Configuration",
+    "IP/Geo/Device Restrictions",
+    "Two-Factor Auth"
+  ],
+  "Validation": [
+    "Real-time Data Validation",
+    "Regular Health Checks",
+    "Custom Error Messages"
+  ],
+  "Maintenance": [
+    "Internal Logs",
+    "Help Documentation",
+    "Changelog / Version Control"
+  ]
+}

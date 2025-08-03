@@ -30,3 +30,9 @@ engines/validation/src/index.ts:\n  Note: ✅ Validation results logged to Monit
 root-level:
   Note: ❗ Codex was operating in offline mode due to `offline=true` in `.npmrc`, which blocked installation of packages like `supertest` and `fetch-mock`
   Note: ✅ `.npmrc` has been updated — Codex can now install new packages and run integration tests as needed
+platform-knowledge/:
+  Note: ✅ Centralized platform types and components for blueprint parsing
+engines/platform-builder/src/parser.ts:
+  Note: ✅ Loads platform knowledge to map prompts to components and platform types
+engines/platform-builder/src/index.ts:
+  Note: ✅ Blueprints now include optional platformType detected from prompts

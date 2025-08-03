@@ -50,6 +50,7 @@ This is a monorepo organized by engine:
 
 ```
 puraify/
+├── platform-knowledge/          ← Shared platform types and components
 ├── engines/
 │   ├── vault/
 │   │   ├── package.json
